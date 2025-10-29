@@ -1,9 +1,34 @@
 import { NestFactory } from '@nestjs/core';
 import { AppModule } from './app.module';
 import { SwaggerModule, DocumentBuilder, OpenAPIObject } from '@nestjs/swagger';
+import helmet from 'helmet';
+import { Logger } from '@nestjs/common';
+
+type CorsCallback = (err: Error | null, allow?: boolean) => void;
+
+interface CorsOptions {
+  origin: (origin: string | undefined, callback: CorsCallback) => void;
+  credentials: boolean;
+}
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
+
+  app.use(helmet());
+
+  const allowedOrigins =
+    process.env.CORS_ORIGIN?.split(',').map((origin) => origin.trim()) ?? [];
+
+  app.enableCors(<CorsOptions>{
+    origin: (origin: string | undefined, callback: CorsCallback): void => {
+      if (!origin || allowedOrigins.includes(origin)) {
+        callback(null, true);
+      } else {
+        callback(new Error('Origin not allowed.'));
+      }
+    },
+    credentials: true,
+  });
 
   const config = new DocumentBuilder()
     .setTitle('Sipradi PVBU Backend')
@@ -18,8 +43,18 @@ async function bootstrap() {
   };
   SwaggerModule.setup('swagger/api', app, documentFactory);
 
-  await app.listen(3000, () => {
-    console.log('App starting on http://localhost:3000');
+  const PORT = process.env.PORT;
+  await app.listen(PORT, () => {
+    Logger.log(
+      `
+--------------------------------------------------------------
+--------------------------------------------------------------
+      App running on:   http://localhost:${PORT}
+      API Docs on:      http://localhost:${PORT}/swagger/api
+--------------------------------------------------------------
+--------------------------------------------------------------
+      `,
+    );
   });
 }
 
