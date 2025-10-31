@@ -1,0 +1,48 @@
+//- Email template adapted from https://github.com/leemunroe/responsive-html-email-template
+//- Converted from HTML using https://html2pug.now.sh/
+
+doctype html
+html
+  head
+    meta(name='viewport' content='width=device-width')
+    meta(http-equiv='Content-Type' content='text/html; charset=UTF-8')
+    title= subject
+
+    include _style
+
+  body
+    table.body(role='presentation' border='0' cellpadding='0' cellspacing='0')
+      tbody
+        tr
+          td
+          td.container
+            .content
+              // START CENTERED WHITE CONTAINER
+              table.main(role='presentation')
+
+                // START MAIN AREA
+                tbody
+                  tr
+                    td.wrapper
+                      table(role='presentation' border='0' cellpadding='0' cellspacing='0')
+                        tbody
+                          tr
+                            td
+                              // CONTENT
+                              block content
+
+              // START FOOTER
+              .footer
+                table(role='presentation' border='0' cellpadding='0' cellspacing='0')
+                  tbody
+                    tr
+                      td.content-block
+                        span.apple-link Yatri Design Studio &copy; Baluwatar 44616, Kathmandu
+                    tr 
+                      td.content-block 
+                        div.legal This email and any files transmitted with it are confidential and intended solely for the use of the individual or entity to whom they are addressed. If you have received this email in error please notify the system manager. This message contains confidential information and is intended only for the individual named. If you are not the named addressee you should not disseminate, distribute or copy this e-mail. Please notify the sender immediately by email if you have received this e-mail by mistake and delete this email from your system. If you are not the intended recipient you are notified that disclosing, copying, distributing or taking any action in reliance on the contents of this information is strictly prohibited.
+
+                        //- br
+                        //- |  Don't like these emails? 
+                        //- a(href='#') Unsubscribe
+                        //- td  

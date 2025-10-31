@@ -7,8 +7,9 @@
   "license": "UNLICENSED",
   "scripts": {
     "build": "nest build",
-    "format": "prettier --write \"src/**/*.ts\" \"test/**/*.ts\"",
+    "format": "prettier --write \"libs/**/*.ts\" \"apps/**/*.ts\"",
     "start": "nest start",
+    "start:main": "nest start /apps/pvbu-backend --watch",
     "start:dev": "nest start --watch",
     "start:debug": "nest start --debug --watch",
     "start:prod": "node dist/main",
@@ -18,10 +19,14 @@
     "test:cov": "jest --coverage",
     "test:debug": "node --inspect-brk -r tsconfig-paths/register -r ts-node/register node_modules/.bin/jest --runInBand",
     "test:e2e": "jest --config ./test/jest-e2e.json",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "prisma:generate:pvbu": " cd apps/pvbu-backend &&  prisma generate",
+    "prisma:migrate:pvbu": "cd apps/pvbu-backend && prisma migrate dev"
   },
   "dependencies": {
     "@aws-sdk/client-s3": "^3.919.0",
+    "@aws-sdk/client-ses": "^3.919.0",
+    "@aws-sdk/client-sns": "^3.919.0",
     "@aws-sdk/s3-request-presigner": "^3.919.0",
     "@nestjs/common": "^10.0.0",
     "@nestjs/config": "^4.0.2",
@@ -29,7 +34,11 @@
     "@nestjs/platform-express": "^10.0.0",
     "@nestjs/swagger": "^8.1.1",
     "@prisma/client": "^6.18.0",
+    "axios": "^1.13.1",
+    "class-transformer": "^0.5.1",
+    "class-validator": "^0.14.2",
     "helmet": "^8.1.0",
+    "redis": "^5.9.0",
     "reflect-metadata": "^0.2.0",
     "rxjs": "^7.8.1",
     "swagger-ui-express": "^5.0.1"

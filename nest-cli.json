@@ -1,8 +1,180 @@
 {
   "$schema": "https://json.schemastore.org/nest-cli",
   "collection": "@nestjs/schematics",
-  "sourceRoot": "src",
+  "sourceRoot": "apps/pvbu-backend/src",
   "compilerOptions": {
-    "deleteOutDir": true
+    "watchAssets": true,
+    "deleteOutDir": true,
+    "plugins": [
+      {
+        "name": "@nestjs/swagger",
+        "options": {
+          "dtoFileNameSuffix": [
+            ".dto.ts"
+          ],
+          "classValidatorShim": false,
+          "introspectComments": true,
+          "controllerFileNameSuffix": ".controller.ts"
+        }
+      }
+    ],
+    "webpack": true,
+    "tsConfigPath": "apps/pvbu-backend/tsconfig.app.json"
+  },
+  "monorepo": true,
+  "root": "apps/pvbu-backend",
+  "projects": {
+    "pvbu-backend": {
+      "type": "application",
+      "root": "apps/pvbu-backend",
+      "entryFile": "main",
+      "sourceRoot": "apps/pvbu-backend/src",
+      "compilerOptions": {
+        "tsConfigPath": "apps/pvbu-backend/tsconfig.app.json"
+      }
+    },
+    "aws": {
+      "type": "library",
+      "root": "libs/aws",
+      "entryFile": "index",
+      "sourceRoot": "libs/aws/src",
+      "compilerOptions": {
+        "tsConfigPath": "libs/aws/tsconfig.lib.json"
+      }
+    },
+    "filters": {
+      "type": "library",
+      "root": "libs/filters",
+      "entryFile": "index",
+      "sourceRoot": "libs/filters/src",
+      "compilerOptions": {
+        "tsConfigPath": "libs/filters/tsconfig.lib.json"
+      }
+    },
+    "email-templates": {
+      "type": "library",
+      "root": "libs/email-templates",
+      "entryFile": "index",
+      "sourceRoot": "libs/email-templates/src",
+      "compilerOptions": {
+        "tsConfigPath": "libs/email-templates/tsconfig.lib.json"
+      }
+    },
+    "sparrow-sms": {
+      "type": "library",
+      "root": "libs/sparrow-sms",
+      "entryFile": "index",
+      "sourceRoot": "libs/sparrow-sms/src",
+      "compilerOptions": {
+        "tsConfigPath": "libs/sparrow-sms/tsconfig.lib.json"
+      }
+    },
+    "utils": {
+      "type": "library",
+      "root": "libs/utils",
+      "entryFile": "index",
+      "sourceRoot": "libs/utils/src",
+      "compilerOptions": {
+        "tsConfigPath": "libs/utils/tsconfig.lib.json"
+      }
+    },
+    "prisma": {
+      "type": "library",
+      "root": "libs/prisma",
+      "entryFile": "index",
+      "sourceRoot": "libs/prisma/src",
+      "compilerOptions": {
+        "tsConfigPath": "libs/prisma/tsconfig.lib.json"
+      }
+    },
+    "wallet-core": {
+      "type": "library",
+      "root": "libs/wallet-core",
+      "entryFile": "index",
+      "sourceRoot": "libs/wallet-core/src",
+      "compilerOptions": {
+        "tsConfigPath": "libs/wallet-core/tsconfig.lib.json",
+        "assets": [
+          "**/*.proto"
+        ],
+        "watchAssets": true
+      }
+    },
+    "wallet": {
+      "type": "application",
+      "root": "apps/wallet",
+      "entryFile": "main",
+      "sourceRoot": "apps/wallet/src",
+      "compilerOptions": {
+        "tsConfigPath": "apps/wallet/tsconfig.app.json",
+        "assets": [
+          "**/*.proto"
+        ],
+        "watchAssets": true
+      }
+    },
+    "interceptors": {
+      "type": "library",
+      "root": "libs/interceptors",
+      "entryFile": "index",
+      "sourceRoot": "libs/interceptors/src",
+      "compilerOptions": {
+        "tsConfigPath": "libs/interceptors/tsconfig.lib.json"
+      }
+    },
+    "dtos": {
+      "type": "library",
+      "root": "libs/dtos",
+      "entryFile": "index",
+      "sourceRoot": "libs/dtos/src",
+      "compilerOptions": {
+        "tsConfigPath": "libs/dtos/tsconfig.lib.json"
+      }
+    },
+    "pagination": {
+      "type": "library",
+      "root": "libs/pagination",
+      "entryFile": "index",
+      "sourceRoot": "libs/pagination/src",
+      "compilerOptions": {
+        "tsConfigPath": "libs/pagination/tsconfig.lib.json"
+      }
+    },
+    "gpssewa": {
+      "type": "library",
+      "root": "libs/gpssewa",
+      "entryFile": "index",
+      "sourceRoot": "libs/gpssewa/src",
+      "compilerOptions": {
+        "tsConfigPath": "libs/gpssewa/tsconfig.lib.json"
+      }
+    },
+    "set4npl": {
+      "type": "library",
+      "root": "libs/set4npl",
+      "entryFile": "index",
+      "sourceRoot": "libs/set4npl/src",
+      "compilerOptions": {
+        "tsConfigPath": "libs/set4npl/tsconfig.lib.json"
+      }
+    },
+    "firebase": {
+      "type": "library",
+      "root": "libs/firebase",
+      "entryFile": "index",
+      "sourceRoot": "libs/firebase/src",
+      "compilerOptions": {
+        "tsConfigPath": "libs/firebase/tsconfig.lib.json"
+      }
+    },
+    "notifications": {
+      "type": "library",
+      "root": "libs/notifications",
+      "entryFile": "index",
+      "sourceRoot": "libs/notifications/src",
+      "compilerOptions": {
+        "tsConfigPath": "libs/notifications/tsconfig.lib.json"
+      }
+    }
   }
 }

@@ -1,0 +1,106 @@
+doctype=html
+html
+    head
+        meta(name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1")
+        meta(http-equiv="Content-Security-Policy" content="default-src * self blob: data: gap:; style-src * self 'unsafe-inline' blob: data: gap:; script-src * 'self' 'unsafe-eval' 'unsafe-inline' blob: data: gap:; object-src * 'self' blob: data: gap:; img-src * self 'unsafe-inline' blob: data: gap:; connect-src self * 'unsafe-inline' blob: data: gap:; frame-src * self blob: data: gap:;")
+        title Payment Failed
+        link(href="https://fonts.googleapis.com/css2?family=Barlow:wght@500;600&display=swap"
+            rel="stylesheet"
+        )
+        script. 
+            history.replaceState(null, document.querySelector("title").innerText, window.location.pathname);
+        style.
+            * {
+                -webkit-box-sizing: border-box;
+                -moz-box-sizing: border-box;
+                box-sizing: border-box;
+            }
+            *:before,
+            *:after {
+                -webkit-box-sizing: border-box;
+                -moz-box-sizing: border-box;
+                box-sizing: border-box;
+            }
+            html, body{
+                text-rendering: optimizeLegibility;
+                -webkit-text-stroke: 1;
+                font-family: 'Barlow', sans-serif;
+                font-size: 16px;
+                font-weight: 500;
+                margin: 0;
+                line-height: 1.8;
+                background-color: #fff;
+                color: #131415;
+                -moz-osx-font-smoothing: grayscale;
+                scroll-behavior: smooth;
+            }
+            .container{
+                max-width: 940px;
+                padding: 0 15px;
+                margin: 0 auto;
+            }
+            .w-head{
+                background-color: #fafafa;
+            }
+            .text-muted {
+                color: #8f8f8f;
+            }
+            .text-center {
+                text-align: center;
+            }
+            label {
+                font-size: .8rem;
+                text-transform: uppercase;
+                color: #787878;
+                font-weight: 500;
+                margin-top: -3px;
+            }
+            .small{
+                font-size: 0.9rem;
+            }
+            .text-danger{
+                color: #dc3545
+            }
+            .form-control {
+                font-family: inherit;
+                outline: none;
+                display: block;
+                width: 100%;
+                padding: 12px;
+                padding-left: 0;
+                font-size: 15px;
+                line-height: 1.42857143;
+                color: #484848;
+                border: none;
+                border-bottom: 1px solid #dfdfdf;
+                font-weight: 500;
+                border-radius: 0;
+                margin-bottom: 1rem;
+            }
+            p{
+                margin: 0.6rem;
+            }
+            strong{
+                font-weight: 600;
+            }
+            .btn {
+                cursor: pointer;
+                display: inline-block;
+                font-weight: 600;
+                text-align: center;
+                white-space: nowrap;
+                vertical-align: middle;
+                -webkit-user-select: none;
+                -moz-user-select: none;
+                -ms-user-select: none;
+                user-select: none;
+                border: 1px solid;
+                padding: 0.73rem 2rem;
+                font-size: 0.8rem;
+                line-height: 1.5;
+                outline: 0;
+            }
+    body
+        div(style="width: 100%;margin: 1rem 0;text-align: center;")
+            img(src="/images/logo.png" width=60)
+        p.text-center Uh oh! We were unable to process your request :(
