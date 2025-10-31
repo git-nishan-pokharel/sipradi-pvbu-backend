@@ -8,7 +8,7 @@ import { Reflector } from '@nestjs/core';
 import { AccessPolicyService } from '../access-policy.service';
 import { ACCESS_POLICY_KEY } from '../decorators/access-control.decorator';
 import { IAccessPolicyDecorator } from '../enums/access.enum';
-import { IUserValidateResponse } from 'apps/yatri-urban-backend/src/interfaces/user-response';
+import { IUserValidateResponse } from 'apps/pvbu-backend/src/common/interfaces/user-response';
 
 @Injectable()
 export class AccessValidatorGuard implements CanActivate {
@@ -33,6 +33,8 @@ export class AccessValidatorGuard implements CanActivate {
     );
     request.query = { ...request.query, ...finalResult.query };
 
+    // eslint-disable-next-line no-console
+    console.log('Final Result: ', finalResult);
     if (!finalResult.status) {
       throw new ForbiddenException('Access Denied');
     }

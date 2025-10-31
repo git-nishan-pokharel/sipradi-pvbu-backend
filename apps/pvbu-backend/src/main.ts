@@ -24,16 +24,19 @@ async function bootstrap(): Promise<void> {
   const allowedOrigins =
     process.env.CORS_ORIGIN?.split(',').map((origin) => origin.trim()) ?? [];
 
-  app.enableCors(<CorsOptions>{
-    origin: (origin: string | undefined, callback: CorsCallback): void => {
-      if (!origin || allowedOrigins.includes(origin)) {
-        callback(null, true);
-      } else {
-        callback(new Error('Origin not allowed.'));
-      }
-    },
-    credentials: true,
-  });
+  {
+    false &&
+      app.enableCors(<CorsOptions>{
+        origin: (origin: string | undefined, callback: CorsCallback): void => {
+          if (!origin || allowedOrigins.includes(origin)) {
+            callback(null, true);
+          } else {
+            callback(new Error('Origin not allowed.'));
+          }
+        },
+        credentials: true,
+      });
+  }
 
   app.useGlobalInterceptors(new ResponseInterceptor());
 

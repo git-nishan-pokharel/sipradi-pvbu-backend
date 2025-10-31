@@ -1,4 +1,4 @@
-import { AccessRuleEffect } from 'apps/yatri-urban-backend/prisma/generated/client';
+import { AccessRuleEffect } from 'apps/pvbu-backend/prisma/generated/prisma/client';
 
 export enum Action {
   all = '*',

@@ -26,25 +26,59 @@ export type AggregateUser = {
 };
 
 export type UserAvgAggregateOutputType = {
-  id: number | null;
+  accessId: number | null;
 };
 
 export type UserSumAggregateOutputType = {
-  id: number | null;
+  accessId: number | null;
 };
 
 export type UserMinAggregateOutputType = {
-  id: number | null;
+  id: string | null;
   email: string | null;
   registeredName: string | null;
   displayName: string | null;
+  gender: $Enums.EGender | null;
+  rfid: string | null;
+  registeredPhoneNumber: string | null;
+  contactPhoneNumber: string | null;
+  password: string | null;
+  address: string | null;
+  profilePhoto: string | null;
+  dob: Date | null;
+  status: $Enums.AccountStatus | null;
+  passwordResetOtp: string | null;
+  passwordResetOtpExpirationTime: Date | null;
+  passwordResetToken: string | null;
+  passwordResetTokenExpirationTime: Date | null;
+  accessId: number | null;
+  designationId: string | null;
+  createdAt: Date | null;
+  updatedAt: Date | null;
 };
 
 export type UserMaxAggregateOutputType = {
-  id: number | null;
+  id: string | null;
   email: string | null;
   registeredName: string | null;
   displayName: string | null;
+  gender: $Enums.EGender | null;
+  rfid: string | null;
+  registeredPhoneNumber: string | null;
+  contactPhoneNumber: string | null;
+  password: string | null;
+  address: string | null;
+  profilePhoto: string | null;
+  dob: Date | null;
+  status: $Enums.AccountStatus | null;
+  passwordResetOtp: string | null;
+  passwordResetOtpExpirationTime: Date | null;
+  passwordResetToken: string | null;
+  passwordResetTokenExpirationTime: Date | null;
+  accessId: number | null;
+  designationId: string | null;
+  createdAt: Date | null;
+  updatedAt: Date | null;
 };
 
 export type UserCountAggregateOutputType = {
@@ -52,15 +86,32 @@ export type UserCountAggregateOutputType = {
   email: number;
   registeredName: number;
   displayName: number;
+  gender: number;
+  rfid: number;
+  registeredPhoneNumber: number;
+  contactPhoneNumber: number;
+  password: number;
+  address: number;
+  profilePhoto: number;
+  dob: number;
+  status: number;
+  passwordResetOtp: number;
+  passwordResetOtpExpirationTime: number;
+  passwordResetToken: number;
+  passwordResetTokenExpirationTime: number;
+  accessId: number;
+  designationId: number;
+  createdAt: number;
+  updatedAt: number;
   _all: number;
 };
 
 export type UserAvgAggregateInputType = {
-  id?: true;
+  accessId?: true;
 };
 
 export type UserSumAggregateInputType = {
-  id?: true;
+  accessId?: true;
 };
 
 export type UserMinAggregateInputType = {
@@ -68,6 +119,23 @@ export type UserMinAggregateInputType = {
   email?: true;
   registeredName?: true;
   displayName?: true;
+  gender?: true;
+  rfid?: true;
+  registeredPhoneNumber?: true;
+  contactPhoneNumber?: true;
+  password?: true;
+  address?: true;
+  profilePhoto?: true;
+  dob?: true;
+  status?: true;
+  passwordResetOtp?: true;
+  passwordResetOtpExpirationTime?: true;
+  passwordResetToken?: true;
+  passwordResetTokenExpirationTime?: true;
+  accessId?: true;
+  designationId?: true;
+  createdAt?: true;
+  updatedAt?: true;
 };
 
 export type UserMaxAggregateInputType = {
@@ -75,6 +143,23 @@ export type UserMaxAggregateInputType = {
   email?: true;
   registeredName?: true;
   displayName?: true;
+  gender?: true;
+  rfid?: true;
+  registeredPhoneNumber?: true;
+  contactPhoneNumber?: true;
+  password?: true;
+  address?: true;
+  profilePhoto?: true;
+  dob?: true;
+  status?: true;
+  passwordResetOtp?: true;
+  passwordResetOtpExpirationTime?: true;
+  passwordResetToken?: true;
+  passwordResetTokenExpirationTime?: true;
+  accessId?: true;
+  designationId?: true;
+  createdAt?: true;
+  updatedAt?: true;
 };
 
 export type UserCountAggregateInputType = {
@@ -82,6 +167,23 @@ export type UserCountAggregateInputType = {
   email?: true;
   registeredName?: true;
   displayName?: true;
+  gender?: true;
+  rfid?: true;
+  registeredPhoneNumber?: true;
+  contactPhoneNumber?: true;
+  password?: true;
+  address?: true;
+  profilePhoto?: true;
+  dob?: true;
+  status?: true;
+  passwordResetOtp?: true;
+  passwordResetOtpExpirationTime?: true;
+  passwordResetToken?: true;
+  passwordResetTokenExpirationTime?: true;
+  accessId?: true;
+  designationId?: true;
+  createdAt?: true;
+  updatedAt?: true;
   _all?: true;
 };
 
@@ -179,10 +281,27 @@ export type UserGroupByArgs<
 };
 
 export type UserGroupByOutputType = {
-  id: number;
+  id: string;
   email: string;
   registeredName: string;
   displayName: string;
+  gender: $Enums.EGender;
+  rfid: string;
+  registeredPhoneNumber: string;
+  contactPhoneNumber: string;
+  password: string;
+  address: string;
+  profilePhoto: string | null;
+  dob: Date;
+  status: $Enums.AccountStatus;
+  passwordResetOtp: string | null;
+  passwordResetOtpExpirationTime: Date | null;
+  passwordResetToken: string | null;
+  passwordResetTokenExpirationTime: Date | null;
+  accessId: number | null;
+  designationId: string | null;
+  createdAt: Date;
+  updatedAt: Date;
   _count: UserCountAggregateOutputType | null;
   _avg: UserAvgAggregateOutputType | null;
   _sum: UserSumAggregateOutputType | null;
@@ -206,10 +325,52 @@ export type UserWhereInput = {
   AND?: Prisma.UserWhereInput | Prisma.UserWhereInput[];
   OR?: Prisma.UserWhereInput[];
   NOT?: Prisma.UserWhereInput | Prisma.UserWhereInput[];
-  id?: Prisma.IntFilter<'User'> | number;
+  id?: Prisma.UuidFilter<'User'> | string;
   email?: Prisma.StringFilter<'User'> | string;
   registeredName?: Prisma.StringFilter<'User'> | string;
   displayName?: Prisma.StringFilter<'User'> | string;
+  gender?: Prisma.EnumEGenderFilter<'User'> | $Enums.EGender;
+  rfid?: Prisma.StringFilter<'User'> | string;
+  registeredPhoneNumber?: Prisma.StringFilter<'User'> | string;
+  contactPhoneNumber?: Prisma.StringFilter<'User'> | string;
+  password?: Prisma.StringFilter<'User'> | string;
+  address?: Prisma.StringFilter<'User'> | string;
+  profilePhoto?: Prisma.StringNullableFilter<'User'> | string | null;
+  dob?: Prisma.DateTimeFilter<'User'> | Date | string;
+  status?: Prisma.EnumAccountStatusFilter<'User'> | $Enums.AccountStatus;
+  passwordResetOtp?: Prisma.StringNullableFilter<'User'> | string | null;
+  passwordResetOtpExpirationTime?:
+    | Prisma.DateTimeNullableFilter<'User'>
+    | Date
+    | string
+    | null;
+  passwordResetToken?: Prisma.StringNullableFilter<'User'> | string | null;
+  passwordResetTokenExpirationTime?:
+    | Prisma.DateTimeNullableFilter<'User'>
+    | Date
+    | string
+    | null;
+  accessId?: Prisma.IntNullableFilter<'User'> | number | null;
+  designationId?: Prisma.UuidNullableFilter<'User'> | string | null;
+  createdAt?: Prisma.DateTimeFilter<'User'> | Date | string;
+  updatedAt?: Prisma.DateTimeFilter<'User'> | Date | string;
+  access?: Prisma.XOR<
+    Prisma.AccessPolicyNullableScalarRelationFilter,
+    Prisma.AccessPolicyWhereInput
+  > | null;
+  designation?: Prisma.XOR<
+    Prisma.DesignationNullableScalarRelationFilter,
+    Prisma.DesignationWhereInput
+  > | null;
+  customerProfileAnswers?: Prisma.CustomerProfileAnswersListRelationFilter;
+  referrals?: Prisma.ReferralListRelationFilter;
+  feedbacks?: Prisma.FeedbackListRelationFilter;
+  notification?: Prisma.NotificationListRelationFilter;
+  assignedVehicles?: Prisma.AssignedVehiclesListRelationFilter;
+  communityPost?: Prisma.CommunityPostListRelationFilter;
+  likes?: Prisma.LikeListRelationFilter;
+  createdTerms?: Prisma.TermsAndPolicyListRelationFilter;
+  updatedTerms?: Prisma.TermsAndPolicyListRelationFilter;
 };
 
 export type UserOrderByWithRelationInput = {
@@ -217,19 +378,89 @@ export type UserOrderByWithRelationInput = {
   email?: Prisma.SortOrder;
   registeredName?: Prisma.SortOrder;
   displayName?: Prisma.SortOrder;
+  gender?: Prisma.SortOrder;
+  rfid?: Prisma.SortOrder;
+  registeredPhoneNumber?: Prisma.SortOrder;
+  contactPhoneNumber?: Prisma.SortOrder;
+  password?: Prisma.SortOrder;
+  address?: Prisma.SortOrder;
+  profilePhoto?: Prisma.SortOrderInput | Prisma.SortOrder;
+  dob?: Prisma.SortOrder;
+  status?: Prisma.SortOrder;
+  passwordResetOtp?: Prisma.SortOrderInput | Prisma.SortOrder;
+  passwordResetOtpExpirationTime?: Prisma.SortOrderInput | Prisma.SortOrder;
+  passwordResetToken?: Prisma.SortOrderInput | Prisma.SortOrder;
+  passwordResetTokenExpirationTime?: Prisma.SortOrderInput | Prisma.SortOrder;
+  accessId?: Prisma.SortOrderInput | Prisma.SortOrder;
+  designationId?: Prisma.SortOrderInput | Prisma.SortOrder;
+  createdAt?: Prisma.SortOrder;
+  updatedAt?: Prisma.SortOrder;
+  access?: Prisma.AccessPolicyOrderByWithRelationInput;
+  designation?: Prisma.DesignationOrderByWithRelationInput;
+  customerProfileAnswers?: Prisma.CustomerProfileAnswersOrderByRelationAggregateInput;
+  referrals?: Prisma.ReferralOrderByRelationAggregateInput;
+  feedbacks?: Prisma.FeedbackOrderByRelationAggregateInput;
+  notification?: Prisma.NotificationOrderByRelationAggregateInput;
+  assignedVehicles?: Prisma.AssignedVehiclesOrderByRelationAggregateInput;
+  communityPost?: Prisma.CommunityPostOrderByRelationAggregateInput;
+  likes?: Prisma.LikeOrderByRelationAggregateInput;
+  createdTerms?: Prisma.TermsAndPolicyOrderByRelationAggregateInput;
+  updatedTerms?: Prisma.TermsAndPolicyOrderByRelationAggregateInput;
 };
 
 export type UserWhereUniqueInput = Prisma.AtLeast<
   {
-    id?: number;
+    id?: string;
     email?: string;
+    rfid?: string;
+    registeredPhoneNumber?: string;
+    contactPhoneNumber?: string;
     AND?: Prisma.UserWhereInput | Prisma.UserWhereInput[];
     OR?: Prisma.UserWhereInput[];
     NOT?: Prisma.UserWhereInput | Prisma.UserWhereInput[];
     registeredName?: Prisma.StringFilter<'User'> | string;
     displayName?: Prisma.StringFilter<'User'> | string;
+    gender?: Prisma.EnumEGenderFilter<'User'> | $Enums.EGender;
+    password?: Prisma.StringFilter<'User'> | string;
+    address?: Prisma.StringFilter<'User'> | string;
+    profilePhoto?: Prisma.StringNullableFilter<'User'> | string | null;
+    dob?: Prisma.DateTimeFilter<'User'> | Date | string;
+    status?: Prisma.EnumAccountStatusFilter<'User'> | $Enums.AccountStatus;
+    passwordResetOtp?: Prisma.StringNullableFilter<'User'> | string | null;
+    passwordResetOtpExpirationTime?:
+      | Prisma.DateTimeNullableFilter<'User'>
+      | Date
+      | string
+      | null;
+    passwordResetToken?: Prisma.StringNullableFilter<'User'> | string | null;
+    passwordResetTokenExpirationTime?:
+      | Prisma.DateTimeNullableFilter<'User'>
+      | Date
+      | string
+      | null;
+    accessId?: Prisma.IntNullableFilter<'User'> | number | null;
+    designationId?: Prisma.UuidNullableFilter<'User'> | string | null;
+    createdAt?: Prisma.DateTimeFilter<'User'> | Date | string;
+    updatedAt?: Prisma.DateTimeFilter<'User'> | Date | string;
+    access?: Prisma.XOR<
+      Prisma.AccessPolicyNullableScalarRelationFilter,
+      Prisma.AccessPolicyWhereInput
+    > | null;
+    designation?: Prisma.XOR<
+      Prisma.DesignationNullableScalarRelationFilter,
+      Prisma.DesignationWhereInput
+    > | null;
+    customerProfileAnswers?: Prisma.CustomerProfileAnswersListRelationFilter;
+    referrals?: Prisma.ReferralListRelationFilter;
+    feedbacks?: Prisma.FeedbackListRelationFilter;
+    notification?: Prisma.NotificationListRelationFilter;
+    assignedVehicles?: Prisma.AssignedVehiclesListRelationFilter;
+    communityPost?: Prisma.CommunityPostListRelationFilter;
+    likes?: Prisma.LikeListRelationFilter;
+    createdTerms?: Prisma.TermsAndPolicyListRelationFilter;
+    updatedTerms?: Prisma.TermsAndPolicyListRelationFilter;
   },
-  'id' | 'email'
+  'id' | 'email' | 'rfid' | 'registeredPhoneNumber' | 'contactPhoneNumber'
 >;
 
 export type UserOrderByWithAggregationInput = {
@@ -237,6 +468,23 @@ export type UserOrderByWithAggregationInput = {
   email?: Prisma.SortOrder;
   registeredName?: Prisma.SortOrder;
   displayName?: Prisma.SortOrder;
+  gender?: Prisma.SortOrder;
+  rfid?: Prisma.SortOrder;
+  registeredPhoneNumber?: Prisma.SortOrder;
+  contactPhoneNumber?: Prisma.SortOrder;
+  password?: Prisma.SortOrder;
+  address?: Prisma.SortOrder;
+  profilePhoto?: Prisma.SortOrderInput | Prisma.SortOrder;
+  dob?: Prisma.SortOrder;
+  status?: Prisma.SortOrder;
+  passwordResetOtp?: Prisma.SortOrderInput | Prisma.SortOrder;
+  passwordResetOtpExpirationTime?: Prisma.SortOrderInput | Prisma.SortOrder;
+  passwordResetToken?: Prisma.SortOrderInput | Prisma.SortOrder;
+  passwordResetTokenExpirationTime?: Prisma.SortOrderInput | Prisma.SortOrder;
+  accessId?: Prisma.SortOrderInput | Prisma.SortOrder;
+  designationId?: Prisma.SortOrderInput | Prisma.SortOrder;
+  createdAt?: Prisma.SortOrder;
+  updatedAt?: Prisma.SortOrder;
   _count?: Prisma.UserCountOrderByAggregateInput;
   _avg?: Prisma.UserAvgOrderByAggregateInput;
   _max?: Prisma.UserMaxOrderByAggregateInput;
@@ -252,56 +500,333 @@ export type UserScalarWhereWithAggregatesInput = {
   NOT?:
     | Prisma.UserScalarWhereWithAggregatesInput
     | Prisma.UserScalarWhereWithAggregatesInput[];
-  id?: Prisma.IntWithAggregatesFilter<'User'> | number;
+  id?: Prisma.UuidWithAggregatesFilter<'User'> | string;
   email?: Prisma.StringWithAggregatesFilter<'User'> | string;
   registeredName?: Prisma.StringWithAggregatesFilter<'User'> | string;
   displayName?: Prisma.StringWithAggregatesFilter<'User'> | string;
+  gender?: Prisma.EnumEGenderWithAggregatesFilter<'User'> | $Enums.EGender;
+  rfid?: Prisma.StringWithAggregatesFilter<'User'> | string;
+  registeredPhoneNumber?: Prisma.StringWithAggregatesFilter<'User'> | string;
+  contactPhoneNumber?: Prisma.StringWithAggregatesFilter<'User'> | string;
+  password?: Prisma.StringWithAggregatesFilter<'User'> | string;
+  address?: Prisma.StringWithAggregatesFilter<'User'> | string;
+  profilePhoto?:
+    | Prisma.StringNullableWithAggregatesFilter<'User'>
+    | string
+    | null;
+  dob?: Prisma.DateTimeWithAggregatesFilter<'User'> | Date | string;
+  status?:
+    | Prisma.EnumAccountStatusWithAggregatesFilter<'User'>
+    | $Enums.AccountStatus;
+  passwordResetOtp?:
+    | Prisma.StringNullableWithAggregatesFilter<'User'>
+    | string
+    | null;
+  passwordResetOtpExpirationTime?:
+    | Prisma.DateTimeNullableWithAggregatesFilter<'User'>
+    | Date
+    | string
+    | null;
+  passwordResetToken?:
+    | Prisma.StringNullableWithAggregatesFilter<'User'>
+    | string
+    | null;
+  passwordResetTokenExpirationTime?:
+    | Prisma.DateTimeNullableWithAggregatesFilter<'User'>
+    | Date
+    | string
+    | null;
+  accessId?: Prisma.IntNullableWithAggregatesFilter<'User'> | number | null;
+  designationId?:
+    | Prisma.UuidNullableWithAggregatesFilter<'User'>
+    | string
+    | null;
+  createdAt?: Prisma.DateTimeWithAggregatesFilter<'User'> | Date | string;
+  updatedAt?: Prisma.DateTimeWithAggregatesFilter<'User'> | Date | string;
 };
 
 export type UserCreateInput = {
+  id?: string;
   email: string;
   registeredName: string;
   displayName: string;
+  gender: $Enums.EGender;
+  rfid: string;
+  registeredPhoneNumber: string;
+  contactPhoneNumber: string;
+  password: string;
+  address: string;
+  profilePhoto?: string | null;
+  dob: Date | string;
+  status?: $Enums.AccountStatus;
+  passwordResetOtp?: string | null;
+  passwordResetOtpExpirationTime?: Date | string | null;
+  passwordResetToken?: string | null;
+  passwordResetTokenExpirationTime?: Date | string | null;
+  createdAt?: Date | string;
+  updatedAt?: Date | string;
+  access?: Prisma.AccessPolicyCreateNestedOneWithoutUserInput;
+  designation?: Prisma.DesignationCreateNestedOneWithoutUsersInput;
+  customerProfileAnswers?: Prisma.CustomerProfileAnswersCreateNestedManyWithoutUserInput;
+  referrals?: Prisma.ReferralCreateNestedManyWithoutUserInput;
+  feedbacks?: Prisma.FeedbackCreateNestedManyWithoutUserInput;
+  notification?: Prisma.NotificationCreateNestedManyWithoutUserInput;
+  assignedVehicles?: Prisma.AssignedVehiclesCreateNestedManyWithoutUserInput;
+  communityPost?: Prisma.CommunityPostCreateNestedManyWithoutUserInput;
+  likes?: Prisma.LikeCreateNestedManyWithoutUserInput;
+  createdTerms?: Prisma.TermsAndPolicyCreateNestedManyWithoutCreatedByUserInput;
+  updatedTerms?: Prisma.TermsAndPolicyCreateNestedManyWithoutUpdatedByUserInput;
 };
 
 export type UserUncheckedCreateInput = {
-  id?: number;
+  id?: string;
   email: string;
   registeredName: string;
   displayName: string;
+  gender: $Enums.EGender;
+  rfid: string;
+  registeredPhoneNumber: string;
+  contactPhoneNumber: string;
+  password: string;
+  address: string;
+  profilePhoto?: string | null;
+  dob: Date | string;
+  status?: $Enums.AccountStatus;
+  passwordResetOtp?: string | null;
+  passwordResetOtpExpirationTime?: Date | string | null;
+  passwordResetToken?: string | null;
+  passwordResetTokenExpirationTime?: Date | string | null;
+  accessId?: number | null;
+  designationId?: string | null;
+  createdAt?: Date | string;
+  updatedAt?: Date | string;
+  customerProfileAnswers?: Prisma.CustomerProfileAnswersUncheckedCreateNestedManyWithoutUserInput;
+  referrals?: Prisma.ReferralUncheckedCreateNestedManyWithoutUserInput;
+  feedbacks?: Prisma.FeedbackUncheckedCreateNestedManyWithoutUserInput;
+  notification?: Prisma.NotificationUncheckedCreateNestedManyWithoutUserInput;
+  assignedVehicles?: Prisma.AssignedVehiclesUncheckedCreateNestedManyWithoutUserInput;
+  communityPost?: Prisma.CommunityPostUncheckedCreateNestedManyWithoutUserInput;
+  likes?: Prisma.LikeUncheckedCreateNestedManyWithoutUserInput;
+  createdTerms?: Prisma.TermsAndPolicyUncheckedCreateNestedManyWithoutCreatedByUserInput;
+  updatedTerms?: Prisma.TermsAndPolicyUncheckedCreateNestedManyWithoutUpdatedByUserInput;
 };
 
 export type UserUpdateInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string;
   email?: Prisma.StringFieldUpdateOperationsInput | string;
   registeredName?: Prisma.StringFieldUpdateOperationsInput | string;
   displayName?: Prisma.StringFieldUpdateOperationsInput | string;
+  gender?: Prisma.EnumEGenderFieldUpdateOperationsInput | $Enums.EGender;
+  rfid?: Prisma.StringFieldUpdateOperationsInput | string;
+  registeredPhoneNumber?: Prisma.StringFieldUpdateOperationsInput | string;
+  contactPhoneNumber?: Prisma.StringFieldUpdateOperationsInput | string;
+  password?: Prisma.StringFieldUpdateOperationsInput | string;
+  address?: Prisma.StringFieldUpdateOperationsInput | string;
+  profilePhoto?:
+    | Prisma.NullableStringFieldUpdateOperationsInput
+    | string
+    | null;
+  dob?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
+  status?:
+    | Prisma.EnumAccountStatusFieldUpdateOperationsInput
+    | $Enums.AccountStatus;
+  passwordResetOtp?:
+    | Prisma.NullableStringFieldUpdateOperationsInput
+    | string
+    | null;
+  passwordResetOtpExpirationTime?:
+    | Prisma.NullableDateTimeFieldUpdateOperationsInput
+    | Date
+    | string
+    | null;
+  passwordResetToken?:
+    | Prisma.NullableStringFieldUpdateOperationsInput
+    | string
+    | null;
+  passwordResetTokenExpirationTime?:
+    | Prisma.NullableDateTimeFieldUpdateOperationsInput
+    | Date
+    | string
+    | null;
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
+  access?: Prisma.AccessPolicyUpdateOneWithoutUserNestedInput;
+  designation?: Prisma.DesignationUpdateOneWithoutUsersNestedInput;
+  customerProfileAnswers?: Prisma.CustomerProfileAnswersUpdateManyWithoutUserNestedInput;
+  referrals?: Prisma.ReferralUpdateManyWithoutUserNestedInput;
+  feedbacks?: Prisma.FeedbackUpdateManyWithoutUserNestedInput;
+  notification?: Prisma.NotificationUpdateManyWithoutUserNestedInput;
+  assignedVehicles?: Prisma.AssignedVehiclesUpdateManyWithoutUserNestedInput;
+  communityPost?: Prisma.CommunityPostUpdateManyWithoutUserNestedInput;
+  likes?: Prisma.LikeUpdateManyWithoutUserNestedInput;
+  createdTerms?: Prisma.TermsAndPolicyUpdateManyWithoutCreatedByUserNestedInput;
+  updatedTerms?: Prisma.TermsAndPolicyUpdateManyWithoutUpdatedByUserNestedInput;
 };
 
 export type UserUncheckedUpdateInput = {
-  id?: Prisma.IntFieldUpdateOperationsInput | number;
+  id?: Prisma.StringFieldUpdateOperationsInput | string;
   email?: Prisma.StringFieldUpdateOperationsInput | string;
   registeredName?: Prisma.StringFieldUpdateOperationsInput | string;
   displayName?: Prisma.StringFieldUpdateOperationsInput | string;
+  gender?: Prisma.EnumEGenderFieldUpdateOperationsInput | $Enums.EGender;
+  rfid?: Prisma.StringFieldUpdateOperationsInput | string;
+  registeredPhoneNumber?: Prisma.StringFieldUpdateOperationsInput | string;
+  contactPhoneNumber?: Prisma.StringFieldUpdateOperationsInput | string;
+  password?: Prisma.StringFieldUpdateOperationsInput | string;
+  address?: Prisma.StringFieldUpdateOperationsInput | string;
+  profilePhoto?:
+    | Prisma.NullableStringFieldUpdateOperationsInput
+    | string
+    | null;
+  dob?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
+  status?:
+    | Prisma.EnumAccountStatusFieldUpdateOperationsInput
+    | $Enums.AccountStatus;
+  passwordResetOtp?:
+    | Prisma.NullableStringFieldUpdateOperationsInput
+    | string
+    | null;
+  passwordResetOtpExpirationTime?:
+    | Prisma.NullableDateTimeFieldUpdateOperationsInput
+    | Date
+    | string
+    | null;
+  passwordResetToken?:
+    | Prisma.NullableStringFieldUpdateOperationsInput
+    | string
+    | null;
+  passwordResetTokenExpirationTime?:
+    | Prisma.NullableDateTimeFieldUpdateOperationsInput
+    | Date
+    | string
+    | null;
+  accessId?: Prisma.NullableIntFieldUpdateOperationsInput | number | null;
+  designationId?:
+    | Prisma.NullableStringFieldUpdateOperationsInput
+    | string
+    | null;
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
+  customerProfileAnswers?: Prisma.CustomerProfileAnswersUncheckedUpdateManyWithoutUserNestedInput;
+  referrals?: Prisma.ReferralUncheckedUpdateManyWithoutUserNestedInput;
+  feedbacks?: Prisma.FeedbackUncheckedUpdateManyWithoutUserNestedInput;
+  notification?: Prisma.NotificationUncheckedUpdateManyWithoutUserNestedInput;
+  assignedVehicles?: Prisma.AssignedVehiclesUncheckedUpdateManyWithoutUserNestedInput;
+  communityPost?: Prisma.CommunityPostUncheckedUpdateManyWithoutUserNestedInput;
+  likes?: Prisma.LikeUncheckedUpdateManyWithoutUserNestedInput;
+  createdTerms?: Prisma.TermsAndPolicyUncheckedUpdateManyWithoutCreatedByUserNestedInput;
+  updatedTerms?: Prisma.TermsAndPolicyUncheckedUpdateManyWithoutUpdatedByUserNestedInput;
 };
 
 export type UserCreateManyInput = {
-  id?: number;
+  id?: string;
   email: string;
   registeredName: string;
   displayName: string;
+  gender: $Enums.EGender;
+  rfid: string;
+  registeredPhoneNumber: string;
+  contactPhoneNumber: string;
+  password: string;
+  address: string;
+  profilePhoto?: string | null;
+  dob: Date | string;
+  status?: $Enums.AccountStatus;
+  passwordResetOtp?: string | null;
+  passwordResetOtpExpirationTime?: Date | string | null;
+  passwordResetToken?: string | null;
+  passwordResetTokenExpirationTime?: Date | string | null;
+  accessId?: number | null;
+  designationId?: string | null;
+  createdAt?: Date | string;
+  updatedAt?: Date | string;
 };
 
 export type UserUpdateManyMutationInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string;
   email?: Prisma.StringFieldUpdateOperationsInput | string;
   registeredName?: Prisma.StringFieldUpdateOperationsInput | string;
   displayName?: Prisma.StringFieldUpdateOperationsInput | string;
+  gender?: Prisma.EnumEGenderFieldUpdateOperationsInput | $Enums.EGender;
+  rfid?: Prisma.StringFieldUpdateOperationsInput | string;
+  registeredPhoneNumber?: Prisma.StringFieldUpdateOperationsInput | string;
+  contactPhoneNumber?: Prisma.StringFieldUpdateOperationsInput | string;
+  password?: Prisma.StringFieldUpdateOperationsInput | string;
+  address?: Prisma.StringFieldUpdateOperationsInput | string;
+  profilePhoto?:
+    | Prisma.NullableStringFieldUpdateOperationsInput
+    | string
+    | null;
+  dob?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
+  status?:
+    | Prisma.EnumAccountStatusFieldUpdateOperationsInput
+    | $Enums.AccountStatus;
+  passwordResetOtp?:
+    | Prisma.NullableStringFieldUpdateOperationsInput
+    | string
+    | null;
+  passwordResetOtpExpirationTime?:
+    | Prisma.NullableDateTimeFieldUpdateOperationsInput
+    | Date
+    | string
+    | null;
+  passwordResetToken?:
+    | Prisma.NullableStringFieldUpdateOperationsInput
+    | string
+    | null;
+  passwordResetTokenExpirationTime?:
+    | Prisma.NullableDateTimeFieldUpdateOperationsInput
+    | Date
+    | string
+    | null;
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
 };
 
 export type UserUncheckedUpdateManyInput = {
-  id?: Prisma.IntFieldUpdateOperationsInput | number;
+  id?: Prisma.StringFieldUpdateOperationsInput | string;
   email?: Prisma.StringFieldUpdateOperationsInput | string;
   registeredName?: Prisma.StringFieldUpdateOperationsInput | string;
   displayName?: Prisma.StringFieldUpdateOperationsInput | string;
+  gender?: Prisma.EnumEGenderFieldUpdateOperationsInput | $Enums.EGender;
+  rfid?: Prisma.StringFieldUpdateOperationsInput | string;
+  registeredPhoneNumber?: Prisma.StringFieldUpdateOperationsInput | string;
+  contactPhoneNumber?: Prisma.StringFieldUpdateOperationsInput | string;
+  password?: Prisma.StringFieldUpdateOperationsInput | string;
+  address?: Prisma.StringFieldUpdateOperationsInput | string;
+  profilePhoto?:
+    | Prisma.NullableStringFieldUpdateOperationsInput
+    | string
+    | null;
+  dob?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
+  status?:
+    | Prisma.EnumAccountStatusFieldUpdateOperationsInput
+    | $Enums.AccountStatus;
+  passwordResetOtp?:
+    | Prisma.NullableStringFieldUpdateOperationsInput
+    | string
+    | null;
+  passwordResetOtpExpirationTime?:
+    | Prisma.NullableDateTimeFieldUpdateOperationsInput
+    | Date
+    | string
+    | null;
+  passwordResetToken?:
+    | Prisma.NullableStringFieldUpdateOperationsInput
+    | string
+    | null;
+  passwordResetTokenExpirationTime?:
+    | Prisma.NullableDateTimeFieldUpdateOperationsInput
+    | Date
+    | string
+    | null;
+  accessId?: Prisma.NullableIntFieldUpdateOperationsInput | number | null;
+  designationId?:
+    | Prisma.NullableStringFieldUpdateOperationsInput
+    | string
+    | null;
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
 };
 
 export type UserCountOrderByAggregateInput = {
@@ -309,10 +834,27 @@ export type UserCountOrderByAggregateInput = {
   email?: Prisma.SortOrder;
   registeredName?: Prisma.SortOrder;
   displayName?: Prisma.SortOrder;
+  gender?: Prisma.SortOrder;
+  rfid?: Prisma.SortOrder;
+  registeredPhoneNumber?: Prisma.SortOrder;
+  contactPhoneNumber?: Prisma.SortOrder;
+  password?: Prisma.SortOrder;
+  address?: Prisma.SortOrder;
+  profilePhoto?: Prisma.SortOrder;
+  dob?: Prisma.SortOrder;
+  status?: Prisma.SortOrder;
+  passwordResetOtp?: Prisma.SortOrder;
+  passwordResetOtpExpirationTime?: Prisma.SortOrder;
+  passwordResetToken?: Prisma.SortOrder;
+  passwordResetTokenExpirationTime?: Prisma.SortOrder;
+  accessId?: Prisma.SortOrder;
+  designationId?: Prisma.SortOrder;
+  createdAt?: Prisma.SortOrder;
+  updatedAt?: Prisma.SortOrder;
 };
 
 export type UserAvgOrderByAggregateInput = {
-  id?: Prisma.SortOrder;
+  accessId?: Prisma.SortOrder;
 };
 
 export type UserMaxOrderByAggregateInput = {
@@ -320,6 +862,23 @@ export type UserMaxOrderByAggregateInput = {
   email?: Prisma.SortOrder;
   registeredName?: Prisma.SortOrder;
   displayName?: Prisma.SortOrder;
+  gender?: Prisma.SortOrder;
+  rfid?: Prisma.SortOrder;
+  registeredPhoneNumber?: Prisma.SortOrder;
+  contactPhoneNumber?: Prisma.SortOrder;
+  password?: Prisma.SortOrder;
+  address?: Prisma.SortOrder;
+  profilePhoto?: Prisma.SortOrder;
+  dob?: Prisma.SortOrder;
+  status?: Prisma.SortOrder;
+  passwordResetOtp?: Prisma.SortOrder;
+  passwordResetOtpExpirationTime?: Prisma.SortOrder;
+  passwordResetToken?: Prisma.SortOrder;
+  passwordResetTokenExpirationTime?: Prisma.SortOrder;
+  accessId?: Prisma.SortOrder;
+  designationId?: Prisma.SortOrder;
+  createdAt?: Prisma.SortOrder;
+  updatedAt?: Prisma.SortOrder;
 };
 
 export type UserMinOrderByAggregateInput = {
@@ -327,22 +886,2976 @@ export type UserMinOrderByAggregateInput = {
   email?: Prisma.SortOrder;
   registeredName?: Prisma.SortOrder;
   displayName?: Prisma.SortOrder;
+  gender?: Prisma.SortOrder;
+  rfid?: Prisma.SortOrder;
+  registeredPhoneNumber?: Prisma.SortOrder;
+  contactPhoneNumber?: Prisma.SortOrder;
+  password?: Prisma.SortOrder;
+  address?: Prisma.SortOrder;
+  profilePhoto?: Prisma.SortOrder;
+  dob?: Prisma.SortOrder;
+  status?: Prisma.SortOrder;
+  passwordResetOtp?: Prisma.SortOrder;
+  passwordResetOtpExpirationTime?: Prisma.SortOrder;
+  passwordResetToken?: Prisma.SortOrder;
+  passwordResetTokenExpirationTime?: Prisma.SortOrder;
+  accessId?: Prisma.SortOrder;
+  designationId?: Prisma.SortOrder;
+  createdAt?: Prisma.SortOrder;
+  updatedAt?: Prisma.SortOrder;
 };
 
 export type UserSumOrderByAggregateInput = {
-  id?: Prisma.SortOrder;
+  accessId?: Prisma.SortOrder;
+};
+
+export type UserListRelationFilter = {
+  every?: Prisma.UserWhereInput;
+  some?: Prisma.UserWhereInput;
+  none?: Prisma.UserWhereInput;
+};
+
+export type UserOrderByRelationAggregateInput = {
+  _count?: Prisma.SortOrder;
+};
+
+export type UserScalarRelationFilter = {
+  is?: Prisma.UserWhereInput;
+  isNot?: Prisma.UserWhereInput;
 };
 
 export type StringFieldUpdateOperationsInput = {
   set?: string;
 };
 
-export type IntFieldUpdateOperationsInput = {
-  set?: number;
+export type EnumEGenderFieldUpdateOperationsInput = {
+  set?: $Enums.EGender;
+};
+
+export type NullableStringFieldUpdateOperationsInput = {
+  set?: string | null;
+};
+
+export type DateTimeFieldUpdateOperationsInput = {
+  set?: Date | string;
+};
+
+export type EnumAccountStatusFieldUpdateOperationsInput = {
+  set?: $Enums.AccountStatus;
+};
+
+export type NullableDateTimeFieldUpdateOperationsInput = {
+  set?: Date | string | null;
+};
+
+export type NullableIntFieldUpdateOperationsInput = {
+  set?: number | null;
   increment?: number;
   decrement?: number;
   multiply?: number;
   divide?: number;
+};
+
+export type UserCreateNestedManyWithoutDesignationInput = {
+  create?:
+    | Prisma.XOR<
+        Prisma.UserCreateWithoutDesignationInput,
+        Prisma.UserUncheckedCreateWithoutDesignationInput
+      >
+    | Prisma.UserCreateWithoutDesignationInput[]
+    | Prisma.UserUncheckedCreateWithoutDesignationInput[];
+  connectOrCreate?:
+    | Prisma.UserCreateOrConnectWithoutDesignationInput
+    | Prisma.UserCreateOrConnectWithoutDesignationInput[];
+  createMany?: Prisma.UserCreateManyDesignationInputEnvelope;
+  connect?: Prisma.UserWhereUniqueInput | Prisma.UserWhereUniqueInput[];
+};
+
+export type UserUncheckedCreateNestedManyWithoutDesignationInput = {
+  create?:
+    | Prisma.XOR<
+        Prisma.UserCreateWithoutDesignationInput,
+        Prisma.UserUncheckedCreateWithoutDesignationInput
+      >
+    | Prisma.UserCreateWithoutDesignationInput[]
+    | Prisma.UserUncheckedCreateWithoutDesignationInput[];
+  connectOrCreate?:
+    | Prisma.UserCreateOrConnectWithoutDesignationInput
+    | Prisma.UserCreateOrConnectWithoutDesignationInput[];
+  createMany?: Prisma.UserCreateManyDesignationInputEnvelope;
+  connect?: Prisma.UserWhereUniqueInput | Prisma.UserWhereUniqueInput[];
+};
+
+export type UserUpdateManyWithoutDesignationNestedInput = {
+  create?:
+    | Prisma.XOR<
+        Prisma.UserCreateWithoutDesignationInput,
+        Prisma.UserUncheckedCreateWithoutDesignationInput
+      >
+    | Prisma.UserCreateWithoutDesignationInput[]
+    | Prisma.UserUncheckedCreateWithoutDesignationInput[];
+  connectOrCreate?:
+    | Prisma.UserCreateOrConnectWithoutDesignationInput
+    | Prisma.UserCreateOrConnectWithoutDesignationInput[];
+  upsert?:
+    | Prisma.UserUpsertWithWhereUniqueWithoutDesignationInput
+    | Prisma.UserUpsertWithWhereUniqueWithoutDesignationInput[];
+  createMany?: Prisma.UserCreateManyDesignationInputEnvelope;
+  set?: Prisma.UserWhereUniqueInput | Prisma.UserWhereUniqueInput[];
+  disconnect?: Prisma.UserWhereUniqueInput | Prisma.UserWhereUniqueInput[];
+  delete?: Prisma.UserWhereUniqueInput | Prisma.UserWhereUniqueInput[];
+  connect?: Prisma.UserWhereUniqueInput | Prisma.UserWhereUniqueInput[];
+  update?:
+    | Prisma.UserUpdateWithWhereUniqueWithoutDesignationInput
+    | Prisma.UserUpdateWithWhereUniqueWithoutDesignationInput[];
+  updateMany?:
+    | Prisma.UserUpdateManyWithWhereWithoutDesignationInput
+    | Prisma.UserUpdateManyWithWhereWithoutDesignationInput[];
+  deleteMany?: Prisma.UserScalarWhereInput | Prisma.UserScalarWhereInput[];
+};
+
+export type UserUncheckedUpdateManyWithoutDesignationNestedInput = {
+  create?:
+    | Prisma.XOR<
+        Prisma.UserCreateWithoutDesignationInput,
+        Prisma.UserUncheckedCreateWithoutDesignationInput
+      >
+    | Prisma.UserCreateWithoutDesignationInput[]
+    | Prisma.UserUncheckedCreateWithoutDesignationInput[];
+  connectOrCreate?:
+    | Prisma.UserCreateOrConnectWithoutDesignationInput
+    | Prisma.UserCreateOrConnectWithoutDesignationInput[];
+  upsert?:
+    | Prisma.UserUpsertWithWhereUniqueWithoutDesignationInput
+    | Prisma.UserUpsertWithWhereUniqueWithoutDesignationInput[];
+  createMany?: Prisma.UserCreateManyDesignationInputEnvelope;
+  set?: Prisma.UserWhereUniqueInput | Prisma.UserWhereUniqueInput[];
+  disconnect?: Prisma.UserWhereUniqueInput | Prisma.UserWhereUniqueInput[];
+  delete?: Prisma.UserWhereUniqueInput | Prisma.UserWhereUniqueInput[];
+  connect?: Prisma.UserWhereUniqueInput | Prisma.UserWhereUniqueInput[];
+  update?:
+    | Prisma.UserUpdateWithWhereUniqueWithoutDesignationInput
+    | Prisma.UserUpdateWithWhereUniqueWithoutDesignationInput[];
+  updateMany?:
+    | Prisma.UserUpdateManyWithWhereWithoutDesignationInput
+    | Prisma.UserUpdateManyWithWhereWithoutDesignationInput[];
+  deleteMany?: Prisma.UserScalarWhereInput | Prisma.UserScalarWhereInput[];
+};
+
+export type UserCreateNestedOneWithoutCustomerProfileAnswersInput = {
+  create?: Prisma.XOR<
+    Prisma.UserCreateWithoutCustomerProfileAnswersInput,
+    Prisma.UserUncheckedCreateWithoutCustomerProfileAnswersInput
+  >;
+  connectOrCreate?: Prisma.UserCreateOrConnectWithoutCustomerProfileAnswersInput;
+  connect?: Prisma.UserWhereUniqueInput;
+};
+
+export type UserUpdateOneRequiredWithoutCustomerProfileAnswersNestedInput = {
+  create?: Prisma.XOR<
+    Prisma.UserCreateWithoutCustomerProfileAnswersInput,
+    Prisma.UserUncheckedCreateWithoutCustomerProfileAnswersInput
+  >;
+  connectOrCreate?: Prisma.UserCreateOrConnectWithoutCustomerProfileAnswersInput;
+  upsert?: Prisma.UserUpsertWithoutCustomerProfileAnswersInput;
+  connect?: Prisma.UserWhereUniqueInput;
+  update?: Prisma.XOR<
+    Prisma.XOR<
+      Prisma.UserUpdateToOneWithWhereWithoutCustomerProfileAnswersInput,
+      Prisma.UserUpdateWithoutCustomerProfileAnswersInput
+    >,
+    Prisma.UserUncheckedUpdateWithoutCustomerProfileAnswersInput
+  >;
+};
+
+export type UserCreateNestedOneWithoutAssignedVehiclesInput = {
+  create?: Prisma.XOR<
+    Prisma.UserCreateWithoutAssignedVehiclesInput,
+    Prisma.UserUncheckedCreateWithoutAssignedVehiclesInput
+  >;
+  connectOrCreate?: Prisma.UserCreateOrConnectWithoutAssignedVehiclesInput;
+  connect?: Prisma.UserWhereUniqueInput;
+};
+
+export type UserUpdateOneRequiredWithoutAssignedVehiclesNestedInput = {
+  create?: Prisma.XOR<
+    Prisma.UserCreateWithoutAssignedVehiclesInput,
+    Prisma.UserUncheckedCreateWithoutAssignedVehiclesInput
+  >;
+  connectOrCreate?: Prisma.UserCreateOrConnectWithoutAssignedVehiclesInput;
+  upsert?: Prisma.UserUpsertWithoutAssignedVehiclesInput;
+  connect?: Prisma.UserWhereUniqueInput;
+  update?: Prisma.XOR<
+    Prisma.XOR<
+      Prisma.UserUpdateToOneWithWhereWithoutAssignedVehiclesInput,
+      Prisma.UserUpdateWithoutAssignedVehiclesInput
+    >,
+    Prisma.UserUncheckedUpdateWithoutAssignedVehiclesInput
+  >;
+};
+
+export type UserCreateNestedOneWithoutReferralsInput = {
+  create?: Prisma.XOR<
+    Prisma.UserCreateWithoutReferralsInput,
+    Prisma.UserUncheckedCreateWithoutReferralsInput
+  >;
+  connectOrCreate?: Prisma.UserCreateOrConnectWithoutReferralsInput;
+  connect?: Prisma.UserWhereUniqueInput;
+};
+
+export type UserUpdateOneRequiredWithoutReferralsNestedInput = {
+  create?: Prisma.XOR<
+    Prisma.UserCreateWithoutReferralsInput,
+    Prisma.UserUncheckedCreateWithoutReferralsInput
+  >;
+  connectOrCreate?: Prisma.UserCreateOrConnectWithoutReferralsInput;
+  upsert?: Prisma.UserUpsertWithoutReferralsInput;
+  connect?: Prisma.UserWhereUniqueInput;
+  update?: Prisma.XOR<
+    Prisma.XOR<
+      Prisma.UserUpdateToOneWithWhereWithoutReferralsInput,
+      Prisma.UserUpdateWithoutReferralsInput
+    >,
+    Prisma.UserUncheckedUpdateWithoutReferralsInput
+  >;
+};
+
+export type UserCreateNestedOneWithoutFeedbacksInput = {
+  create?: Prisma.XOR<
+    Prisma.UserCreateWithoutFeedbacksInput,
+    Prisma.UserUncheckedCreateWithoutFeedbacksInput
+  >;
+  connectOrCreate?: Prisma.UserCreateOrConnectWithoutFeedbacksInput;
+  connect?: Prisma.UserWhereUniqueInput;
+};
+
+export type UserUpdateOneRequiredWithoutFeedbacksNestedInput = {
+  create?: Prisma.XOR<
+    Prisma.UserCreateWithoutFeedbacksInput,
+    Prisma.UserUncheckedCreateWithoutFeedbacksInput
+  >;
+  connectOrCreate?: Prisma.UserCreateOrConnectWithoutFeedbacksInput;
+  upsert?: Prisma.UserUpsertWithoutFeedbacksInput;
+  connect?: Prisma.UserWhereUniqueInput;
+  update?: Prisma.XOR<
+    Prisma.XOR<
+      Prisma.UserUpdateToOneWithWhereWithoutFeedbacksInput,
+      Prisma.UserUpdateWithoutFeedbacksInput
+    >,
+    Prisma.UserUncheckedUpdateWithoutFeedbacksInput
+  >;
+};
+
+export type UserCreateNestedOneWithoutCreatedTermsInput = {
+  create?: Prisma.XOR<
+    Prisma.UserCreateWithoutCreatedTermsInput,
+    Prisma.UserUncheckedCreateWithoutCreatedTermsInput
+  >;
+  connectOrCreate?: Prisma.UserCreateOrConnectWithoutCreatedTermsInput;
+  connect?: Prisma.UserWhereUniqueInput;
+};
+
+export type UserCreateNestedOneWithoutUpdatedTermsInput = {
+  create?: Prisma.XOR<
+    Prisma.UserCreateWithoutUpdatedTermsInput,
+    Prisma.UserUncheckedCreateWithoutUpdatedTermsInput
+  >;
+  connectOrCreate?: Prisma.UserCreateOrConnectWithoutUpdatedTermsInput;
+  connect?: Prisma.UserWhereUniqueInput;
+};
+
+export type UserUpdateOneRequiredWithoutCreatedTermsNestedInput = {
+  create?: Prisma.XOR<
+    Prisma.UserCreateWithoutCreatedTermsInput,
+    Prisma.UserUncheckedCreateWithoutCreatedTermsInput
+  >;
+  connectOrCreate?: Prisma.UserCreateOrConnectWithoutCreatedTermsInput;
+  upsert?: Prisma.UserUpsertWithoutCreatedTermsInput;
+  connect?: Prisma.UserWhereUniqueInput;
+  update?: Prisma.XOR<
+    Prisma.XOR<
+      Prisma.UserUpdateToOneWithWhereWithoutCreatedTermsInput,
+      Prisma.UserUpdateWithoutCreatedTermsInput
+    >,
+    Prisma.UserUncheckedUpdateWithoutCreatedTermsInput
+  >;
+};
+
+export type UserUpdateOneRequiredWithoutUpdatedTermsNestedInput = {
+  create?: Prisma.XOR<
+    Prisma.UserCreateWithoutUpdatedTermsInput,
+    Prisma.UserUncheckedCreateWithoutUpdatedTermsInput
+  >;
+  connectOrCreate?: Prisma.UserCreateOrConnectWithoutUpdatedTermsInput;
+  upsert?: Prisma.UserUpsertWithoutUpdatedTermsInput;
+  connect?: Prisma.UserWhereUniqueInput;
+  update?: Prisma.XOR<
+    Prisma.XOR<
+      Prisma.UserUpdateToOneWithWhereWithoutUpdatedTermsInput,
+      Prisma.UserUpdateWithoutUpdatedTermsInput
+    >,
+    Prisma.UserUncheckedUpdateWithoutUpdatedTermsInput
+  >;
+};
+
+export type UserCreateNestedOneWithoutNotificationInput = {
+  create?: Prisma.XOR<
+    Prisma.UserCreateWithoutNotificationInput,
+    Prisma.UserUncheckedCreateWithoutNotificationInput
+  >;
+  connectOrCreate?: Prisma.UserCreateOrConnectWithoutNotificationInput;
+  connect?: Prisma.UserWhereUniqueInput;
+};
+
+export type UserUpdateOneRequiredWithoutNotificationNestedInput = {
+  create?: Prisma.XOR<
+    Prisma.UserCreateWithoutNotificationInput,
+    Prisma.UserUncheckedCreateWithoutNotificationInput
+  >;
+  connectOrCreate?: Prisma.UserCreateOrConnectWithoutNotificationInput;
+  upsert?: Prisma.UserUpsertWithoutNotificationInput;
+  connect?: Prisma.UserWhereUniqueInput;
+  update?: Prisma.XOR<
+    Prisma.XOR<
+      Prisma.UserUpdateToOneWithWhereWithoutNotificationInput,
+      Prisma.UserUpdateWithoutNotificationInput
+    >,
+    Prisma.UserUncheckedUpdateWithoutNotificationInput
+  >;
+};
+
+export type UserCreateNestedOneWithoutCommunityPostInput = {
+  create?: Prisma.XOR<
+    Prisma.UserCreateWithoutCommunityPostInput,
+    Prisma.UserUncheckedCreateWithoutCommunityPostInput
+  >;
+  connectOrCreate?: Prisma.UserCreateOrConnectWithoutCommunityPostInput;
+  connect?: Prisma.UserWhereUniqueInput;
+};
+
+export type UserUpdateOneRequiredWithoutCommunityPostNestedInput = {
+  create?: Prisma.XOR<
+    Prisma.UserCreateWithoutCommunityPostInput,
+    Prisma.UserUncheckedCreateWithoutCommunityPostInput
+  >;
+  connectOrCreate?: Prisma.UserCreateOrConnectWithoutCommunityPostInput;
+  upsert?: Prisma.UserUpsertWithoutCommunityPostInput;
+  connect?: Prisma.UserWhereUniqueInput;
+  update?: Prisma.XOR<
+    Prisma.XOR<
+      Prisma.UserUpdateToOneWithWhereWithoutCommunityPostInput,
+      Prisma.UserUpdateWithoutCommunityPostInput
+    >,
+    Prisma.UserUncheckedUpdateWithoutCommunityPostInput
+  >;
+};
+
+export type UserCreateNestedOneWithoutLikesInput = {
+  create?: Prisma.XOR<
+    Prisma.UserCreateWithoutLikesInput,
+    Prisma.UserUncheckedCreateWithoutLikesInput
+  >;
+  connectOrCreate?: Prisma.UserCreateOrConnectWithoutLikesInput;
+  connect?: Prisma.UserWhereUniqueInput;
+};
+
+export type UserUpdateOneRequiredWithoutLikesNestedInput = {
+  create?: Prisma.XOR<
+    Prisma.UserCreateWithoutLikesInput,
+    Prisma.UserUncheckedCreateWithoutLikesInput
+  >;
+  connectOrCreate?: Prisma.UserCreateOrConnectWithoutLikesInput;
+  upsert?: Prisma.UserUpsertWithoutLikesInput;
+  connect?: Prisma.UserWhereUniqueInput;
+  update?: Prisma.XOR<
+    Prisma.XOR<
+      Prisma.UserUpdateToOneWithWhereWithoutLikesInput,
+      Prisma.UserUpdateWithoutLikesInput
+    >,
+    Prisma.UserUncheckedUpdateWithoutLikesInput
+  >;
+};
+
+export type UserCreateNestedManyWithoutAccessInput = {
+  create?:
+    | Prisma.XOR<
+        Prisma.UserCreateWithoutAccessInput,
+        Prisma.UserUncheckedCreateWithoutAccessInput
+      >
+    | Prisma.UserCreateWithoutAccessInput[]
+    | Prisma.UserUncheckedCreateWithoutAccessInput[];
+  connectOrCreate?:
+    | Prisma.UserCreateOrConnectWithoutAccessInput
+    | Prisma.UserCreateOrConnectWithoutAccessInput[];
+  createMany?: Prisma.UserCreateManyAccessInputEnvelope;
+  connect?: Prisma.UserWhereUniqueInput | Prisma.UserWhereUniqueInput[];
+};
+
+export type UserUncheckedCreateNestedManyWithoutAccessInput = {
+  create?:
+    | Prisma.XOR<
+        Prisma.UserCreateWithoutAccessInput,
+        Prisma.UserUncheckedCreateWithoutAccessInput
+      >
+    | Prisma.UserCreateWithoutAccessInput[]
+    | Prisma.UserUncheckedCreateWithoutAccessInput[];
+  connectOrCreate?:
+    | Prisma.UserCreateOrConnectWithoutAccessInput
+    | Prisma.UserCreateOrConnectWithoutAccessInput[];
+  createMany?: Prisma.UserCreateManyAccessInputEnvelope;
+  connect?: Prisma.UserWhereUniqueInput | Prisma.UserWhereUniqueInput[];
+};
+
+export type UserUpdateManyWithoutAccessNestedInput = {
+  create?:
+    | Prisma.XOR<
+        Prisma.UserCreateWithoutAccessInput,
+        Prisma.UserUncheckedCreateWithoutAccessInput
+      >
+    | Prisma.UserCreateWithoutAccessInput[]
+    | Prisma.UserUncheckedCreateWithoutAccessInput[];
+  connectOrCreate?:
+    | Prisma.UserCreateOrConnectWithoutAccessInput
+    | Prisma.UserCreateOrConnectWithoutAccessInput[];
+  upsert?:
+    | Prisma.UserUpsertWithWhereUniqueWithoutAccessInput
+    | Prisma.UserUpsertWithWhereUniqueWithoutAccessInput[];
+  createMany?: Prisma.UserCreateManyAccessInputEnvelope;
+  set?: Prisma.UserWhereUniqueInput | Prisma.UserWhereUniqueInput[];
+  disconnect?: Prisma.UserWhereUniqueInput | Prisma.UserWhereUniqueInput[];
+  delete?: Prisma.UserWhereUniqueInput | Prisma.UserWhereUniqueInput[];
+  connect?: Prisma.UserWhereUniqueInput | Prisma.UserWhereUniqueInput[];
+  update?:
+    | Prisma.UserUpdateWithWhereUniqueWithoutAccessInput
+    | Prisma.UserUpdateWithWhereUniqueWithoutAccessInput[];
+  updateMany?:
+    | Prisma.UserUpdateManyWithWhereWithoutAccessInput
+    | Prisma.UserUpdateManyWithWhereWithoutAccessInput[];
+  deleteMany?: Prisma.UserScalarWhereInput | Prisma.UserScalarWhereInput[];
+};
+
+export type UserUncheckedUpdateManyWithoutAccessNestedInput = {
+  create?:
+    | Prisma.XOR<
+        Prisma.UserCreateWithoutAccessInput,
+        Prisma.UserUncheckedCreateWithoutAccessInput
+      >
+    | Prisma.UserCreateWithoutAccessInput[]
+    | Prisma.UserUncheckedCreateWithoutAccessInput[];
+  connectOrCreate?:
+    | Prisma.UserCreateOrConnectWithoutAccessInput
+    | Prisma.UserCreateOrConnectWithoutAccessInput[];
+  upsert?:
+    | Prisma.UserUpsertWithWhereUniqueWithoutAccessInput
+    | Prisma.UserUpsertWithWhereUniqueWithoutAccessInput[];
+  createMany?: Prisma.UserCreateManyAccessInputEnvelope;
+  set?: Prisma.UserWhereUniqueInput | Prisma.UserWhereUniqueInput[];
+  disconnect?: Prisma.UserWhereUniqueInput | Prisma.UserWhereUniqueInput[];
+  delete?: Prisma.UserWhereUniqueInput | Prisma.UserWhereUniqueInput[];
+  connect?: Prisma.UserWhereUniqueInput | Prisma.UserWhereUniqueInput[];
+  update?:
+    | Prisma.UserUpdateWithWhereUniqueWithoutAccessInput
+    | Prisma.UserUpdateWithWhereUniqueWithoutAccessInput[];
+  updateMany?:
+    | Prisma.UserUpdateManyWithWhereWithoutAccessInput
+    | Prisma.UserUpdateManyWithWhereWithoutAccessInput[];
+  deleteMany?: Prisma.UserScalarWhereInput | Prisma.UserScalarWhereInput[];
+};
+
+export type UserCreateWithoutDesignationInput = {
+  id?: string;
+  email: string;
+  registeredName: string;
+  displayName: string;
+  gender: $Enums.EGender;
+  rfid: string;
+  registeredPhoneNumber: string;
+  contactPhoneNumber: string;
+  password: string;
+  address: string;
+  profilePhoto?: string | null;
+  dob: Date | string;
+  status?: $Enums.AccountStatus;
+  passwordResetOtp?: string | null;
+  passwordResetOtpExpirationTime?: Date | string | null;
+  passwordResetToken?: string | null;
+  passwordResetTokenExpirationTime?: Date | string | null;
+  createdAt?: Date | string;
+  updatedAt?: Date | string;
+  access?: Prisma.AccessPolicyCreateNestedOneWithoutUserInput;
+  customerProfileAnswers?: Prisma.CustomerProfileAnswersCreateNestedManyWithoutUserInput;
+  referrals?: Prisma.ReferralCreateNestedManyWithoutUserInput;
+  feedbacks?: Prisma.FeedbackCreateNestedManyWithoutUserInput;
+  notification?: Prisma.NotificationCreateNestedManyWithoutUserInput;
+  assignedVehicles?: Prisma.AssignedVehiclesCreateNestedManyWithoutUserInput;
+  communityPost?: Prisma.CommunityPostCreateNestedManyWithoutUserInput;
+  likes?: Prisma.LikeCreateNestedManyWithoutUserInput;
+  createdTerms?: Prisma.TermsAndPolicyCreateNestedManyWithoutCreatedByUserInput;
+  updatedTerms?: Prisma.TermsAndPolicyCreateNestedManyWithoutUpdatedByUserInput;
+};
+
+export type UserUncheckedCreateWithoutDesignationInput = {
+  id?: string;
+  email: string;
+  registeredName: string;
+  displayName: string;
+  gender: $Enums.EGender;
+  rfid: string;
+  registeredPhoneNumber: string;
+  contactPhoneNumber: string;
+  password: string;
+  address: string;
+  profilePhoto?: string | null;
+  dob: Date | string;
+  status?: $Enums.AccountStatus;
+  passwordResetOtp?: string | null;
+  passwordResetOtpExpirationTime?: Date | string | null;
+  passwordResetToken?: string | null;
+  passwordResetTokenExpirationTime?: Date | string | null;
+  accessId?: number | null;
+  createdAt?: Date | string;
+  updatedAt?: Date | string;
+  customerProfileAnswers?: Prisma.CustomerProfileAnswersUncheckedCreateNestedManyWithoutUserInput;
+  referrals?: Prisma.ReferralUncheckedCreateNestedManyWithoutUserInput;
+  feedbacks?: Prisma.FeedbackUncheckedCreateNestedManyWithoutUserInput;
+  notification?: Prisma.NotificationUncheckedCreateNestedManyWithoutUserInput;
+  assignedVehicles?: Prisma.AssignedVehiclesUncheckedCreateNestedManyWithoutUserInput;
+  communityPost?: Prisma.CommunityPostUncheckedCreateNestedManyWithoutUserInput;
+  likes?: Prisma.LikeUncheckedCreateNestedManyWithoutUserInput;
+  createdTerms?: Prisma.TermsAndPolicyUncheckedCreateNestedManyWithoutCreatedByUserInput;
+  updatedTerms?: Prisma.TermsAndPolicyUncheckedCreateNestedManyWithoutUpdatedByUserInput;
+};
+
+export type UserCreateOrConnectWithoutDesignationInput = {
+  where: Prisma.UserWhereUniqueInput;
+  create: Prisma.XOR<
+    Prisma.UserCreateWithoutDesignationInput,
+    Prisma.UserUncheckedCreateWithoutDesignationInput
+  >;
+};
+
+export type UserCreateManyDesignationInputEnvelope = {
+  data:
+    | Prisma.UserCreateManyDesignationInput
+    | Prisma.UserCreateManyDesignationInput[];
+  skipDuplicates?: boolean;
+};
+
+export type UserUpsertWithWhereUniqueWithoutDesignationInput = {
+  where: Prisma.UserWhereUniqueInput;
+  update: Prisma.XOR<
+    Prisma.UserUpdateWithoutDesignationInput,
+    Prisma.UserUncheckedUpdateWithoutDesignationInput
+  >;
+  create: Prisma.XOR<
+    Prisma.UserCreateWithoutDesignationInput,
+    Prisma.UserUncheckedCreateWithoutDesignationInput
+  >;
+};
+
+export type UserUpdateWithWhereUniqueWithoutDesignationInput = {
+  where: Prisma.UserWhereUniqueInput;
+  data: Prisma.XOR<
+    Prisma.UserUpdateWithoutDesignationInput,
+    Prisma.UserUncheckedUpdateWithoutDesignationInput
+  >;
+};
+
+export type UserUpdateManyWithWhereWithoutDesignationInput = {
+  where: Prisma.UserScalarWhereInput;
+  data: Prisma.XOR<
+    Prisma.UserUpdateManyMutationInput,
+    Prisma.UserUncheckedUpdateManyWithoutDesignationInput
+  >;
+};
+
+export type UserScalarWhereInput = {
+  AND?: Prisma.UserScalarWhereInput | Prisma.UserScalarWhereInput[];
+  OR?: Prisma.UserScalarWhereInput[];
+  NOT?: Prisma.UserScalarWhereInput | Prisma.UserScalarWhereInput[];
+  id?: Prisma.UuidFilter<'User'> | string;
+  email?: Prisma.StringFilter<'User'> | string;
+  registeredName?: Prisma.StringFilter<'User'> | string;
+  displayName?: Prisma.StringFilter<'User'> | string;
+  gender?: Prisma.EnumEGenderFilter<'User'> | $Enums.EGender;
+  rfid?: Prisma.StringFilter<'User'> | string;
+  registeredPhoneNumber?: Prisma.StringFilter<'User'> | string;
+  contactPhoneNumber?: Prisma.StringFilter<'User'> | string;
+  password?: Prisma.StringFilter<'User'> | string;
+  address?: Prisma.StringFilter<'User'> | string;
+  profilePhoto?: Prisma.StringNullableFilter<'User'> | string | null;
+  dob?: Prisma.DateTimeFilter<'User'> | Date | string;
+  status?: Prisma.EnumAccountStatusFilter<'User'> | $Enums.AccountStatus;
+  passwordResetOtp?: Prisma.StringNullableFilter<'User'> | string | null;
+  passwordResetOtpExpirationTime?:
+    | Prisma.DateTimeNullableFilter<'User'>
+    | Date
+    | string
+    | null;
+  passwordResetToken?: Prisma.StringNullableFilter<'User'> | string | null;
+  passwordResetTokenExpirationTime?:
+    | Prisma.DateTimeNullableFilter<'User'>
+    | Date
+    | string
+    | null;
+  accessId?: Prisma.IntNullableFilter<'User'> | number | null;
+  designationId?: Prisma.UuidNullableFilter<'User'> | string | null;
+  createdAt?: Prisma.DateTimeFilter<'User'> | Date | string;
+  updatedAt?: Prisma.DateTimeFilter<'User'> | Date | string;
+};
+
+export type UserCreateWithoutCustomerProfileAnswersInput = {
+  id?: string;
+  email: string;
+  registeredName: string;
+  displayName: string;
+  gender: $Enums.EGender;
+  rfid: string;
+  registeredPhoneNumber: string;
+  contactPhoneNumber: string;
+  password: string;
+  address: string;
+  profilePhoto?: string | null;
+  dob: Date | string;
+  status?: $Enums.AccountStatus;
+  passwordResetOtp?: string | null;
+  passwordResetOtpExpirationTime?: Date | string | null;
+  passwordResetToken?: string | null;
+  passwordResetTokenExpirationTime?: Date | string | null;
+  createdAt?: Date | string;
+  updatedAt?: Date | string;
+  access?: Prisma.AccessPolicyCreateNestedOneWithoutUserInput;
+  designation?: Prisma.DesignationCreateNestedOneWithoutUsersInput;
+  referrals?: Prisma.ReferralCreateNestedManyWithoutUserInput;
+  feedbacks?: Prisma.FeedbackCreateNestedManyWithoutUserInput;
+  notification?: Prisma.NotificationCreateNestedManyWithoutUserInput;
+  assignedVehicles?: Prisma.AssignedVehiclesCreateNestedManyWithoutUserInput;
+  communityPost?: Prisma.CommunityPostCreateNestedManyWithoutUserInput;
+  likes?: Prisma.LikeCreateNestedManyWithoutUserInput;
+  createdTerms?: Prisma.TermsAndPolicyCreateNestedManyWithoutCreatedByUserInput;
+  updatedTerms?: Prisma.TermsAndPolicyCreateNestedManyWithoutUpdatedByUserInput;
+};
+
+export type UserUncheckedCreateWithoutCustomerProfileAnswersInput = {
+  id?: string;
+  email: string;
+  registeredName: string;
+  displayName: string;
+  gender: $Enums.EGender;
+  rfid: string;
+  registeredPhoneNumber: string;
+  contactPhoneNumber: string;
+  password: string;
+  address: string;
+  profilePhoto?: string | null;
+  dob: Date | string;
+  status?: $Enums.AccountStatus;
+  passwordResetOtp?: string | null;
+  passwordResetOtpExpirationTime?: Date | string | null;
+  passwordResetToken?: string | null;
+  passwordResetTokenExpirationTime?: Date | string | null;
+  accessId?: number | null;
+  designationId?: string | null;
+  createdAt?: Date | string;
+  updatedAt?: Date | string;
+  referrals?: Prisma.ReferralUncheckedCreateNestedManyWithoutUserInput;
+  feedbacks?: Prisma.FeedbackUncheckedCreateNestedManyWithoutUserInput;
+  notification?: Prisma.NotificationUncheckedCreateNestedManyWithoutUserInput;
+  assignedVehicles?: Prisma.AssignedVehiclesUncheckedCreateNestedManyWithoutUserInput;
+  communityPost?: Prisma.CommunityPostUncheckedCreateNestedManyWithoutUserInput;
+  likes?: Prisma.LikeUncheckedCreateNestedManyWithoutUserInput;
+  createdTerms?: Prisma.TermsAndPolicyUncheckedCreateNestedManyWithoutCreatedByUserInput;
+  updatedTerms?: Prisma.TermsAndPolicyUncheckedCreateNestedManyWithoutUpdatedByUserInput;
+};
+
+export type UserCreateOrConnectWithoutCustomerProfileAnswersInput = {
+  where: Prisma.UserWhereUniqueInput;
+  create: Prisma.XOR<
+    Prisma.UserCreateWithoutCustomerProfileAnswersInput,
+    Prisma.UserUncheckedCreateWithoutCustomerProfileAnswersInput
+  >;
+};
+
+export type UserUpsertWithoutCustomerProfileAnswersInput = {
+  update: Prisma.XOR<
+    Prisma.UserUpdateWithoutCustomerProfileAnswersInput,
+    Prisma.UserUncheckedUpdateWithoutCustomerProfileAnswersInput
+  >;
+  create: Prisma.XOR<
+    Prisma.UserCreateWithoutCustomerProfileAnswersInput,
+    Prisma.UserUncheckedCreateWithoutCustomerProfileAnswersInput
+  >;
+  where?: Prisma.UserWhereInput;
+};
+
+export type UserUpdateToOneWithWhereWithoutCustomerProfileAnswersInput = {
+  where?: Prisma.UserWhereInput;
+  data: Prisma.XOR<
+    Prisma.UserUpdateWithoutCustomerProfileAnswersInput,
+    Prisma.UserUncheckedUpdateWithoutCustomerProfileAnswersInput
+  >;
+};
+
+export type UserUpdateWithoutCustomerProfileAnswersInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string;
+  email?: Prisma.StringFieldUpdateOperationsInput | string;
+  registeredName?: Prisma.StringFieldUpdateOperationsInput | string;
+  displayName?: Prisma.StringFieldUpdateOperationsInput | string;
+  gender?: Prisma.EnumEGenderFieldUpdateOperationsInput | $Enums.EGender;
+  rfid?: Prisma.StringFieldUpdateOperationsInput | string;
+  registeredPhoneNumber?: Prisma.StringFieldUpdateOperationsInput | string;
+  contactPhoneNumber?: Prisma.StringFieldUpdateOperationsInput | string;
+  password?: Prisma.StringFieldUpdateOperationsInput | string;
+  address?: Prisma.StringFieldUpdateOperationsInput | string;
+  profilePhoto?:
+    | Prisma.NullableStringFieldUpdateOperationsInput
+    | string
+    | null;
+  dob?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
+  status?:
+    | Prisma.EnumAccountStatusFieldUpdateOperationsInput
+    | $Enums.AccountStatus;
+  passwordResetOtp?:
+    | Prisma.NullableStringFieldUpdateOperationsInput
+    | string
+    | null;
+  passwordResetOtpExpirationTime?:
+    | Prisma.NullableDateTimeFieldUpdateOperationsInput
+    | Date
+    | string
+    | null;
+  passwordResetToken?:
+    | Prisma.NullableStringFieldUpdateOperationsInput
+    | string
+    | null;
+  passwordResetTokenExpirationTime?:
+    | Prisma.NullableDateTimeFieldUpdateOperationsInput
+    | Date
+    | string
+    | null;
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
+  access?: Prisma.AccessPolicyUpdateOneWithoutUserNestedInput;
+  designation?: Prisma.DesignationUpdateOneWithoutUsersNestedInput;
+  referrals?: Prisma.ReferralUpdateManyWithoutUserNestedInput;
+  feedbacks?: Prisma.FeedbackUpdateManyWithoutUserNestedInput;
+  notification?: Prisma.NotificationUpdateManyWithoutUserNestedInput;
+  assignedVehicles?: Prisma.AssignedVehiclesUpdateManyWithoutUserNestedInput;
+  communityPost?: Prisma.CommunityPostUpdateManyWithoutUserNestedInput;
+  likes?: Prisma.LikeUpdateManyWithoutUserNestedInput;
+  createdTerms?: Prisma.TermsAndPolicyUpdateManyWithoutCreatedByUserNestedInput;
+  updatedTerms?: Prisma.TermsAndPolicyUpdateManyWithoutUpdatedByUserNestedInput;
+};
+
+export type UserUncheckedUpdateWithoutCustomerProfileAnswersInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string;
+  email?: Prisma.StringFieldUpdateOperationsInput | string;
+  registeredName?: Prisma.StringFieldUpdateOperationsInput | string;
+  displayName?: Prisma.StringFieldUpdateOperationsInput | string;
+  gender?: Prisma.EnumEGenderFieldUpdateOperationsInput | $Enums.EGender;
+  rfid?: Prisma.StringFieldUpdateOperationsInput | string;
+  registeredPhoneNumber?: Prisma.StringFieldUpdateOperationsInput | string;
+  contactPhoneNumber?: Prisma.StringFieldUpdateOperationsInput | string;
+  password?: Prisma.StringFieldUpdateOperationsInput | string;
+  address?: Prisma.StringFieldUpdateOperationsInput | string;
+  profilePhoto?:
+    | Prisma.NullableStringFieldUpdateOperationsInput
+    | string
+    | null;
+  dob?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
+  status?:
+    | Prisma.EnumAccountStatusFieldUpdateOperationsInput
+    | $Enums.AccountStatus;
+  passwordResetOtp?:
+    | Prisma.NullableStringFieldUpdateOperationsInput
+    | string
+    | null;
+  passwordResetOtpExpirationTime?:
+    | Prisma.NullableDateTimeFieldUpdateOperationsInput
+    | Date
+    | string
+    | null;
+  passwordResetToken?:
+    | Prisma.NullableStringFieldUpdateOperationsInput
+    | string
+    | null;
+  passwordResetTokenExpirationTime?:
+    | Prisma.NullableDateTimeFieldUpdateOperationsInput
+    | Date
+    | string
+    | null;
+  accessId?: Prisma.NullableIntFieldUpdateOperationsInput | number | null;
+  designationId?:
+    | Prisma.NullableStringFieldUpdateOperationsInput
+    | string
+    | null;
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
+  referrals?: Prisma.ReferralUncheckedUpdateManyWithoutUserNestedInput;
+  feedbacks?: Prisma.FeedbackUncheckedUpdateManyWithoutUserNestedInput;
+  notification?: Prisma.NotificationUncheckedUpdateManyWithoutUserNestedInput;
+  assignedVehicles?: Prisma.AssignedVehiclesUncheckedUpdateManyWithoutUserNestedInput;
+  communityPost?: Prisma.CommunityPostUncheckedUpdateManyWithoutUserNestedInput;
+  likes?: Prisma.LikeUncheckedUpdateManyWithoutUserNestedInput;
+  createdTerms?: Prisma.TermsAndPolicyUncheckedUpdateManyWithoutCreatedByUserNestedInput;
+  updatedTerms?: Prisma.TermsAndPolicyUncheckedUpdateManyWithoutUpdatedByUserNestedInput;
+};
+
+export type UserCreateWithoutAssignedVehiclesInput = {
+  id?: string;
+  email: string;
+  registeredName: string;
+  displayName: string;
+  gender: $Enums.EGender;
+  rfid: string;
+  registeredPhoneNumber: string;
+  contactPhoneNumber: string;
+  password: string;
+  address: string;
+  profilePhoto?: string | null;
+  dob: Date | string;
+  status?: $Enums.AccountStatus;
+  passwordResetOtp?: string | null;
+  passwordResetOtpExpirationTime?: Date | string | null;
+  passwordResetToken?: string | null;
+  passwordResetTokenExpirationTime?: Date | string | null;
+  createdAt?: Date | string;
+  updatedAt?: Date | string;
+  access?: Prisma.AccessPolicyCreateNestedOneWithoutUserInput;
+  designation?: Prisma.DesignationCreateNestedOneWithoutUsersInput;
+  customerProfileAnswers?: Prisma.CustomerProfileAnswersCreateNestedManyWithoutUserInput;
+  referrals?: Prisma.ReferralCreateNestedManyWithoutUserInput;
+  feedbacks?: Prisma.FeedbackCreateNestedManyWithoutUserInput;
+  notification?: Prisma.NotificationCreateNestedManyWithoutUserInput;
+  communityPost?: Prisma.CommunityPostCreateNestedManyWithoutUserInput;
+  likes?: Prisma.LikeCreateNestedManyWithoutUserInput;
+  createdTerms?: Prisma.TermsAndPolicyCreateNestedManyWithoutCreatedByUserInput;
+  updatedTerms?: Prisma.TermsAndPolicyCreateNestedManyWithoutUpdatedByUserInput;
+};
+
+export type UserUncheckedCreateWithoutAssignedVehiclesInput = {
+  id?: string;
+  email: string;
+  registeredName: string;
+  displayName: string;
+  gender: $Enums.EGender;
+  rfid: string;
+  registeredPhoneNumber: string;
+  contactPhoneNumber: string;
+  password: string;
+  address: string;
+  profilePhoto?: string | null;
+  dob: Date | string;
+  status?: $Enums.AccountStatus;
+  passwordResetOtp?: string | null;
+  passwordResetOtpExpirationTime?: Date | string | null;
+  passwordResetToken?: string | null;
+  passwordResetTokenExpirationTime?: Date | string | null;
+  accessId?: number | null;
+  designationId?: string | null;
+  createdAt?: Date | string;
+  updatedAt?: Date | string;
+  customerProfileAnswers?: Prisma.CustomerProfileAnswersUncheckedCreateNestedManyWithoutUserInput;
+  referrals?: Prisma.ReferralUncheckedCreateNestedManyWithoutUserInput;
+  feedbacks?: Prisma.FeedbackUncheckedCreateNestedManyWithoutUserInput;
+  notification?: Prisma.NotificationUncheckedCreateNestedManyWithoutUserInput;
+  communityPost?: Prisma.CommunityPostUncheckedCreateNestedManyWithoutUserInput;
+  likes?: Prisma.LikeUncheckedCreateNestedManyWithoutUserInput;
+  createdTerms?: Prisma.TermsAndPolicyUncheckedCreateNestedManyWithoutCreatedByUserInput;
+  updatedTerms?: Prisma.TermsAndPolicyUncheckedCreateNestedManyWithoutUpdatedByUserInput;
+};
+
+export type UserCreateOrConnectWithoutAssignedVehiclesInput = {
+  where: Prisma.UserWhereUniqueInput;
+  create: Prisma.XOR<
+    Prisma.UserCreateWithoutAssignedVehiclesInput,
+    Prisma.UserUncheckedCreateWithoutAssignedVehiclesInput
+  >;
+};
+
+export type UserUpsertWithoutAssignedVehiclesInput = {
+  update: Prisma.XOR<
+    Prisma.UserUpdateWithoutAssignedVehiclesInput,
+    Prisma.UserUncheckedUpdateWithoutAssignedVehiclesInput
+  >;
+  create: Prisma.XOR<
+    Prisma.UserCreateWithoutAssignedVehiclesInput,
+    Prisma.UserUncheckedCreateWithoutAssignedVehiclesInput
+  >;
+  where?: Prisma.UserWhereInput;
+};
+
+export type UserUpdateToOneWithWhereWithoutAssignedVehiclesInput = {
+  where?: Prisma.UserWhereInput;
+  data: Prisma.XOR<
+    Prisma.UserUpdateWithoutAssignedVehiclesInput,
+    Prisma.UserUncheckedUpdateWithoutAssignedVehiclesInput
+  >;
+};
+
+export type UserUpdateWithoutAssignedVehiclesInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string;
+  email?: Prisma.StringFieldUpdateOperationsInput | string;
+  registeredName?: Prisma.StringFieldUpdateOperationsInput | string;
+  displayName?: Prisma.StringFieldUpdateOperationsInput | string;
+  gender?: Prisma.EnumEGenderFieldUpdateOperationsInput | $Enums.EGender;
+  rfid?: Prisma.StringFieldUpdateOperationsInput | string;
+  registeredPhoneNumber?: Prisma.StringFieldUpdateOperationsInput | string;
+  contactPhoneNumber?: Prisma.StringFieldUpdateOperationsInput | string;
+  password?: Prisma.StringFieldUpdateOperationsInput | string;
+  address?: Prisma.StringFieldUpdateOperationsInput | string;
+  profilePhoto?:
+    | Prisma.NullableStringFieldUpdateOperationsInput
+    | string
+    | null;
+  dob?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
+  status?:
+    | Prisma.EnumAccountStatusFieldUpdateOperationsInput
+    | $Enums.AccountStatus;
+  passwordResetOtp?:
+    | Prisma.NullableStringFieldUpdateOperationsInput
+    | string
+    | null;
+  passwordResetOtpExpirationTime?:
+    | Prisma.NullableDateTimeFieldUpdateOperationsInput
+    | Date
+    | string
+    | null;
+  passwordResetToken?:
+    | Prisma.NullableStringFieldUpdateOperationsInput
+    | string
+    | null;
+  passwordResetTokenExpirationTime?:
+    | Prisma.NullableDateTimeFieldUpdateOperationsInput
+    | Date
+    | string
+    | null;
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
+  access?: Prisma.AccessPolicyUpdateOneWithoutUserNestedInput;
+  designation?: Prisma.DesignationUpdateOneWithoutUsersNestedInput;
+  customerProfileAnswers?: Prisma.CustomerProfileAnswersUpdateManyWithoutUserNestedInput;
+  referrals?: Prisma.ReferralUpdateManyWithoutUserNestedInput;
+  feedbacks?: Prisma.FeedbackUpdateManyWithoutUserNestedInput;
+  notification?: Prisma.NotificationUpdateManyWithoutUserNestedInput;
+  communityPost?: Prisma.CommunityPostUpdateManyWithoutUserNestedInput;
+  likes?: Prisma.LikeUpdateManyWithoutUserNestedInput;
+  createdTerms?: Prisma.TermsAndPolicyUpdateManyWithoutCreatedByUserNestedInput;
+  updatedTerms?: Prisma.TermsAndPolicyUpdateManyWithoutUpdatedByUserNestedInput;
+};
+
+export type UserUncheckedUpdateWithoutAssignedVehiclesInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string;
+  email?: Prisma.StringFieldUpdateOperationsInput | string;
+  registeredName?: Prisma.StringFieldUpdateOperationsInput | string;
+  displayName?: Prisma.StringFieldUpdateOperationsInput | string;
+  gender?: Prisma.EnumEGenderFieldUpdateOperationsInput | $Enums.EGender;
+  rfid?: Prisma.StringFieldUpdateOperationsInput | string;
+  registeredPhoneNumber?: Prisma.StringFieldUpdateOperationsInput | string;
+  contactPhoneNumber?: Prisma.StringFieldUpdateOperationsInput | string;
+  password?: Prisma.StringFieldUpdateOperationsInput | string;
+  address?: Prisma.StringFieldUpdateOperationsInput | string;
+  profilePhoto?:
+    | Prisma.NullableStringFieldUpdateOperationsInput
+    | string
+    | null;
+  dob?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
+  status?:
+    | Prisma.EnumAccountStatusFieldUpdateOperationsInput
+    | $Enums.AccountStatus;
+  passwordResetOtp?:
+    | Prisma.NullableStringFieldUpdateOperationsInput
+    | string
+    | null;
+  passwordResetOtpExpirationTime?:
+    | Prisma.NullableDateTimeFieldUpdateOperationsInput
+    | Date
+    | string
+    | null;
+  passwordResetToken?:
+    | Prisma.NullableStringFieldUpdateOperationsInput
+    | string
+    | null;
+  passwordResetTokenExpirationTime?:
+    | Prisma.NullableDateTimeFieldUpdateOperationsInput
+    | Date
+    | string
+    | null;
+  accessId?: Prisma.NullableIntFieldUpdateOperationsInput | number | null;
+  designationId?:
+    | Prisma.NullableStringFieldUpdateOperationsInput
+    | string
+    | null;
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
+  customerProfileAnswers?: Prisma.CustomerProfileAnswersUncheckedUpdateManyWithoutUserNestedInput;
+  referrals?: Prisma.ReferralUncheckedUpdateManyWithoutUserNestedInput;
+  feedbacks?: Prisma.FeedbackUncheckedUpdateManyWithoutUserNestedInput;
+  notification?: Prisma.NotificationUncheckedUpdateManyWithoutUserNestedInput;
+  communityPost?: Prisma.CommunityPostUncheckedUpdateManyWithoutUserNestedInput;
+  likes?: Prisma.LikeUncheckedUpdateManyWithoutUserNestedInput;
+  createdTerms?: Prisma.TermsAndPolicyUncheckedUpdateManyWithoutCreatedByUserNestedInput;
+  updatedTerms?: Prisma.TermsAndPolicyUncheckedUpdateManyWithoutUpdatedByUserNestedInput;
+};
+
+export type UserCreateWithoutReferralsInput = {
+  id?: string;
+  email: string;
+  registeredName: string;
+  displayName: string;
+  gender: $Enums.EGender;
+  rfid: string;
+  registeredPhoneNumber: string;
+  contactPhoneNumber: string;
+  password: string;
+  address: string;
+  profilePhoto?: string | null;
+  dob: Date | string;
+  status?: $Enums.AccountStatus;
+  passwordResetOtp?: string | null;
+  passwordResetOtpExpirationTime?: Date | string | null;
+  passwordResetToken?: string | null;
+  passwordResetTokenExpirationTime?: Date | string | null;
+  createdAt?: Date | string;
+  updatedAt?: Date | string;
+  access?: Prisma.AccessPolicyCreateNestedOneWithoutUserInput;
+  designation?: Prisma.DesignationCreateNestedOneWithoutUsersInput;
+  customerProfileAnswers?: Prisma.CustomerProfileAnswersCreateNestedManyWithoutUserInput;
+  feedbacks?: Prisma.FeedbackCreateNestedManyWithoutUserInput;
+  notification?: Prisma.NotificationCreateNestedManyWithoutUserInput;
+  assignedVehicles?: Prisma.AssignedVehiclesCreateNestedManyWithoutUserInput;
+  communityPost?: Prisma.CommunityPostCreateNestedManyWithoutUserInput;
+  likes?: Prisma.LikeCreateNestedManyWithoutUserInput;
+  createdTerms?: Prisma.TermsAndPolicyCreateNestedManyWithoutCreatedByUserInput;
+  updatedTerms?: Prisma.TermsAndPolicyCreateNestedManyWithoutUpdatedByUserInput;
+};
+
+export type UserUncheckedCreateWithoutReferralsInput = {
+  id?: string;
+  email: string;
+  registeredName: string;
+  displayName: string;
+  gender: $Enums.EGender;
+  rfid: string;
+  registeredPhoneNumber: string;
+  contactPhoneNumber: string;
+  password: string;
+  address: string;
+  profilePhoto?: string | null;
+  dob: Date | string;
+  status?: $Enums.AccountStatus;
+  passwordResetOtp?: string | null;
+  passwordResetOtpExpirationTime?: Date | string | null;
+  passwordResetToken?: string | null;
+  passwordResetTokenExpirationTime?: Date | string | null;
+  accessId?: number | null;
+  designationId?: string | null;
+  createdAt?: Date | string;
+  updatedAt?: Date | string;
+  customerProfileAnswers?: Prisma.CustomerProfileAnswersUncheckedCreateNestedManyWithoutUserInput;
+  feedbacks?: Prisma.FeedbackUncheckedCreateNestedManyWithoutUserInput;
+  notification?: Prisma.NotificationUncheckedCreateNestedManyWithoutUserInput;
+  assignedVehicles?: Prisma.AssignedVehiclesUncheckedCreateNestedManyWithoutUserInput;
+  communityPost?: Prisma.CommunityPostUncheckedCreateNestedManyWithoutUserInput;
+  likes?: Prisma.LikeUncheckedCreateNestedManyWithoutUserInput;
+  createdTerms?: Prisma.TermsAndPolicyUncheckedCreateNestedManyWithoutCreatedByUserInput;
+  updatedTerms?: Prisma.TermsAndPolicyUncheckedCreateNestedManyWithoutUpdatedByUserInput;
+};
+
+export type UserCreateOrConnectWithoutReferralsInput = {
+  where: Prisma.UserWhereUniqueInput;
+  create: Prisma.XOR<
+    Prisma.UserCreateWithoutReferralsInput,
+    Prisma.UserUncheckedCreateWithoutReferralsInput
+  >;
+};
+
+export type UserUpsertWithoutReferralsInput = {
+  update: Prisma.XOR<
+    Prisma.UserUpdateWithoutReferralsInput,
+    Prisma.UserUncheckedUpdateWithoutReferralsInput
+  >;
+  create: Prisma.XOR<
+    Prisma.UserCreateWithoutReferralsInput,
+    Prisma.UserUncheckedCreateWithoutReferralsInput
+  >;
+  where?: Prisma.UserWhereInput;
+};
+
+export type UserUpdateToOneWithWhereWithoutReferralsInput = {
+  where?: Prisma.UserWhereInput;
+  data: Prisma.XOR<
+    Prisma.UserUpdateWithoutReferralsInput,
+    Prisma.UserUncheckedUpdateWithoutReferralsInput
+  >;
+};
+
+export type UserUpdateWithoutReferralsInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string;
+  email?: Prisma.StringFieldUpdateOperationsInput | string;
+  registeredName?: Prisma.StringFieldUpdateOperationsInput | string;
+  displayName?: Prisma.StringFieldUpdateOperationsInput | string;
+  gender?: Prisma.EnumEGenderFieldUpdateOperationsInput | $Enums.EGender;
+  rfid?: Prisma.StringFieldUpdateOperationsInput | string;
+  registeredPhoneNumber?: Prisma.StringFieldUpdateOperationsInput | string;
+  contactPhoneNumber?: Prisma.StringFieldUpdateOperationsInput | string;
+  password?: Prisma.StringFieldUpdateOperationsInput | string;
+  address?: Prisma.StringFieldUpdateOperationsInput | string;
+  profilePhoto?:
+    | Prisma.NullableStringFieldUpdateOperationsInput
+    | string
+    | null;
+  dob?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
+  status?:
+    | Prisma.EnumAccountStatusFieldUpdateOperationsInput
+    | $Enums.AccountStatus;
+  passwordResetOtp?:
+    | Prisma.NullableStringFieldUpdateOperationsInput
+    | string
+    | null;
+  passwordResetOtpExpirationTime?:
+    | Prisma.NullableDateTimeFieldUpdateOperationsInput
+    | Date
+    | string
+    | null;
+  passwordResetToken?:
+    | Prisma.NullableStringFieldUpdateOperationsInput
+    | string
+    | null;
+  passwordResetTokenExpirationTime?:
+    | Prisma.NullableDateTimeFieldUpdateOperationsInput
+    | Date
+    | string
+    | null;
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
+  access?: Prisma.AccessPolicyUpdateOneWithoutUserNestedInput;
+  designation?: Prisma.DesignationUpdateOneWithoutUsersNestedInput;
+  customerProfileAnswers?: Prisma.CustomerProfileAnswersUpdateManyWithoutUserNestedInput;
+  feedbacks?: Prisma.FeedbackUpdateManyWithoutUserNestedInput;
+  notification?: Prisma.NotificationUpdateManyWithoutUserNestedInput;
+  assignedVehicles?: Prisma.AssignedVehiclesUpdateManyWithoutUserNestedInput;
+  communityPost?: Prisma.CommunityPostUpdateManyWithoutUserNestedInput;
+  likes?: Prisma.LikeUpdateManyWithoutUserNestedInput;
+  createdTerms?: Prisma.TermsAndPolicyUpdateManyWithoutCreatedByUserNestedInput;
+  updatedTerms?: Prisma.TermsAndPolicyUpdateManyWithoutUpdatedByUserNestedInput;
+};
+
+export type UserUncheckedUpdateWithoutReferralsInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string;
+  email?: Prisma.StringFieldUpdateOperationsInput | string;
+  registeredName?: Prisma.StringFieldUpdateOperationsInput | string;
+  displayName?: Prisma.StringFieldUpdateOperationsInput | string;
+  gender?: Prisma.EnumEGenderFieldUpdateOperationsInput | $Enums.EGender;
+  rfid?: Prisma.StringFieldUpdateOperationsInput | string;
+  registeredPhoneNumber?: Prisma.StringFieldUpdateOperationsInput | string;
+  contactPhoneNumber?: Prisma.StringFieldUpdateOperationsInput | string;
+  password?: Prisma.StringFieldUpdateOperationsInput | string;
+  address?: Prisma.StringFieldUpdateOperationsInput | string;
+  profilePhoto?:
+    | Prisma.NullableStringFieldUpdateOperationsInput
+    | string
+    | null;
+  dob?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
+  status?:
+    | Prisma.EnumAccountStatusFieldUpdateOperationsInput
+    | $Enums.AccountStatus;
+  passwordResetOtp?:
+    | Prisma.NullableStringFieldUpdateOperationsInput
+    | string
+    | null;
+  passwordResetOtpExpirationTime?:
+    | Prisma.NullableDateTimeFieldUpdateOperationsInput
+    | Date
+    | string
+    | null;
+  passwordResetToken?:
+    | Prisma.NullableStringFieldUpdateOperationsInput
+    | string
+    | null;
+  passwordResetTokenExpirationTime?:
+    | Prisma.NullableDateTimeFieldUpdateOperationsInput
+    | Date
+    | string
+    | null;
+  accessId?: Prisma.NullableIntFieldUpdateOperationsInput | number | null;
+  designationId?:
+    | Prisma.NullableStringFieldUpdateOperationsInput
+    | string
+    | null;
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
+  customerProfileAnswers?: Prisma.CustomerProfileAnswersUncheckedUpdateManyWithoutUserNestedInput;
+  feedbacks?: Prisma.FeedbackUncheckedUpdateManyWithoutUserNestedInput;
+  notification?: Prisma.NotificationUncheckedUpdateManyWithoutUserNestedInput;
+  assignedVehicles?: Prisma.AssignedVehiclesUncheckedUpdateManyWithoutUserNestedInput;
+  communityPost?: Prisma.CommunityPostUncheckedUpdateManyWithoutUserNestedInput;
+  likes?: Prisma.LikeUncheckedUpdateManyWithoutUserNestedInput;
+  createdTerms?: Prisma.TermsAndPolicyUncheckedUpdateManyWithoutCreatedByUserNestedInput;
+  updatedTerms?: Prisma.TermsAndPolicyUncheckedUpdateManyWithoutUpdatedByUserNestedInput;
+};
+
+export type UserCreateWithoutFeedbacksInput = {
+  id?: string;
+  email: string;
+  registeredName: string;
+  displayName: string;
+  gender: $Enums.EGender;
+  rfid: string;
+  registeredPhoneNumber: string;
+  contactPhoneNumber: string;
+  password: string;
+  address: string;
+  profilePhoto?: string | null;
+  dob: Date | string;
+  status?: $Enums.AccountStatus;
+  passwordResetOtp?: string | null;
+  passwordResetOtpExpirationTime?: Date | string | null;
+  passwordResetToken?: string | null;
+  passwordResetTokenExpirationTime?: Date | string | null;
+  createdAt?: Date | string;
+  updatedAt?: Date | string;
+  access?: Prisma.AccessPolicyCreateNestedOneWithoutUserInput;
+  designation?: Prisma.DesignationCreateNestedOneWithoutUsersInput;
+  customerProfileAnswers?: Prisma.CustomerProfileAnswersCreateNestedManyWithoutUserInput;
+  referrals?: Prisma.ReferralCreateNestedManyWithoutUserInput;
+  notification?: Prisma.NotificationCreateNestedManyWithoutUserInput;
+  assignedVehicles?: Prisma.AssignedVehiclesCreateNestedManyWithoutUserInput;
+  communityPost?: Prisma.CommunityPostCreateNestedManyWithoutUserInput;
+  likes?: Prisma.LikeCreateNestedManyWithoutUserInput;
+  createdTerms?: Prisma.TermsAndPolicyCreateNestedManyWithoutCreatedByUserInput;
+  updatedTerms?: Prisma.TermsAndPolicyCreateNestedManyWithoutUpdatedByUserInput;
+};
+
+export type UserUncheckedCreateWithoutFeedbacksInput = {
+  id?: string;
+  email: string;
+  registeredName: string;
+  displayName: string;
+  gender: $Enums.EGender;
+  rfid: string;
+  registeredPhoneNumber: string;
+  contactPhoneNumber: string;
+  password: string;
+  address: string;
+  profilePhoto?: string | null;
+  dob: Date | string;
+  status?: $Enums.AccountStatus;
+  passwordResetOtp?: string | null;
+  passwordResetOtpExpirationTime?: Date | string | null;
+  passwordResetToken?: string | null;
+  passwordResetTokenExpirationTime?: Date | string | null;
+  accessId?: number | null;
+  designationId?: string | null;
+  createdAt?: Date | string;
+  updatedAt?: Date | string;
+  customerProfileAnswers?: Prisma.CustomerProfileAnswersUncheckedCreateNestedManyWithoutUserInput;
+  referrals?: Prisma.ReferralUncheckedCreateNestedManyWithoutUserInput;
+  notification?: Prisma.NotificationUncheckedCreateNestedManyWithoutUserInput;
+  assignedVehicles?: Prisma.AssignedVehiclesUncheckedCreateNestedManyWithoutUserInput;
+  communityPost?: Prisma.CommunityPostUncheckedCreateNestedManyWithoutUserInput;
+  likes?: Prisma.LikeUncheckedCreateNestedManyWithoutUserInput;
+  createdTerms?: Prisma.TermsAndPolicyUncheckedCreateNestedManyWithoutCreatedByUserInput;
+  updatedTerms?: Prisma.TermsAndPolicyUncheckedCreateNestedManyWithoutUpdatedByUserInput;
+};
+
+export type UserCreateOrConnectWithoutFeedbacksInput = {
+  where: Prisma.UserWhereUniqueInput;
+  create: Prisma.XOR<
+    Prisma.UserCreateWithoutFeedbacksInput,
+    Prisma.UserUncheckedCreateWithoutFeedbacksInput
+  >;
+};
+
+export type UserUpsertWithoutFeedbacksInput = {
+  update: Prisma.XOR<
+    Prisma.UserUpdateWithoutFeedbacksInput,
+    Prisma.UserUncheckedUpdateWithoutFeedbacksInput
+  >;
+  create: Prisma.XOR<
+    Prisma.UserCreateWithoutFeedbacksInput,
+    Prisma.UserUncheckedCreateWithoutFeedbacksInput
+  >;
+  where?: Prisma.UserWhereInput;
+};
+
+export type UserUpdateToOneWithWhereWithoutFeedbacksInput = {
+  where?: Prisma.UserWhereInput;
+  data: Prisma.XOR<
+    Prisma.UserUpdateWithoutFeedbacksInput,
+    Prisma.UserUncheckedUpdateWithoutFeedbacksInput
+  >;
+};
+
+export type UserUpdateWithoutFeedbacksInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string;
+  email?: Prisma.StringFieldUpdateOperationsInput | string;
+  registeredName?: Prisma.StringFieldUpdateOperationsInput | string;
+  displayName?: Prisma.StringFieldUpdateOperationsInput | string;
+  gender?: Prisma.EnumEGenderFieldUpdateOperationsInput | $Enums.EGender;
+  rfid?: Prisma.StringFieldUpdateOperationsInput | string;
+  registeredPhoneNumber?: Prisma.StringFieldUpdateOperationsInput | string;
+  contactPhoneNumber?: Prisma.StringFieldUpdateOperationsInput | string;
+  password?: Prisma.StringFieldUpdateOperationsInput | string;
+  address?: Prisma.StringFieldUpdateOperationsInput | string;
+  profilePhoto?:
+    | Prisma.NullableStringFieldUpdateOperationsInput
+    | string
+    | null;
+  dob?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
+  status?:
+    | Prisma.EnumAccountStatusFieldUpdateOperationsInput
+    | $Enums.AccountStatus;
+  passwordResetOtp?:
+    | Prisma.NullableStringFieldUpdateOperationsInput
+    | string
+    | null;
+  passwordResetOtpExpirationTime?:
+    | Prisma.NullableDateTimeFieldUpdateOperationsInput
+    | Date
+    | string
+    | null;
+  passwordResetToken?:
+    | Prisma.NullableStringFieldUpdateOperationsInput
+    | string
+    | null;
+  passwordResetTokenExpirationTime?:
+    | Prisma.NullableDateTimeFieldUpdateOperationsInput
+    | Date
+    | string
+    | null;
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
+  access?: Prisma.AccessPolicyUpdateOneWithoutUserNestedInput;
+  designation?: Prisma.DesignationUpdateOneWithoutUsersNestedInput;
+  customerProfileAnswers?: Prisma.CustomerProfileAnswersUpdateManyWithoutUserNestedInput;
+  referrals?: Prisma.ReferralUpdateManyWithoutUserNestedInput;
+  notification?: Prisma.NotificationUpdateManyWithoutUserNestedInput;
+  assignedVehicles?: Prisma.AssignedVehiclesUpdateManyWithoutUserNestedInput;
+  communityPost?: Prisma.CommunityPostUpdateManyWithoutUserNestedInput;
+  likes?: Prisma.LikeUpdateManyWithoutUserNestedInput;
+  createdTerms?: Prisma.TermsAndPolicyUpdateManyWithoutCreatedByUserNestedInput;
+  updatedTerms?: Prisma.TermsAndPolicyUpdateManyWithoutUpdatedByUserNestedInput;
+};
+
+export type UserUncheckedUpdateWithoutFeedbacksInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string;
+  email?: Prisma.StringFieldUpdateOperationsInput | string;
+  registeredName?: Prisma.StringFieldUpdateOperationsInput | string;
+  displayName?: Prisma.StringFieldUpdateOperationsInput | string;
+  gender?: Prisma.EnumEGenderFieldUpdateOperationsInput | $Enums.EGender;
+  rfid?: Prisma.StringFieldUpdateOperationsInput | string;
+  registeredPhoneNumber?: Prisma.StringFieldUpdateOperationsInput | string;
+  contactPhoneNumber?: Prisma.StringFieldUpdateOperationsInput | string;
+  password?: Prisma.StringFieldUpdateOperationsInput | string;
+  address?: Prisma.StringFieldUpdateOperationsInput | string;
+  profilePhoto?:
+    | Prisma.NullableStringFieldUpdateOperationsInput
+    | string
+    | null;
+  dob?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
+  status?:
+    | Prisma.EnumAccountStatusFieldUpdateOperationsInput
+    | $Enums.AccountStatus;
+  passwordResetOtp?:
+    | Prisma.NullableStringFieldUpdateOperationsInput
+    | string
+    | null;
+  passwordResetOtpExpirationTime?:
+    | Prisma.NullableDateTimeFieldUpdateOperationsInput
+    | Date
+    | string
+    | null;
+  passwordResetToken?:
+    | Prisma.NullableStringFieldUpdateOperationsInput
+    | string
+    | null;
+  passwordResetTokenExpirationTime?:
+    | Prisma.NullableDateTimeFieldUpdateOperationsInput
+    | Date
+    | string
+    | null;
+  accessId?: Prisma.NullableIntFieldUpdateOperationsInput | number | null;
+  designationId?:
+    | Prisma.NullableStringFieldUpdateOperationsInput
+    | string
+    | null;
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
+  customerProfileAnswers?: Prisma.CustomerProfileAnswersUncheckedUpdateManyWithoutUserNestedInput;
+  referrals?: Prisma.ReferralUncheckedUpdateManyWithoutUserNestedInput;
+  notification?: Prisma.NotificationUncheckedUpdateManyWithoutUserNestedInput;
+  assignedVehicles?: Prisma.AssignedVehiclesUncheckedUpdateManyWithoutUserNestedInput;
+  communityPost?: Prisma.CommunityPostUncheckedUpdateManyWithoutUserNestedInput;
+  likes?: Prisma.LikeUncheckedUpdateManyWithoutUserNestedInput;
+  createdTerms?: Prisma.TermsAndPolicyUncheckedUpdateManyWithoutCreatedByUserNestedInput;
+  updatedTerms?: Prisma.TermsAndPolicyUncheckedUpdateManyWithoutUpdatedByUserNestedInput;
+};
+
+export type UserCreateWithoutCreatedTermsInput = {
+  id?: string;
+  email: string;
+  registeredName: string;
+  displayName: string;
+  gender: $Enums.EGender;
+  rfid: string;
+  registeredPhoneNumber: string;
+  contactPhoneNumber: string;
+  password: string;
+  address: string;
+  profilePhoto?: string | null;
+  dob: Date | string;
+  status?: $Enums.AccountStatus;
+  passwordResetOtp?: string | null;
+  passwordResetOtpExpirationTime?: Date | string | null;
+  passwordResetToken?: string | null;
+  passwordResetTokenExpirationTime?: Date | string | null;
+  createdAt?: Date | string;
+  updatedAt?: Date | string;
+  access?: Prisma.AccessPolicyCreateNestedOneWithoutUserInput;
+  designation?: Prisma.DesignationCreateNestedOneWithoutUsersInput;
+  customerProfileAnswers?: Prisma.CustomerProfileAnswersCreateNestedManyWithoutUserInput;
+  referrals?: Prisma.ReferralCreateNestedManyWithoutUserInput;
+  feedbacks?: Prisma.FeedbackCreateNestedManyWithoutUserInput;
+  notification?: Prisma.NotificationCreateNestedManyWithoutUserInput;
+  assignedVehicles?: Prisma.AssignedVehiclesCreateNestedManyWithoutUserInput;
+  communityPost?: Prisma.CommunityPostCreateNestedManyWithoutUserInput;
+  likes?: Prisma.LikeCreateNestedManyWithoutUserInput;
+  updatedTerms?: Prisma.TermsAndPolicyCreateNestedManyWithoutUpdatedByUserInput;
+};
+
+export type UserUncheckedCreateWithoutCreatedTermsInput = {
+  id?: string;
+  email: string;
+  registeredName: string;
+  displayName: string;
+  gender: $Enums.EGender;
+  rfid: string;
+  registeredPhoneNumber: string;
+  contactPhoneNumber: string;
+  password: string;
+  address: string;
+  profilePhoto?: string | null;
+  dob: Date | string;
+  status?: $Enums.AccountStatus;
+  passwordResetOtp?: string | null;
+  passwordResetOtpExpirationTime?: Date | string | null;
+  passwordResetToken?: string | null;
+  passwordResetTokenExpirationTime?: Date | string | null;
+  accessId?: number | null;
+  designationId?: string | null;
+  createdAt?: Date | string;
+  updatedAt?: Date | string;
+  customerProfileAnswers?: Prisma.CustomerProfileAnswersUncheckedCreateNestedManyWithoutUserInput;
+  referrals?: Prisma.ReferralUncheckedCreateNestedManyWithoutUserInput;
+  feedbacks?: Prisma.FeedbackUncheckedCreateNestedManyWithoutUserInput;
+  notification?: Prisma.NotificationUncheckedCreateNestedManyWithoutUserInput;
+  assignedVehicles?: Prisma.AssignedVehiclesUncheckedCreateNestedManyWithoutUserInput;
+  communityPost?: Prisma.CommunityPostUncheckedCreateNestedManyWithoutUserInput;
+  likes?: Prisma.LikeUncheckedCreateNestedManyWithoutUserInput;
+  updatedTerms?: Prisma.TermsAndPolicyUncheckedCreateNestedManyWithoutUpdatedByUserInput;
+};
+
+export type UserCreateOrConnectWithoutCreatedTermsInput = {
+  where: Prisma.UserWhereUniqueInput;
+  create: Prisma.XOR<
+    Prisma.UserCreateWithoutCreatedTermsInput,
+    Prisma.UserUncheckedCreateWithoutCreatedTermsInput
+  >;
+};
+
+export type UserCreateWithoutUpdatedTermsInput = {
+  id?: string;
+  email: string;
+  registeredName: string;
+  displayName: string;
+  gender: $Enums.EGender;
+  rfid: string;
+  registeredPhoneNumber: string;
+  contactPhoneNumber: string;
+  password: string;
+  address: string;
+  profilePhoto?: string | null;
+  dob: Date | string;
+  status?: $Enums.AccountStatus;
+  passwordResetOtp?: string | null;
+  passwordResetOtpExpirationTime?: Date | string | null;
+  passwordResetToken?: string | null;
+  passwordResetTokenExpirationTime?: Date | string | null;
+  createdAt?: Date | string;
+  updatedAt?: Date | string;
+  access?: Prisma.AccessPolicyCreateNestedOneWithoutUserInput;
+  designation?: Prisma.DesignationCreateNestedOneWithoutUsersInput;
+  customerProfileAnswers?: Prisma.CustomerProfileAnswersCreateNestedManyWithoutUserInput;
+  referrals?: Prisma.ReferralCreateNestedManyWithoutUserInput;
+  feedbacks?: Prisma.FeedbackCreateNestedManyWithoutUserInput;
+  notification?: Prisma.NotificationCreateNestedManyWithoutUserInput;
+  assignedVehicles?: Prisma.AssignedVehiclesCreateNestedManyWithoutUserInput;
+  communityPost?: Prisma.CommunityPostCreateNestedManyWithoutUserInput;
+  likes?: Prisma.LikeCreateNestedManyWithoutUserInput;
+  createdTerms?: Prisma.TermsAndPolicyCreateNestedManyWithoutCreatedByUserInput;
+};
+
+export type UserUncheckedCreateWithoutUpdatedTermsInput = {
+  id?: string;
+  email: string;
+  registeredName: string;
+  displayName: string;
+  gender: $Enums.EGender;
+  rfid: string;
+  registeredPhoneNumber: string;
+  contactPhoneNumber: string;
+  password: string;
+  address: string;
+  profilePhoto?: string | null;
+  dob: Date | string;
+  status?: $Enums.AccountStatus;
+  passwordResetOtp?: string | null;
+  passwordResetOtpExpirationTime?: Date | string | null;
+  passwordResetToken?: string | null;
+  passwordResetTokenExpirationTime?: Date | string | null;
+  accessId?: number | null;
+  designationId?: string | null;
+  createdAt?: Date | string;
+  updatedAt?: Date | string;
+  customerProfileAnswers?: Prisma.CustomerProfileAnswersUncheckedCreateNestedManyWithoutUserInput;
+  referrals?: Prisma.ReferralUncheckedCreateNestedManyWithoutUserInput;
+  feedbacks?: Prisma.FeedbackUncheckedCreateNestedManyWithoutUserInput;
+  notification?: Prisma.NotificationUncheckedCreateNestedManyWithoutUserInput;
+  assignedVehicles?: Prisma.AssignedVehiclesUncheckedCreateNestedManyWithoutUserInput;
+  communityPost?: Prisma.CommunityPostUncheckedCreateNestedManyWithoutUserInput;
+  likes?: Prisma.LikeUncheckedCreateNestedManyWithoutUserInput;
+  createdTerms?: Prisma.TermsAndPolicyUncheckedCreateNestedManyWithoutCreatedByUserInput;
+};
+
+export type UserCreateOrConnectWithoutUpdatedTermsInput = {
+  where: Prisma.UserWhereUniqueInput;
+  create: Prisma.XOR<
+    Prisma.UserCreateWithoutUpdatedTermsInput,
+    Prisma.UserUncheckedCreateWithoutUpdatedTermsInput
+  >;
+};
+
+export type UserUpsertWithoutCreatedTermsInput = {
+  update: Prisma.XOR<
+    Prisma.UserUpdateWithoutCreatedTermsInput,
+    Prisma.UserUncheckedUpdateWithoutCreatedTermsInput
+  >;
+  create: Prisma.XOR<
+    Prisma.UserCreateWithoutCreatedTermsInput,
+    Prisma.UserUncheckedCreateWithoutCreatedTermsInput
+  >;
+  where?: Prisma.UserWhereInput;
+};
+
+export type UserUpdateToOneWithWhereWithoutCreatedTermsInput = {
+  where?: Prisma.UserWhereInput;
+  data: Prisma.XOR<
+    Prisma.UserUpdateWithoutCreatedTermsInput,
+    Prisma.UserUncheckedUpdateWithoutCreatedTermsInput
+  >;
+};
+
+export type UserUpdateWithoutCreatedTermsInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string;
+  email?: Prisma.StringFieldUpdateOperationsInput | string;
+  registeredName?: Prisma.StringFieldUpdateOperationsInput | string;
+  displayName?: Prisma.StringFieldUpdateOperationsInput | string;
+  gender?: Prisma.EnumEGenderFieldUpdateOperationsInput | $Enums.EGender;
+  rfid?: Prisma.StringFieldUpdateOperationsInput | string;
+  registeredPhoneNumber?: Prisma.StringFieldUpdateOperationsInput | string;
+  contactPhoneNumber?: Prisma.StringFieldUpdateOperationsInput | string;
+  password?: Prisma.StringFieldUpdateOperationsInput | string;
+  address?: Prisma.StringFieldUpdateOperationsInput | string;
+  profilePhoto?:
+    | Prisma.NullableStringFieldUpdateOperationsInput
+    | string
+    | null;
+  dob?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
+  status?:
+    | Prisma.EnumAccountStatusFieldUpdateOperationsInput
+    | $Enums.AccountStatus;
+  passwordResetOtp?:
+    | Prisma.NullableStringFieldUpdateOperationsInput
+    | string
+    | null;
+  passwordResetOtpExpirationTime?:
+    | Prisma.NullableDateTimeFieldUpdateOperationsInput
+    | Date
+    | string
+    | null;
+  passwordResetToken?:
+    | Prisma.NullableStringFieldUpdateOperationsInput
+    | string
+    | null;
+  passwordResetTokenExpirationTime?:
+    | Prisma.NullableDateTimeFieldUpdateOperationsInput
+    | Date
+    | string
+    | null;
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
+  access?: Prisma.AccessPolicyUpdateOneWithoutUserNestedInput;
+  designation?: Prisma.DesignationUpdateOneWithoutUsersNestedInput;
+  customerProfileAnswers?: Prisma.CustomerProfileAnswersUpdateManyWithoutUserNestedInput;
+  referrals?: Prisma.ReferralUpdateManyWithoutUserNestedInput;
+  feedbacks?: Prisma.FeedbackUpdateManyWithoutUserNestedInput;
+  notification?: Prisma.NotificationUpdateManyWithoutUserNestedInput;
+  assignedVehicles?: Prisma.AssignedVehiclesUpdateManyWithoutUserNestedInput;
+  communityPost?: Prisma.CommunityPostUpdateManyWithoutUserNestedInput;
+  likes?: Prisma.LikeUpdateManyWithoutUserNestedInput;
+  updatedTerms?: Prisma.TermsAndPolicyUpdateManyWithoutUpdatedByUserNestedInput;
+};
+
+export type UserUncheckedUpdateWithoutCreatedTermsInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string;
+  email?: Prisma.StringFieldUpdateOperationsInput | string;
+  registeredName?: Prisma.StringFieldUpdateOperationsInput | string;
+  displayName?: Prisma.StringFieldUpdateOperationsInput | string;
+  gender?: Prisma.EnumEGenderFieldUpdateOperationsInput | $Enums.EGender;
+  rfid?: Prisma.StringFieldUpdateOperationsInput | string;
+  registeredPhoneNumber?: Prisma.StringFieldUpdateOperationsInput | string;
+  contactPhoneNumber?: Prisma.StringFieldUpdateOperationsInput | string;
+  password?: Prisma.StringFieldUpdateOperationsInput | string;
+  address?: Prisma.StringFieldUpdateOperationsInput | string;
+  profilePhoto?:
+    | Prisma.NullableStringFieldUpdateOperationsInput
+    | string
+    | null;
+  dob?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
+  status?:
+    | Prisma.EnumAccountStatusFieldUpdateOperationsInput
+    | $Enums.AccountStatus;
+  passwordResetOtp?:
+    | Prisma.NullableStringFieldUpdateOperationsInput
+    | string
+    | null;
+  passwordResetOtpExpirationTime?:
+    | Prisma.NullableDateTimeFieldUpdateOperationsInput
+    | Date
+    | string
+    | null;
+  passwordResetToken?:
+    | Prisma.NullableStringFieldUpdateOperationsInput
+    | string
+    | null;
+  passwordResetTokenExpirationTime?:
+    | Prisma.NullableDateTimeFieldUpdateOperationsInput
+    | Date
+    | string
+    | null;
+  accessId?: Prisma.NullableIntFieldUpdateOperationsInput | number | null;
+  designationId?:
+    | Prisma.NullableStringFieldUpdateOperationsInput
+    | string
+    | null;
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
+  customerProfileAnswers?: Prisma.CustomerProfileAnswersUncheckedUpdateManyWithoutUserNestedInput;
+  referrals?: Prisma.ReferralUncheckedUpdateManyWithoutUserNestedInput;
+  feedbacks?: Prisma.FeedbackUncheckedUpdateManyWithoutUserNestedInput;
+  notification?: Prisma.NotificationUncheckedUpdateManyWithoutUserNestedInput;
+  assignedVehicles?: Prisma.AssignedVehiclesUncheckedUpdateManyWithoutUserNestedInput;
+  communityPost?: Prisma.CommunityPostUncheckedUpdateManyWithoutUserNestedInput;
+  likes?: Prisma.LikeUncheckedUpdateManyWithoutUserNestedInput;
+  updatedTerms?: Prisma.TermsAndPolicyUncheckedUpdateManyWithoutUpdatedByUserNestedInput;
+};
+
+export type UserUpsertWithoutUpdatedTermsInput = {
+  update: Prisma.XOR<
+    Prisma.UserUpdateWithoutUpdatedTermsInput,
+    Prisma.UserUncheckedUpdateWithoutUpdatedTermsInput
+  >;
+  create: Prisma.XOR<
+    Prisma.UserCreateWithoutUpdatedTermsInput,
+    Prisma.UserUncheckedCreateWithoutUpdatedTermsInput
+  >;
+  where?: Prisma.UserWhereInput;
+};
+
+export type UserUpdateToOneWithWhereWithoutUpdatedTermsInput = {
+  where?: Prisma.UserWhereInput;
+  data: Prisma.XOR<
+    Prisma.UserUpdateWithoutUpdatedTermsInput,
+    Prisma.UserUncheckedUpdateWithoutUpdatedTermsInput
+  >;
+};
+
+export type UserUpdateWithoutUpdatedTermsInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string;
+  email?: Prisma.StringFieldUpdateOperationsInput | string;
+  registeredName?: Prisma.StringFieldUpdateOperationsInput | string;
+  displayName?: Prisma.StringFieldUpdateOperationsInput | string;
+  gender?: Prisma.EnumEGenderFieldUpdateOperationsInput | $Enums.EGender;
+  rfid?: Prisma.StringFieldUpdateOperationsInput | string;
+  registeredPhoneNumber?: Prisma.StringFieldUpdateOperationsInput | string;
+  contactPhoneNumber?: Prisma.StringFieldUpdateOperationsInput | string;
+  password?: Prisma.StringFieldUpdateOperationsInput | string;
+  address?: Prisma.StringFieldUpdateOperationsInput | string;
+  profilePhoto?:
+    | Prisma.NullableStringFieldUpdateOperationsInput
+    | string
+    | null;
+  dob?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
+  status?:
+    | Prisma.EnumAccountStatusFieldUpdateOperationsInput
+    | $Enums.AccountStatus;
+  passwordResetOtp?:
+    | Prisma.NullableStringFieldUpdateOperationsInput
+    | string
+    | null;
+  passwordResetOtpExpirationTime?:
+    | Prisma.NullableDateTimeFieldUpdateOperationsInput
+    | Date
+    | string
+    | null;
+  passwordResetToken?:
+    | Prisma.NullableStringFieldUpdateOperationsInput
+    | string
+    | null;
+  passwordResetTokenExpirationTime?:
+    | Prisma.NullableDateTimeFieldUpdateOperationsInput
+    | Date
+    | string
+    | null;
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
+  access?: Prisma.AccessPolicyUpdateOneWithoutUserNestedInput;
+  designation?: Prisma.DesignationUpdateOneWithoutUsersNestedInput;
+  customerProfileAnswers?: Prisma.CustomerProfileAnswersUpdateManyWithoutUserNestedInput;
+  referrals?: Prisma.ReferralUpdateManyWithoutUserNestedInput;
+  feedbacks?: Prisma.FeedbackUpdateManyWithoutUserNestedInput;
+  notification?: Prisma.NotificationUpdateManyWithoutUserNestedInput;
+  assignedVehicles?: Prisma.AssignedVehiclesUpdateManyWithoutUserNestedInput;
+  communityPost?: Prisma.CommunityPostUpdateManyWithoutUserNestedInput;
+  likes?: Prisma.LikeUpdateManyWithoutUserNestedInput;
+  createdTerms?: Prisma.TermsAndPolicyUpdateManyWithoutCreatedByUserNestedInput;
+};
+
+export type UserUncheckedUpdateWithoutUpdatedTermsInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string;
+  email?: Prisma.StringFieldUpdateOperationsInput | string;
+  registeredName?: Prisma.StringFieldUpdateOperationsInput | string;
+  displayName?: Prisma.StringFieldUpdateOperationsInput | string;
+  gender?: Prisma.EnumEGenderFieldUpdateOperationsInput | $Enums.EGender;
+  rfid?: Prisma.StringFieldUpdateOperationsInput | string;
+  registeredPhoneNumber?: Prisma.StringFieldUpdateOperationsInput | string;
+  contactPhoneNumber?: Prisma.StringFieldUpdateOperationsInput | string;
+  password?: Prisma.StringFieldUpdateOperationsInput | string;
+  address?: Prisma.StringFieldUpdateOperationsInput | string;
+  profilePhoto?:
+    | Prisma.NullableStringFieldUpdateOperationsInput
+    | string
+    | null;
+  dob?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
+  status?:
+    | Prisma.EnumAccountStatusFieldUpdateOperationsInput
+    | $Enums.AccountStatus;
+  passwordResetOtp?:
+    | Prisma.NullableStringFieldUpdateOperationsInput
+    | string
+    | null;
+  passwordResetOtpExpirationTime?:
+    | Prisma.NullableDateTimeFieldUpdateOperationsInput
+    | Date
+    | string
+    | null;
+  passwordResetToken?:
+    | Prisma.NullableStringFieldUpdateOperationsInput
+    | string
+    | null;
+  passwordResetTokenExpirationTime?:
+    | Prisma.NullableDateTimeFieldUpdateOperationsInput
+    | Date
+    | string
+    | null;
+  accessId?: Prisma.NullableIntFieldUpdateOperationsInput | number | null;
+  designationId?:
+    | Prisma.NullableStringFieldUpdateOperationsInput
+    | string
+    | null;
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
+  customerProfileAnswers?: Prisma.CustomerProfileAnswersUncheckedUpdateManyWithoutUserNestedInput;
+  referrals?: Prisma.ReferralUncheckedUpdateManyWithoutUserNestedInput;
+  feedbacks?: Prisma.FeedbackUncheckedUpdateManyWithoutUserNestedInput;
+  notification?: Prisma.NotificationUncheckedUpdateManyWithoutUserNestedInput;
+  assignedVehicles?: Prisma.AssignedVehiclesUncheckedUpdateManyWithoutUserNestedInput;
+  communityPost?: Prisma.CommunityPostUncheckedUpdateManyWithoutUserNestedInput;
+  likes?: Prisma.LikeUncheckedUpdateManyWithoutUserNestedInput;
+  createdTerms?: Prisma.TermsAndPolicyUncheckedUpdateManyWithoutCreatedByUserNestedInput;
+};
+
+export type UserCreateWithoutNotificationInput = {
+  id?: string;
+  email: string;
+  registeredName: string;
+  displayName: string;
+  gender: $Enums.EGender;
+  rfid: string;
+  registeredPhoneNumber: string;
+  contactPhoneNumber: string;
+  password: string;
+  address: string;
+  profilePhoto?: string | null;
+  dob: Date | string;
+  status?: $Enums.AccountStatus;
+  passwordResetOtp?: string | null;
+  passwordResetOtpExpirationTime?: Date | string | null;
+  passwordResetToken?: string | null;
+  passwordResetTokenExpirationTime?: Date | string | null;
+  createdAt?: Date | string;
+  updatedAt?: Date | string;
+  access?: Prisma.AccessPolicyCreateNestedOneWithoutUserInput;
+  designation?: Prisma.DesignationCreateNestedOneWithoutUsersInput;
+  customerProfileAnswers?: Prisma.CustomerProfileAnswersCreateNestedManyWithoutUserInput;
+  referrals?: Prisma.ReferralCreateNestedManyWithoutUserInput;
+  feedbacks?: Prisma.FeedbackCreateNestedManyWithoutUserInput;
+  assignedVehicles?: Prisma.AssignedVehiclesCreateNestedManyWithoutUserInput;
+  communityPost?: Prisma.CommunityPostCreateNestedManyWithoutUserInput;
+  likes?: Prisma.LikeCreateNestedManyWithoutUserInput;
+  createdTerms?: Prisma.TermsAndPolicyCreateNestedManyWithoutCreatedByUserInput;
+  updatedTerms?: Prisma.TermsAndPolicyCreateNestedManyWithoutUpdatedByUserInput;
+};
+
+export type UserUncheckedCreateWithoutNotificationInput = {
+  id?: string;
+  email: string;
+  registeredName: string;
+  displayName: string;
+  gender: $Enums.EGender;
+  rfid: string;
+  registeredPhoneNumber: string;
+  contactPhoneNumber: string;
+  password: string;
+  address: string;
+  profilePhoto?: string | null;
+  dob: Date | string;
+  status?: $Enums.AccountStatus;
+  passwordResetOtp?: string | null;
+  passwordResetOtpExpirationTime?: Date | string | null;
+  passwordResetToken?: string | null;
+  passwordResetTokenExpirationTime?: Date | string | null;
+  accessId?: number | null;
+  designationId?: string | null;
+  createdAt?: Date | string;
+  updatedAt?: Date | string;
+  customerProfileAnswers?: Prisma.CustomerProfileAnswersUncheckedCreateNestedManyWithoutUserInput;
+  referrals?: Prisma.ReferralUncheckedCreateNestedManyWithoutUserInput;
+  feedbacks?: Prisma.FeedbackUncheckedCreateNestedManyWithoutUserInput;
+  assignedVehicles?: Prisma.AssignedVehiclesUncheckedCreateNestedManyWithoutUserInput;
+  communityPost?: Prisma.CommunityPostUncheckedCreateNestedManyWithoutUserInput;
+  likes?: Prisma.LikeUncheckedCreateNestedManyWithoutUserInput;
+  createdTerms?: Prisma.TermsAndPolicyUncheckedCreateNestedManyWithoutCreatedByUserInput;
+  updatedTerms?: Prisma.TermsAndPolicyUncheckedCreateNestedManyWithoutUpdatedByUserInput;
+};
+
+export type UserCreateOrConnectWithoutNotificationInput = {
+  where: Prisma.UserWhereUniqueInput;
+  create: Prisma.XOR<
+    Prisma.UserCreateWithoutNotificationInput,
+    Prisma.UserUncheckedCreateWithoutNotificationInput
+  >;
+};
+
+export type UserUpsertWithoutNotificationInput = {
+  update: Prisma.XOR<
+    Prisma.UserUpdateWithoutNotificationInput,
+    Prisma.UserUncheckedUpdateWithoutNotificationInput
+  >;
+  create: Prisma.XOR<
+    Prisma.UserCreateWithoutNotificationInput,
+    Prisma.UserUncheckedCreateWithoutNotificationInput
+  >;
+  where?: Prisma.UserWhereInput;
+};
+
+export type UserUpdateToOneWithWhereWithoutNotificationInput = {
+  where?: Prisma.UserWhereInput;
+  data: Prisma.XOR<
+    Prisma.UserUpdateWithoutNotificationInput,
+    Prisma.UserUncheckedUpdateWithoutNotificationInput
+  >;
+};
+
+export type UserUpdateWithoutNotificationInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string;
+  email?: Prisma.StringFieldUpdateOperationsInput | string;
+  registeredName?: Prisma.StringFieldUpdateOperationsInput | string;
+  displayName?: Prisma.StringFieldUpdateOperationsInput | string;
+  gender?: Prisma.EnumEGenderFieldUpdateOperationsInput | $Enums.EGender;
+  rfid?: Prisma.StringFieldUpdateOperationsInput | string;
+  registeredPhoneNumber?: Prisma.StringFieldUpdateOperationsInput | string;
+  contactPhoneNumber?: Prisma.StringFieldUpdateOperationsInput | string;
+  password?: Prisma.StringFieldUpdateOperationsInput | string;
+  address?: Prisma.StringFieldUpdateOperationsInput | string;
+  profilePhoto?:
+    | Prisma.NullableStringFieldUpdateOperationsInput
+    | string
+    | null;
+  dob?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
+  status?:
+    | Prisma.EnumAccountStatusFieldUpdateOperationsInput
+    | $Enums.AccountStatus;
+  passwordResetOtp?:
+    | Prisma.NullableStringFieldUpdateOperationsInput
+    | string
+    | null;
+  passwordResetOtpExpirationTime?:
+    | Prisma.NullableDateTimeFieldUpdateOperationsInput
+    | Date
+    | string
+    | null;
+  passwordResetToken?:
+    | Prisma.NullableStringFieldUpdateOperationsInput
+    | string
+    | null;
+  passwordResetTokenExpirationTime?:
+    | Prisma.NullableDateTimeFieldUpdateOperationsInput
+    | Date
+    | string
+    | null;
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
+  access?: Prisma.AccessPolicyUpdateOneWithoutUserNestedInput;
+  designation?: Prisma.DesignationUpdateOneWithoutUsersNestedInput;
+  customerProfileAnswers?: Prisma.CustomerProfileAnswersUpdateManyWithoutUserNestedInput;
+  referrals?: Prisma.ReferralUpdateManyWithoutUserNestedInput;
+  feedbacks?: Prisma.FeedbackUpdateManyWithoutUserNestedInput;
+  assignedVehicles?: Prisma.AssignedVehiclesUpdateManyWithoutUserNestedInput;
+  communityPost?: Prisma.CommunityPostUpdateManyWithoutUserNestedInput;
+  likes?: Prisma.LikeUpdateManyWithoutUserNestedInput;
+  createdTerms?: Prisma.TermsAndPolicyUpdateManyWithoutCreatedByUserNestedInput;
+  updatedTerms?: Prisma.TermsAndPolicyUpdateManyWithoutUpdatedByUserNestedInput;
+};
+
+export type UserUncheckedUpdateWithoutNotificationInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string;
+  email?: Prisma.StringFieldUpdateOperationsInput | string;
+  registeredName?: Prisma.StringFieldUpdateOperationsInput | string;
+  displayName?: Prisma.StringFieldUpdateOperationsInput | string;
+  gender?: Prisma.EnumEGenderFieldUpdateOperationsInput | $Enums.EGender;
+  rfid?: Prisma.StringFieldUpdateOperationsInput | string;
+  registeredPhoneNumber?: Prisma.StringFieldUpdateOperationsInput | string;
+  contactPhoneNumber?: Prisma.StringFieldUpdateOperationsInput | string;
+  password?: Prisma.StringFieldUpdateOperationsInput | string;
+  address?: Prisma.StringFieldUpdateOperationsInput | string;
+  profilePhoto?:
+    | Prisma.NullableStringFieldUpdateOperationsInput
+    | string
+    | null;
+  dob?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
+  status?:
+    | Prisma.EnumAccountStatusFieldUpdateOperationsInput
+    | $Enums.AccountStatus;
+  passwordResetOtp?:
+    | Prisma.NullableStringFieldUpdateOperationsInput
+    | string
+    | null;
+  passwordResetOtpExpirationTime?:
+    | Prisma.NullableDateTimeFieldUpdateOperationsInput
+    | Date
+    | string
+    | null;
+  passwordResetToken?:
+    | Prisma.NullableStringFieldUpdateOperationsInput
+    | string
+    | null;
+  passwordResetTokenExpirationTime?:
+    | Prisma.NullableDateTimeFieldUpdateOperationsInput
+    | Date
+    | string
+    | null;
+  accessId?: Prisma.NullableIntFieldUpdateOperationsInput | number | null;
+  designationId?:
+    | Prisma.NullableStringFieldUpdateOperationsInput
+    | string
+    | null;
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
+  customerProfileAnswers?: Prisma.CustomerProfileAnswersUncheckedUpdateManyWithoutUserNestedInput;
+  referrals?: Prisma.ReferralUncheckedUpdateManyWithoutUserNestedInput;
+  feedbacks?: Prisma.FeedbackUncheckedUpdateManyWithoutUserNestedInput;
+  assignedVehicles?: Prisma.AssignedVehiclesUncheckedUpdateManyWithoutUserNestedInput;
+  communityPost?: Prisma.CommunityPostUncheckedUpdateManyWithoutUserNestedInput;
+  likes?: Prisma.LikeUncheckedUpdateManyWithoutUserNestedInput;
+  createdTerms?: Prisma.TermsAndPolicyUncheckedUpdateManyWithoutCreatedByUserNestedInput;
+  updatedTerms?: Prisma.TermsAndPolicyUncheckedUpdateManyWithoutUpdatedByUserNestedInput;
+};
+
+export type UserCreateWithoutCommunityPostInput = {
+  id?: string;
+  email: string;
+  registeredName: string;
+  displayName: string;
+  gender: $Enums.EGender;
+  rfid: string;
+  registeredPhoneNumber: string;
+  contactPhoneNumber: string;
+  password: string;
+  address: string;
+  profilePhoto?: string | null;
+  dob: Date | string;
+  status?: $Enums.AccountStatus;
+  passwordResetOtp?: string | null;
+  passwordResetOtpExpirationTime?: Date | string | null;
+  passwordResetToken?: string | null;
+  passwordResetTokenExpirationTime?: Date | string | null;
+  createdAt?: Date | string;
+  updatedAt?: Date | string;
+  access?: Prisma.AccessPolicyCreateNestedOneWithoutUserInput;
+  designation?: Prisma.DesignationCreateNestedOneWithoutUsersInput;
+  customerProfileAnswers?: Prisma.CustomerProfileAnswersCreateNestedManyWithoutUserInput;
+  referrals?: Prisma.ReferralCreateNestedManyWithoutUserInput;
+  feedbacks?: Prisma.FeedbackCreateNestedManyWithoutUserInput;
+  notification?: Prisma.NotificationCreateNestedManyWithoutUserInput;
+  assignedVehicles?: Prisma.AssignedVehiclesCreateNestedManyWithoutUserInput;
+  likes?: Prisma.LikeCreateNestedManyWithoutUserInput;
+  createdTerms?: Prisma.TermsAndPolicyCreateNestedManyWithoutCreatedByUserInput;
+  updatedTerms?: Prisma.TermsAndPolicyCreateNestedManyWithoutUpdatedByUserInput;
+};
+
+export type UserUncheckedCreateWithoutCommunityPostInput = {
+  id?: string;
+  email: string;
+  registeredName: string;
+  displayName: string;
+  gender: $Enums.EGender;
+  rfid: string;
+  registeredPhoneNumber: string;
+  contactPhoneNumber: string;
+  password: string;
+  address: string;
+  profilePhoto?: string | null;
+  dob: Date | string;
+  status?: $Enums.AccountStatus;
+  passwordResetOtp?: string | null;
+  passwordResetOtpExpirationTime?: Date | string | null;
+  passwordResetToken?: string | null;
+  passwordResetTokenExpirationTime?: Date | string | null;
+  accessId?: number | null;
+  designationId?: string | null;
+  createdAt?: Date | string;
+  updatedAt?: Date | string;
+  customerProfileAnswers?: Prisma.CustomerProfileAnswersUncheckedCreateNestedManyWithoutUserInput;
+  referrals?: Prisma.ReferralUncheckedCreateNestedManyWithoutUserInput;
+  feedbacks?: Prisma.FeedbackUncheckedCreateNestedManyWithoutUserInput;
+  notification?: Prisma.NotificationUncheckedCreateNestedManyWithoutUserInput;
+  assignedVehicles?: Prisma.AssignedVehiclesUncheckedCreateNestedManyWithoutUserInput;
+  likes?: Prisma.LikeUncheckedCreateNestedManyWithoutUserInput;
+  createdTerms?: Prisma.TermsAndPolicyUncheckedCreateNestedManyWithoutCreatedByUserInput;
+  updatedTerms?: Prisma.TermsAndPolicyUncheckedCreateNestedManyWithoutUpdatedByUserInput;
+};
+
+export type UserCreateOrConnectWithoutCommunityPostInput = {
+  where: Prisma.UserWhereUniqueInput;
+  create: Prisma.XOR<
+    Prisma.UserCreateWithoutCommunityPostInput,
+    Prisma.UserUncheckedCreateWithoutCommunityPostInput
+  >;
+};
+
+export type UserUpsertWithoutCommunityPostInput = {
+  update: Prisma.XOR<
+    Prisma.UserUpdateWithoutCommunityPostInput,
+    Prisma.UserUncheckedUpdateWithoutCommunityPostInput
+  >;
+  create: Prisma.XOR<
+    Prisma.UserCreateWithoutCommunityPostInput,
+    Prisma.UserUncheckedCreateWithoutCommunityPostInput
+  >;
+  where?: Prisma.UserWhereInput;
+};
+
+export type UserUpdateToOneWithWhereWithoutCommunityPostInput = {
+  where?: Prisma.UserWhereInput;
+  data: Prisma.XOR<
+    Prisma.UserUpdateWithoutCommunityPostInput,
+    Prisma.UserUncheckedUpdateWithoutCommunityPostInput
+  >;
+};
+
+export type UserUpdateWithoutCommunityPostInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string;
+  email?: Prisma.StringFieldUpdateOperationsInput | string;
+  registeredName?: Prisma.StringFieldUpdateOperationsInput | string;
+  displayName?: Prisma.StringFieldUpdateOperationsInput | string;
+  gender?: Prisma.EnumEGenderFieldUpdateOperationsInput | $Enums.EGender;
+  rfid?: Prisma.StringFieldUpdateOperationsInput | string;
+  registeredPhoneNumber?: Prisma.StringFieldUpdateOperationsInput | string;
+  contactPhoneNumber?: Prisma.StringFieldUpdateOperationsInput | string;
+  password?: Prisma.StringFieldUpdateOperationsInput | string;
+  address?: Prisma.StringFieldUpdateOperationsInput | string;
+  profilePhoto?:
+    | Prisma.NullableStringFieldUpdateOperationsInput
+    | string
+    | null;
+  dob?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
+  status?:
+    | Prisma.EnumAccountStatusFieldUpdateOperationsInput
+    | $Enums.AccountStatus;
+  passwordResetOtp?:
+    | Prisma.NullableStringFieldUpdateOperationsInput
+    | string
+    | null;
+  passwordResetOtpExpirationTime?:
+    | Prisma.NullableDateTimeFieldUpdateOperationsInput
+    | Date
+    | string
+    | null;
+  passwordResetToken?:
+    | Prisma.NullableStringFieldUpdateOperationsInput
+    | string
+    | null;
+  passwordResetTokenExpirationTime?:
+    | Prisma.NullableDateTimeFieldUpdateOperationsInput
+    | Date
+    | string
+    | null;
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
+  access?: Prisma.AccessPolicyUpdateOneWithoutUserNestedInput;
+  designation?: Prisma.DesignationUpdateOneWithoutUsersNestedInput;
+  customerProfileAnswers?: Prisma.CustomerProfileAnswersUpdateManyWithoutUserNestedInput;
+  referrals?: Prisma.ReferralUpdateManyWithoutUserNestedInput;
+  feedbacks?: Prisma.FeedbackUpdateManyWithoutUserNestedInput;
+  notification?: Prisma.NotificationUpdateManyWithoutUserNestedInput;
+  assignedVehicles?: Prisma.AssignedVehiclesUpdateManyWithoutUserNestedInput;
+  likes?: Prisma.LikeUpdateManyWithoutUserNestedInput;
+  createdTerms?: Prisma.TermsAndPolicyUpdateManyWithoutCreatedByUserNestedInput;
+  updatedTerms?: Prisma.TermsAndPolicyUpdateManyWithoutUpdatedByUserNestedInput;
+};
+
+export type UserUncheckedUpdateWithoutCommunityPostInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string;
+  email?: Prisma.StringFieldUpdateOperationsInput | string;
+  registeredName?: Prisma.StringFieldUpdateOperationsInput | string;
+  displayName?: Prisma.StringFieldUpdateOperationsInput | string;
+  gender?: Prisma.EnumEGenderFieldUpdateOperationsInput | $Enums.EGender;
+  rfid?: Prisma.StringFieldUpdateOperationsInput | string;
+  registeredPhoneNumber?: Prisma.StringFieldUpdateOperationsInput | string;
+  contactPhoneNumber?: Prisma.StringFieldUpdateOperationsInput | string;
+  password?: Prisma.StringFieldUpdateOperationsInput | string;
+  address?: Prisma.StringFieldUpdateOperationsInput | string;
+  profilePhoto?:
+    | Prisma.NullableStringFieldUpdateOperationsInput
+    | string
+    | null;
+  dob?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
+  status?:
+    | Prisma.EnumAccountStatusFieldUpdateOperationsInput
+    | $Enums.AccountStatus;
+  passwordResetOtp?:
+    | Prisma.NullableStringFieldUpdateOperationsInput
+    | string
+    | null;
+  passwordResetOtpExpirationTime?:
+    | Prisma.NullableDateTimeFieldUpdateOperationsInput
+    | Date
+    | string
+    | null;
+  passwordResetToken?:
+    | Prisma.NullableStringFieldUpdateOperationsInput
+    | string
+    | null;
+  passwordResetTokenExpirationTime?:
+    | Prisma.NullableDateTimeFieldUpdateOperationsInput
+    | Date
+    | string
+    | null;
+  accessId?: Prisma.NullableIntFieldUpdateOperationsInput | number | null;
+  designationId?:
+    | Prisma.NullableStringFieldUpdateOperationsInput
+    | string
+    | null;
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
+  customerProfileAnswers?: Prisma.CustomerProfileAnswersUncheckedUpdateManyWithoutUserNestedInput;
+  referrals?: Prisma.ReferralUncheckedUpdateManyWithoutUserNestedInput;
+  feedbacks?: Prisma.FeedbackUncheckedUpdateManyWithoutUserNestedInput;
+  notification?: Prisma.NotificationUncheckedUpdateManyWithoutUserNestedInput;
+  assignedVehicles?: Prisma.AssignedVehiclesUncheckedUpdateManyWithoutUserNestedInput;
+  likes?: Prisma.LikeUncheckedUpdateManyWithoutUserNestedInput;
+  createdTerms?: Prisma.TermsAndPolicyUncheckedUpdateManyWithoutCreatedByUserNestedInput;
+  updatedTerms?: Prisma.TermsAndPolicyUncheckedUpdateManyWithoutUpdatedByUserNestedInput;
+};
+
+export type UserCreateWithoutLikesInput = {
+  id?: string;
+  email: string;
+  registeredName: string;
+  displayName: string;
+  gender: $Enums.EGender;
+  rfid: string;
+  registeredPhoneNumber: string;
+  contactPhoneNumber: string;
+  password: string;
+  address: string;
+  profilePhoto?: string | null;
+  dob: Date | string;
+  status?: $Enums.AccountStatus;
+  passwordResetOtp?: string | null;
+  passwordResetOtpExpirationTime?: Date | string | null;
+  passwordResetToken?: string | null;
+  passwordResetTokenExpirationTime?: Date | string | null;
+  createdAt?: Date | string;
+  updatedAt?: Date | string;
+  access?: Prisma.AccessPolicyCreateNestedOneWithoutUserInput;
+  designation?: Prisma.DesignationCreateNestedOneWithoutUsersInput;
+  customerProfileAnswers?: Prisma.CustomerProfileAnswersCreateNestedManyWithoutUserInput;
+  referrals?: Prisma.ReferralCreateNestedManyWithoutUserInput;
+  feedbacks?: Prisma.FeedbackCreateNestedManyWithoutUserInput;
+  notification?: Prisma.NotificationCreateNestedManyWithoutUserInput;
+  assignedVehicles?: Prisma.AssignedVehiclesCreateNestedManyWithoutUserInput;
+  communityPost?: Prisma.CommunityPostCreateNestedManyWithoutUserInput;
+  createdTerms?: Prisma.TermsAndPolicyCreateNestedManyWithoutCreatedByUserInput;
+  updatedTerms?: Prisma.TermsAndPolicyCreateNestedManyWithoutUpdatedByUserInput;
+};
+
+export type UserUncheckedCreateWithoutLikesInput = {
+  id?: string;
+  email: string;
+  registeredName: string;
+  displayName: string;
+  gender: $Enums.EGender;
+  rfid: string;
+  registeredPhoneNumber: string;
+  contactPhoneNumber: string;
+  password: string;
+  address: string;
+  profilePhoto?: string | null;
+  dob: Date | string;
+  status?: $Enums.AccountStatus;
+  passwordResetOtp?: string | null;
+  passwordResetOtpExpirationTime?: Date | string | null;
+  passwordResetToken?: string | null;
+  passwordResetTokenExpirationTime?: Date | string | null;
+  accessId?: number | null;
+  designationId?: string | null;
+  createdAt?: Date | string;
+  updatedAt?: Date | string;
+  customerProfileAnswers?: Prisma.CustomerProfileAnswersUncheckedCreateNestedManyWithoutUserInput;
+  referrals?: Prisma.ReferralUncheckedCreateNestedManyWithoutUserInput;
+  feedbacks?: Prisma.FeedbackUncheckedCreateNestedManyWithoutUserInput;
+  notification?: Prisma.NotificationUncheckedCreateNestedManyWithoutUserInput;
+  assignedVehicles?: Prisma.AssignedVehiclesUncheckedCreateNestedManyWithoutUserInput;
+  communityPost?: Prisma.CommunityPostUncheckedCreateNestedManyWithoutUserInput;
+  createdTerms?: Prisma.TermsAndPolicyUncheckedCreateNestedManyWithoutCreatedByUserInput;
+  updatedTerms?: Prisma.TermsAndPolicyUncheckedCreateNestedManyWithoutUpdatedByUserInput;
+};
+
+export type UserCreateOrConnectWithoutLikesInput = {
+  where: Prisma.UserWhereUniqueInput;
+  create: Prisma.XOR<
+    Prisma.UserCreateWithoutLikesInput,
+    Prisma.UserUncheckedCreateWithoutLikesInput
+  >;
+};
+
+export type UserUpsertWithoutLikesInput = {
+  update: Prisma.XOR<
+    Prisma.UserUpdateWithoutLikesInput,
+    Prisma.UserUncheckedUpdateWithoutLikesInput
+  >;
+  create: Prisma.XOR<
+    Prisma.UserCreateWithoutLikesInput,
+    Prisma.UserUncheckedCreateWithoutLikesInput
+  >;
+  where?: Prisma.UserWhereInput;
+};
+
+export type UserUpdateToOneWithWhereWithoutLikesInput = {
+  where?: Prisma.UserWhereInput;
+  data: Prisma.XOR<
+    Prisma.UserUpdateWithoutLikesInput,
+    Prisma.UserUncheckedUpdateWithoutLikesInput
+  >;
+};
+
+export type UserUpdateWithoutLikesInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string;
+  email?: Prisma.StringFieldUpdateOperationsInput | string;
+  registeredName?: Prisma.StringFieldUpdateOperationsInput | string;
+  displayName?: Prisma.StringFieldUpdateOperationsInput | string;
+  gender?: Prisma.EnumEGenderFieldUpdateOperationsInput | $Enums.EGender;
+  rfid?: Prisma.StringFieldUpdateOperationsInput | string;
+  registeredPhoneNumber?: Prisma.StringFieldUpdateOperationsInput | string;
+  contactPhoneNumber?: Prisma.StringFieldUpdateOperationsInput | string;
+  password?: Prisma.StringFieldUpdateOperationsInput | string;
+  address?: Prisma.StringFieldUpdateOperationsInput | string;
+  profilePhoto?:
+    | Prisma.NullableStringFieldUpdateOperationsInput
+    | string
+    | null;
+  dob?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
+  status?:
+    | Prisma.EnumAccountStatusFieldUpdateOperationsInput
+    | $Enums.AccountStatus;
+  passwordResetOtp?:
+    | Prisma.NullableStringFieldUpdateOperationsInput
+    | string
+    | null;
+  passwordResetOtpExpirationTime?:
+    | Prisma.NullableDateTimeFieldUpdateOperationsInput
+    | Date
+    | string
+    | null;
+  passwordResetToken?:
+    | Prisma.NullableStringFieldUpdateOperationsInput
+    | string
+    | null;
+  passwordResetTokenExpirationTime?:
+    | Prisma.NullableDateTimeFieldUpdateOperationsInput
+    | Date
+    | string
+    | null;
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
+  access?: Prisma.AccessPolicyUpdateOneWithoutUserNestedInput;
+  designation?: Prisma.DesignationUpdateOneWithoutUsersNestedInput;
+  customerProfileAnswers?: Prisma.CustomerProfileAnswersUpdateManyWithoutUserNestedInput;
+  referrals?: Prisma.ReferralUpdateManyWithoutUserNestedInput;
+  feedbacks?: Prisma.FeedbackUpdateManyWithoutUserNestedInput;
+  notification?: Prisma.NotificationUpdateManyWithoutUserNestedInput;
+  assignedVehicles?: Prisma.AssignedVehiclesUpdateManyWithoutUserNestedInput;
+  communityPost?: Prisma.CommunityPostUpdateManyWithoutUserNestedInput;
+  createdTerms?: Prisma.TermsAndPolicyUpdateManyWithoutCreatedByUserNestedInput;
+  updatedTerms?: Prisma.TermsAndPolicyUpdateManyWithoutUpdatedByUserNestedInput;
+};
+
+export type UserUncheckedUpdateWithoutLikesInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string;
+  email?: Prisma.StringFieldUpdateOperationsInput | string;
+  registeredName?: Prisma.StringFieldUpdateOperationsInput | string;
+  displayName?: Prisma.StringFieldUpdateOperationsInput | string;
+  gender?: Prisma.EnumEGenderFieldUpdateOperationsInput | $Enums.EGender;
+  rfid?: Prisma.StringFieldUpdateOperationsInput | string;
+  registeredPhoneNumber?: Prisma.StringFieldUpdateOperationsInput | string;
+  contactPhoneNumber?: Prisma.StringFieldUpdateOperationsInput | string;
+  password?: Prisma.StringFieldUpdateOperationsInput | string;
+  address?: Prisma.StringFieldUpdateOperationsInput | string;
+  profilePhoto?:
+    | Prisma.NullableStringFieldUpdateOperationsInput
+    | string
+    | null;
+  dob?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
+  status?:
+    | Prisma.EnumAccountStatusFieldUpdateOperationsInput
+    | $Enums.AccountStatus;
+  passwordResetOtp?:
+    | Prisma.NullableStringFieldUpdateOperationsInput
+    | string
+    | null;
+  passwordResetOtpExpirationTime?:
+    | Prisma.NullableDateTimeFieldUpdateOperationsInput
+    | Date
+    | string
+    | null;
+  passwordResetToken?:
+    | Prisma.NullableStringFieldUpdateOperationsInput
+    | string
+    | null;
+  passwordResetTokenExpirationTime?:
+    | Prisma.NullableDateTimeFieldUpdateOperationsInput
+    | Date
+    | string
+    | null;
+  accessId?: Prisma.NullableIntFieldUpdateOperationsInput | number | null;
+  designationId?:
+    | Prisma.NullableStringFieldUpdateOperationsInput
+    | string
+    | null;
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
+  customerProfileAnswers?: Prisma.CustomerProfileAnswersUncheckedUpdateManyWithoutUserNestedInput;
+  referrals?: Prisma.ReferralUncheckedUpdateManyWithoutUserNestedInput;
+  feedbacks?: Prisma.FeedbackUncheckedUpdateManyWithoutUserNestedInput;
+  notification?: Prisma.NotificationUncheckedUpdateManyWithoutUserNestedInput;
+  assignedVehicles?: Prisma.AssignedVehiclesUncheckedUpdateManyWithoutUserNestedInput;
+  communityPost?: Prisma.CommunityPostUncheckedUpdateManyWithoutUserNestedInput;
+  createdTerms?: Prisma.TermsAndPolicyUncheckedUpdateManyWithoutCreatedByUserNestedInput;
+  updatedTerms?: Prisma.TermsAndPolicyUncheckedUpdateManyWithoutUpdatedByUserNestedInput;
+};
+
+export type UserCreateWithoutAccessInput = {
+  id?: string;
+  email: string;
+  registeredName: string;
+  displayName: string;
+  gender: $Enums.EGender;
+  rfid: string;
+  registeredPhoneNumber: string;
+  contactPhoneNumber: string;
+  password: string;
+  address: string;
+  profilePhoto?: string | null;
+  dob: Date | string;
+  status?: $Enums.AccountStatus;
+  passwordResetOtp?: string | null;
+  passwordResetOtpExpirationTime?: Date | string | null;
+  passwordResetToken?: string | null;
+  passwordResetTokenExpirationTime?: Date | string | null;
+  createdAt?: Date | string;
+  updatedAt?: Date | string;
+  designation?: Prisma.DesignationCreateNestedOneWithoutUsersInput;
+  customerProfileAnswers?: Prisma.CustomerProfileAnswersCreateNestedManyWithoutUserInput;
+  referrals?: Prisma.ReferralCreateNestedManyWithoutUserInput;
+  feedbacks?: Prisma.FeedbackCreateNestedManyWithoutUserInput;
+  notification?: Prisma.NotificationCreateNestedManyWithoutUserInput;
+  assignedVehicles?: Prisma.AssignedVehiclesCreateNestedManyWithoutUserInput;
+  communityPost?: Prisma.CommunityPostCreateNestedManyWithoutUserInput;
+  likes?: Prisma.LikeCreateNestedManyWithoutUserInput;
+  createdTerms?: Prisma.TermsAndPolicyCreateNestedManyWithoutCreatedByUserInput;
+  updatedTerms?: Prisma.TermsAndPolicyCreateNestedManyWithoutUpdatedByUserInput;
+};
+
+export type UserUncheckedCreateWithoutAccessInput = {
+  id?: string;
+  email: string;
+  registeredName: string;
+  displayName: string;
+  gender: $Enums.EGender;
+  rfid: string;
+  registeredPhoneNumber: string;
+  contactPhoneNumber: string;
+  password: string;
+  address: string;
+  profilePhoto?: string | null;
+  dob: Date | string;
+  status?: $Enums.AccountStatus;
+  passwordResetOtp?: string | null;
+  passwordResetOtpExpirationTime?: Date | string | null;
+  passwordResetToken?: string | null;
+  passwordResetTokenExpirationTime?: Date | string | null;
+  designationId?: string | null;
+  createdAt?: Date | string;
+  updatedAt?: Date | string;
+  customerProfileAnswers?: Prisma.CustomerProfileAnswersUncheckedCreateNestedManyWithoutUserInput;
+  referrals?: Prisma.ReferralUncheckedCreateNestedManyWithoutUserInput;
+  feedbacks?: Prisma.FeedbackUncheckedCreateNestedManyWithoutUserInput;
+  notification?: Prisma.NotificationUncheckedCreateNestedManyWithoutUserInput;
+  assignedVehicles?: Prisma.AssignedVehiclesUncheckedCreateNestedManyWithoutUserInput;
+  communityPost?: Prisma.CommunityPostUncheckedCreateNestedManyWithoutUserInput;
+  likes?: Prisma.LikeUncheckedCreateNestedManyWithoutUserInput;
+  createdTerms?: Prisma.TermsAndPolicyUncheckedCreateNestedManyWithoutCreatedByUserInput;
+  updatedTerms?: Prisma.TermsAndPolicyUncheckedCreateNestedManyWithoutUpdatedByUserInput;
+};
+
+export type UserCreateOrConnectWithoutAccessInput = {
+  where: Prisma.UserWhereUniqueInput;
+  create: Prisma.XOR<
+    Prisma.UserCreateWithoutAccessInput,
+    Prisma.UserUncheckedCreateWithoutAccessInput
+  >;
+};
+
+export type UserCreateManyAccessInputEnvelope = {
+  data: Prisma.UserCreateManyAccessInput | Prisma.UserCreateManyAccessInput[];
+  skipDuplicates?: boolean;
+};
+
+export type UserUpsertWithWhereUniqueWithoutAccessInput = {
+  where: Prisma.UserWhereUniqueInput;
+  update: Prisma.XOR<
+    Prisma.UserUpdateWithoutAccessInput,
+    Prisma.UserUncheckedUpdateWithoutAccessInput
+  >;
+  create: Prisma.XOR<
+    Prisma.UserCreateWithoutAccessInput,
+    Prisma.UserUncheckedCreateWithoutAccessInput
+  >;
+};
+
+export type UserUpdateWithWhereUniqueWithoutAccessInput = {
+  where: Prisma.UserWhereUniqueInput;
+  data: Prisma.XOR<
+    Prisma.UserUpdateWithoutAccessInput,
+    Prisma.UserUncheckedUpdateWithoutAccessInput
+  >;
+};
+
+export type UserUpdateManyWithWhereWithoutAccessInput = {
+  where: Prisma.UserScalarWhereInput;
+  data: Prisma.XOR<
+    Prisma.UserUpdateManyMutationInput,
+    Prisma.UserUncheckedUpdateManyWithoutAccessInput
+  >;
+};
+
+export type UserCreateManyDesignationInput = {
+  id?: string;
+  email: string;
+  registeredName: string;
+  displayName: string;
+  gender: $Enums.EGender;
+  rfid: string;
+  registeredPhoneNumber: string;
+  contactPhoneNumber: string;
+  password: string;
+  address: string;
+  profilePhoto?: string | null;
+  dob: Date | string;
+  status?: $Enums.AccountStatus;
+  passwordResetOtp?: string | null;
+  passwordResetOtpExpirationTime?: Date | string | null;
+  passwordResetToken?: string | null;
+  passwordResetTokenExpirationTime?: Date | string | null;
+  accessId?: number | null;
+  createdAt?: Date | string;
+  updatedAt?: Date | string;
+};
+
+export type UserUpdateWithoutDesignationInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string;
+  email?: Prisma.StringFieldUpdateOperationsInput | string;
+  registeredName?: Prisma.StringFieldUpdateOperationsInput | string;
+  displayName?: Prisma.StringFieldUpdateOperationsInput | string;
+  gender?: Prisma.EnumEGenderFieldUpdateOperationsInput | $Enums.EGender;
+  rfid?: Prisma.StringFieldUpdateOperationsInput | string;
+  registeredPhoneNumber?: Prisma.StringFieldUpdateOperationsInput | string;
+  contactPhoneNumber?: Prisma.StringFieldUpdateOperationsInput | string;
+  password?: Prisma.StringFieldUpdateOperationsInput | string;
+  address?: Prisma.StringFieldUpdateOperationsInput | string;
+  profilePhoto?:
+    | Prisma.NullableStringFieldUpdateOperationsInput
+    | string
+    | null;
+  dob?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
+  status?:
+    | Prisma.EnumAccountStatusFieldUpdateOperationsInput
+    | $Enums.AccountStatus;
+  passwordResetOtp?:
+    | Prisma.NullableStringFieldUpdateOperationsInput
+    | string
+    | null;
+  passwordResetOtpExpirationTime?:
+    | Prisma.NullableDateTimeFieldUpdateOperationsInput
+    | Date
+    | string
+    | null;
+  passwordResetToken?:
+    | Prisma.NullableStringFieldUpdateOperationsInput
+    | string
+    | null;
+  passwordResetTokenExpirationTime?:
+    | Prisma.NullableDateTimeFieldUpdateOperationsInput
+    | Date
+    | string
+    | null;
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
+  access?: Prisma.AccessPolicyUpdateOneWithoutUserNestedInput;
+  customerProfileAnswers?: Prisma.CustomerProfileAnswersUpdateManyWithoutUserNestedInput;
+  referrals?: Prisma.ReferralUpdateManyWithoutUserNestedInput;
+  feedbacks?: Prisma.FeedbackUpdateManyWithoutUserNestedInput;
+  notification?: Prisma.NotificationUpdateManyWithoutUserNestedInput;
+  assignedVehicles?: Prisma.AssignedVehiclesUpdateManyWithoutUserNestedInput;
+  communityPost?: Prisma.CommunityPostUpdateManyWithoutUserNestedInput;
+  likes?: Prisma.LikeUpdateManyWithoutUserNestedInput;
+  createdTerms?: Prisma.TermsAndPolicyUpdateManyWithoutCreatedByUserNestedInput;
+  updatedTerms?: Prisma.TermsAndPolicyUpdateManyWithoutUpdatedByUserNestedInput;
+};
+
+export type UserUncheckedUpdateWithoutDesignationInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string;
+  email?: Prisma.StringFieldUpdateOperationsInput | string;
+  registeredName?: Prisma.StringFieldUpdateOperationsInput | string;
+  displayName?: Prisma.StringFieldUpdateOperationsInput | string;
+  gender?: Prisma.EnumEGenderFieldUpdateOperationsInput | $Enums.EGender;
+  rfid?: Prisma.StringFieldUpdateOperationsInput | string;
+  registeredPhoneNumber?: Prisma.StringFieldUpdateOperationsInput | string;
+  contactPhoneNumber?: Prisma.StringFieldUpdateOperationsInput | string;
+  password?: Prisma.StringFieldUpdateOperationsInput | string;
+  address?: Prisma.StringFieldUpdateOperationsInput | string;
+  profilePhoto?:
+    | Prisma.NullableStringFieldUpdateOperationsInput
+    | string
+    | null;
+  dob?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
+  status?:
+    | Prisma.EnumAccountStatusFieldUpdateOperationsInput
+    | $Enums.AccountStatus;
+  passwordResetOtp?:
+    | Prisma.NullableStringFieldUpdateOperationsInput
+    | string
+    | null;
+  passwordResetOtpExpirationTime?:
+    | Prisma.NullableDateTimeFieldUpdateOperationsInput
+    | Date
+    | string
+    | null;
+  passwordResetToken?:
+    | Prisma.NullableStringFieldUpdateOperationsInput
+    | string
+    | null;
+  passwordResetTokenExpirationTime?:
+    | Prisma.NullableDateTimeFieldUpdateOperationsInput
+    | Date
+    | string
+    | null;
+  accessId?: Prisma.NullableIntFieldUpdateOperationsInput | number | null;
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
+  customerProfileAnswers?: Prisma.CustomerProfileAnswersUncheckedUpdateManyWithoutUserNestedInput;
+  referrals?: Prisma.ReferralUncheckedUpdateManyWithoutUserNestedInput;
+  feedbacks?: Prisma.FeedbackUncheckedUpdateManyWithoutUserNestedInput;
+  notification?: Prisma.NotificationUncheckedUpdateManyWithoutUserNestedInput;
+  assignedVehicles?: Prisma.AssignedVehiclesUncheckedUpdateManyWithoutUserNestedInput;
+  communityPost?: Prisma.CommunityPostUncheckedUpdateManyWithoutUserNestedInput;
+  likes?: Prisma.LikeUncheckedUpdateManyWithoutUserNestedInput;
+  createdTerms?: Prisma.TermsAndPolicyUncheckedUpdateManyWithoutCreatedByUserNestedInput;
+  updatedTerms?: Prisma.TermsAndPolicyUncheckedUpdateManyWithoutUpdatedByUserNestedInput;
+};
+
+export type UserUncheckedUpdateManyWithoutDesignationInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string;
+  email?: Prisma.StringFieldUpdateOperationsInput | string;
+  registeredName?: Prisma.StringFieldUpdateOperationsInput | string;
+  displayName?: Prisma.StringFieldUpdateOperationsInput | string;
+  gender?: Prisma.EnumEGenderFieldUpdateOperationsInput | $Enums.EGender;
+  rfid?: Prisma.StringFieldUpdateOperationsInput | string;
+  registeredPhoneNumber?: Prisma.StringFieldUpdateOperationsInput | string;
+  contactPhoneNumber?: Prisma.StringFieldUpdateOperationsInput | string;
+  password?: Prisma.StringFieldUpdateOperationsInput | string;
+  address?: Prisma.StringFieldUpdateOperationsInput | string;
+  profilePhoto?:
+    | Prisma.NullableStringFieldUpdateOperationsInput
+    | string
+    | null;
+  dob?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
+  status?:
+    | Prisma.EnumAccountStatusFieldUpdateOperationsInput
+    | $Enums.AccountStatus;
+  passwordResetOtp?:
+    | Prisma.NullableStringFieldUpdateOperationsInput
+    | string
+    | null;
+  passwordResetOtpExpirationTime?:
+    | Prisma.NullableDateTimeFieldUpdateOperationsInput
+    | Date
+    | string
+    | null;
+  passwordResetToken?:
+    | Prisma.NullableStringFieldUpdateOperationsInput
+    | string
+    | null;
+  passwordResetTokenExpirationTime?:
+    | Prisma.NullableDateTimeFieldUpdateOperationsInput
+    | Date
+    | string
+    | null;
+  accessId?: Prisma.NullableIntFieldUpdateOperationsInput | number | null;
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
+};
+
+export type UserCreateManyAccessInput = {
+  id?: string;
+  email: string;
+  registeredName: string;
+  displayName: string;
+  gender: $Enums.EGender;
+  rfid: string;
+  registeredPhoneNumber: string;
+  contactPhoneNumber: string;
+  password: string;
+  address: string;
+  profilePhoto?: string | null;
+  dob: Date | string;
+  status?: $Enums.AccountStatus;
+  passwordResetOtp?: string | null;
+  passwordResetOtpExpirationTime?: Date | string | null;
+  passwordResetToken?: string | null;
+  passwordResetTokenExpirationTime?: Date | string | null;
+  designationId?: string | null;
+  createdAt?: Date | string;
+  updatedAt?: Date | string;
+};
+
+export type UserUpdateWithoutAccessInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string;
+  email?: Prisma.StringFieldUpdateOperationsInput | string;
+  registeredName?: Prisma.StringFieldUpdateOperationsInput | string;
+  displayName?: Prisma.StringFieldUpdateOperationsInput | string;
+  gender?: Prisma.EnumEGenderFieldUpdateOperationsInput | $Enums.EGender;
+  rfid?: Prisma.StringFieldUpdateOperationsInput | string;
+  registeredPhoneNumber?: Prisma.StringFieldUpdateOperationsInput | string;
+  contactPhoneNumber?: Prisma.StringFieldUpdateOperationsInput | string;
+  password?: Prisma.StringFieldUpdateOperationsInput | string;
+  address?: Prisma.StringFieldUpdateOperationsInput | string;
+  profilePhoto?:
+    | Prisma.NullableStringFieldUpdateOperationsInput
+    | string
+    | null;
+  dob?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
+  status?:
+    | Prisma.EnumAccountStatusFieldUpdateOperationsInput
+    | $Enums.AccountStatus;
+  passwordResetOtp?:
+    | Prisma.NullableStringFieldUpdateOperationsInput
+    | string
+    | null;
+  passwordResetOtpExpirationTime?:
+    | Prisma.NullableDateTimeFieldUpdateOperationsInput
+    | Date
+    | string
+    | null;
+  passwordResetToken?:
+    | Prisma.NullableStringFieldUpdateOperationsInput
+    | string
+    | null;
+  passwordResetTokenExpirationTime?:
+    | Prisma.NullableDateTimeFieldUpdateOperationsInput
+    | Date
+    | string
+    | null;
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
+  designation?: Prisma.DesignationUpdateOneWithoutUsersNestedInput;
+  customerProfileAnswers?: Prisma.CustomerProfileAnswersUpdateManyWithoutUserNestedInput;
+  referrals?: Prisma.ReferralUpdateManyWithoutUserNestedInput;
+  feedbacks?: Prisma.FeedbackUpdateManyWithoutUserNestedInput;
+  notification?: Prisma.NotificationUpdateManyWithoutUserNestedInput;
+  assignedVehicles?: Prisma.AssignedVehiclesUpdateManyWithoutUserNestedInput;
+  communityPost?: Prisma.CommunityPostUpdateManyWithoutUserNestedInput;
+  likes?: Prisma.LikeUpdateManyWithoutUserNestedInput;
+  createdTerms?: Prisma.TermsAndPolicyUpdateManyWithoutCreatedByUserNestedInput;
+  updatedTerms?: Prisma.TermsAndPolicyUpdateManyWithoutUpdatedByUserNestedInput;
+};
+
+export type UserUncheckedUpdateWithoutAccessInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string;
+  email?: Prisma.StringFieldUpdateOperationsInput | string;
+  registeredName?: Prisma.StringFieldUpdateOperationsInput | string;
+  displayName?: Prisma.StringFieldUpdateOperationsInput | string;
+  gender?: Prisma.EnumEGenderFieldUpdateOperationsInput | $Enums.EGender;
+  rfid?: Prisma.StringFieldUpdateOperationsInput | string;
+  registeredPhoneNumber?: Prisma.StringFieldUpdateOperationsInput | string;
+  contactPhoneNumber?: Prisma.StringFieldUpdateOperationsInput | string;
+  password?: Prisma.StringFieldUpdateOperationsInput | string;
+  address?: Prisma.StringFieldUpdateOperationsInput | string;
+  profilePhoto?:
+    | Prisma.NullableStringFieldUpdateOperationsInput
+    | string
+    | null;
+  dob?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
+  status?:
+    | Prisma.EnumAccountStatusFieldUpdateOperationsInput
+    | $Enums.AccountStatus;
+  passwordResetOtp?:
+    | Prisma.NullableStringFieldUpdateOperationsInput
+    | string
+    | null;
+  passwordResetOtpExpirationTime?:
+    | Prisma.NullableDateTimeFieldUpdateOperationsInput
+    | Date
+    | string
+    | null;
+  passwordResetToken?:
+    | Prisma.NullableStringFieldUpdateOperationsInput
+    | string
+    | null;
+  passwordResetTokenExpirationTime?:
+    | Prisma.NullableDateTimeFieldUpdateOperationsInput
+    | Date
+    | string
+    | null;
+  designationId?:
+    | Prisma.NullableStringFieldUpdateOperationsInput
+    | string
+    | null;
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
+  customerProfileAnswers?: Prisma.CustomerProfileAnswersUncheckedUpdateManyWithoutUserNestedInput;
+  referrals?: Prisma.ReferralUncheckedUpdateManyWithoutUserNestedInput;
+  feedbacks?: Prisma.FeedbackUncheckedUpdateManyWithoutUserNestedInput;
+  notification?: Prisma.NotificationUncheckedUpdateManyWithoutUserNestedInput;
+  assignedVehicles?: Prisma.AssignedVehiclesUncheckedUpdateManyWithoutUserNestedInput;
+  communityPost?: Prisma.CommunityPostUncheckedUpdateManyWithoutUserNestedInput;
+  likes?: Prisma.LikeUncheckedUpdateManyWithoutUserNestedInput;
+  createdTerms?: Prisma.TermsAndPolicyUncheckedUpdateManyWithoutCreatedByUserNestedInput;
+  updatedTerms?: Prisma.TermsAndPolicyUncheckedUpdateManyWithoutUpdatedByUserNestedInput;
+};
+
+export type UserUncheckedUpdateManyWithoutAccessInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string;
+  email?: Prisma.StringFieldUpdateOperationsInput | string;
+  registeredName?: Prisma.StringFieldUpdateOperationsInput | string;
+  displayName?: Prisma.StringFieldUpdateOperationsInput | string;
+  gender?: Prisma.EnumEGenderFieldUpdateOperationsInput | $Enums.EGender;
+  rfid?: Prisma.StringFieldUpdateOperationsInput | string;
+  registeredPhoneNumber?: Prisma.StringFieldUpdateOperationsInput | string;
+  contactPhoneNumber?: Prisma.StringFieldUpdateOperationsInput | string;
+  password?: Prisma.StringFieldUpdateOperationsInput | string;
+  address?: Prisma.StringFieldUpdateOperationsInput | string;
+  profilePhoto?:
+    | Prisma.NullableStringFieldUpdateOperationsInput
+    | string
+    | null;
+  dob?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
+  status?:
+    | Prisma.EnumAccountStatusFieldUpdateOperationsInput
+    | $Enums.AccountStatus;
+  passwordResetOtp?:
+    | Prisma.NullableStringFieldUpdateOperationsInput
+    | string
+    | null;
+  passwordResetOtpExpirationTime?:
+    | Prisma.NullableDateTimeFieldUpdateOperationsInput
+    | Date
+    | string
+    | null;
+  passwordResetToken?:
+    | Prisma.NullableStringFieldUpdateOperationsInput
+    | string
+    | null;
+  passwordResetTokenExpirationTime?:
+    | Prisma.NullableDateTimeFieldUpdateOperationsInput
+    | Date
+    | string
+    | null;
+  designationId?:
+    | Prisma.NullableStringFieldUpdateOperationsInput
+    | string
+    | null;
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
+};
+
+/**
+ * Count Type UserCountOutputType
+ */
+
+export type UserCountOutputType = {
+  customerProfileAnswers: number;
+  referrals: number;
+  feedbacks: number;
+  notification: number;
+  assignedVehicles: number;
+  communityPost: number;
+  likes: number;
+  createdTerms: number;
+  updatedTerms: number;
+};
+
+export type UserCountOutputTypeSelect<
+  ExtArgs extends
+    runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs,
+> = {
+  customerProfileAnswers?:
+    | boolean
+    | UserCountOutputTypeCountCustomerProfileAnswersArgs;
+  referrals?: boolean | UserCountOutputTypeCountReferralsArgs;
+  feedbacks?: boolean | UserCountOutputTypeCountFeedbacksArgs;
+  notification?: boolean | UserCountOutputTypeCountNotificationArgs;
+  assignedVehicles?: boolean | UserCountOutputTypeCountAssignedVehiclesArgs;
+  communityPost?: boolean | UserCountOutputTypeCountCommunityPostArgs;
+  likes?: boolean | UserCountOutputTypeCountLikesArgs;
+  createdTerms?: boolean | UserCountOutputTypeCountCreatedTermsArgs;
+  updatedTerms?: boolean | UserCountOutputTypeCountUpdatedTermsArgs;
+};
+
+/**
+ * UserCountOutputType without action
+ */
+export type UserCountOutputTypeDefaultArgs<
+  ExtArgs extends
+    runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs,
+> = {
+  /**
+   * Select specific fields to fetch from the UserCountOutputType
+   */
+  select?: Prisma.UserCountOutputTypeSelect<ExtArgs> | null;
+};
+
+/**
+ * UserCountOutputType without action
+ */
+export type UserCountOutputTypeCountCustomerProfileAnswersArgs<
+  ExtArgs extends
+    runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs,
+> = {
+  where?: Prisma.CustomerProfileAnswersWhereInput;
+};
+
+/**
+ * UserCountOutputType without action
+ */
+export type UserCountOutputTypeCountReferralsArgs<
+  ExtArgs extends
+    runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs,
+> = {
+  where?: Prisma.ReferralWhereInput;
+};
+
+/**
+ * UserCountOutputType without action
+ */
+export type UserCountOutputTypeCountFeedbacksArgs<
+  ExtArgs extends
+    runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs,
+> = {
+  where?: Prisma.FeedbackWhereInput;
+};
+
+/**
+ * UserCountOutputType without action
+ */
+export type UserCountOutputTypeCountNotificationArgs<
+  ExtArgs extends
+    runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs,
+> = {
+  where?: Prisma.NotificationWhereInput;
+};
+
+/**
+ * UserCountOutputType without action
+ */
+export type UserCountOutputTypeCountAssignedVehiclesArgs<
+  ExtArgs extends
+    runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs,
+> = {
+  where?: Prisma.AssignedVehiclesWhereInput;
+};
+
+/**
+ * UserCountOutputType without action
+ */
+export type UserCountOutputTypeCountCommunityPostArgs<
+  ExtArgs extends
+    runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs,
+> = {
+  where?: Prisma.CommunityPostWhereInput;
+};
+
+/**
+ * UserCountOutputType without action
+ */
+export type UserCountOutputTypeCountLikesArgs<
+  ExtArgs extends
+    runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs,
+> = {
+  where?: Prisma.LikeWhereInput;
+};
+
+/**
+ * UserCountOutputType without action
+ */
+export type UserCountOutputTypeCountCreatedTermsArgs<
+  ExtArgs extends
+    runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs,
+> = {
+  where?: Prisma.TermsAndPolicyWhereInput;
+};
+
+/**
+ * UserCountOutputType without action
+ */
+export type UserCountOutputTypeCountUpdatedTermsArgs<
+  ExtArgs extends
+    runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs,
+> = {
+  where?: Prisma.TermsAndPolicyWhereInput;
 };
 
 export type UserSelect<
@@ -354,6 +3867,37 @@ export type UserSelect<
     email?: boolean;
     registeredName?: boolean;
     displayName?: boolean;
+    gender?: boolean;
+    rfid?: boolean;
+    registeredPhoneNumber?: boolean;
+    contactPhoneNumber?: boolean;
+    password?: boolean;
+    address?: boolean;
+    profilePhoto?: boolean;
+    dob?: boolean;
+    status?: boolean;
+    passwordResetOtp?: boolean;
+    passwordResetOtpExpirationTime?: boolean;
+    passwordResetToken?: boolean;
+    passwordResetTokenExpirationTime?: boolean;
+    accessId?: boolean;
+    designationId?: boolean;
+    createdAt?: boolean;
+    updatedAt?: boolean;
+    access?: boolean | Prisma.User$accessArgs<ExtArgs>;
+    designation?: boolean | Prisma.User$designationArgs<ExtArgs>;
+    customerProfileAnswers?:
+      | boolean
+      | Prisma.User$customerProfileAnswersArgs<ExtArgs>;
+    referrals?: boolean | Prisma.User$referralsArgs<ExtArgs>;
+    feedbacks?: boolean | Prisma.User$feedbacksArgs<ExtArgs>;
+    notification?: boolean | Prisma.User$notificationArgs<ExtArgs>;
+    assignedVehicles?: boolean | Prisma.User$assignedVehiclesArgs<ExtArgs>;
+    communityPost?: boolean | Prisma.User$communityPostArgs<ExtArgs>;
+    likes?: boolean | Prisma.User$likesArgs<ExtArgs>;
+    createdTerms?: boolean | Prisma.User$createdTermsArgs<ExtArgs>;
+    updatedTerms?: boolean | Prisma.User$updatedTermsArgs<ExtArgs>;
+    _count?: boolean | Prisma.UserCountOutputTypeDefaultArgs<ExtArgs>;
   },
   ExtArgs['result']['user']
 >;
@@ -367,6 +3911,25 @@ export type UserSelectCreateManyAndReturn<
     email?: boolean;
     registeredName?: boolean;
     displayName?: boolean;
+    gender?: boolean;
+    rfid?: boolean;
+    registeredPhoneNumber?: boolean;
+    contactPhoneNumber?: boolean;
+    password?: boolean;
+    address?: boolean;
+    profilePhoto?: boolean;
+    dob?: boolean;
+    status?: boolean;
+    passwordResetOtp?: boolean;
+    passwordResetOtpExpirationTime?: boolean;
+    passwordResetToken?: boolean;
+    passwordResetTokenExpirationTime?: boolean;
+    accessId?: boolean;
+    designationId?: boolean;
+    createdAt?: boolean;
+    updatedAt?: boolean;
+    access?: boolean | Prisma.User$accessArgs<ExtArgs>;
+    designation?: boolean | Prisma.User$designationArgs<ExtArgs>;
   },
   ExtArgs['result']['user']
 >;
@@ -380,6 +3943,25 @@ export type UserSelectUpdateManyAndReturn<
     email?: boolean;
     registeredName?: boolean;
     displayName?: boolean;
+    gender?: boolean;
+    rfid?: boolean;
+    registeredPhoneNumber?: boolean;
+    contactPhoneNumber?: boolean;
+    password?: boolean;
+    address?: boolean;
+    profilePhoto?: boolean;
+    dob?: boolean;
+    status?: boolean;
+    passwordResetOtp?: boolean;
+    passwordResetOtpExpirationTime?: boolean;
+    passwordResetToken?: boolean;
+    passwordResetTokenExpirationTime?: boolean;
+    accessId?: boolean;
+    designationId?: boolean;
+    createdAt?: boolean;
+    updatedAt?: boolean;
+    access?: boolean | Prisma.User$accessArgs<ExtArgs>;
+    designation?: boolean | Prisma.User$designationArgs<ExtArgs>;
   },
   ExtArgs['result']['user']
 >;
@@ -389,28 +3971,127 @@ export type UserSelectScalar = {
   email?: boolean;
   registeredName?: boolean;
   displayName?: boolean;
+  gender?: boolean;
+  rfid?: boolean;
+  registeredPhoneNumber?: boolean;
+  contactPhoneNumber?: boolean;
+  password?: boolean;
+  address?: boolean;
+  profilePhoto?: boolean;
+  dob?: boolean;
+  status?: boolean;
+  passwordResetOtp?: boolean;
+  passwordResetOtpExpirationTime?: boolean;
+  passwordResetToken?: boolean;
+  passwordResetTokenExpirationTime?: boolean;
+  accessId?: boolean;
+  designationId?: boolean;
+  createdAt?: boolean;
+  updatedAt?: boolean;
 };
 
 export type UserOmit<
   ExtArgs extends
     runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs,
 > = runtime.Types.Extensions.GetOmit<
-  'id' | 'email' | 'registeredName' | 'displayName',
+  | 'id'
+  | 'email'
+  | 'registeredName'
+  | 'displayName'
+  | 'gender'
+  | 'rfid'
+  | 'registeredPhoneNumber'
+  | 'contactPhoneNumber'
+  | 'password'
+  | 'address'
+  | 'profilePhoto'
+  | 'dob'
+  | 'status'
+  | 'passwordResetOtp'
+  | 'passwordResetOtpExpirationTime'
+  | 'passwordResetToken'
+  | 'passwordResetTokenExpirationTime'
+  | 'accessId'
+  | 'designationId'
+  | 'createdAt'
+  | 'updatedAt',
   ExtArgs['result']['user']
 >;
+export type UserInclude<
+  ExtArgs extends
+    runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs,
+> = {
+  access?: boolean | Prisma.User$accessArgs<ExtArgs>;
+  designation?: boolean | Prisma.User$designationArgs<ExtArgs>;
+  customerProfileAnswers?:
+    | boolean
+    | Prisma.User$customerProfileAnswersArgs<ExtArgs>;
+  referrals?: boolean | Prisma.User$referralsArgs<ExtArgs>;
+  feedbacks?: boolean | Prisma.User$feedbacksArgs<ExtArgs>;
+  notification?: boolean | Prisma.User$notificationArgs<ExtArgs>;
+  assignedVehicles?: boolean | Prisma.User$assignedVehiclesArgs<ExtArgs>;
+  communityPost?: boolean | Prisma.User$communityPostArgs<ExtArgs>;
+  likes?: boolean | Prisma.User$likesArgs<ExtArgs>;
+  createdTerms?: boolean | Prisma.User$createdTermsArgs<ExtArgs>;
+  updatedTerms?: boolean | Prisma.User$updatedTermsArgs<ExtArgs>;
+  _count?: boolean | Prisma.UserCountOutputTypeDefaultArgs<ExtArgs>;
+};
+export type UserIncludeCreateManyAndReturn<
+  ExtArgs extends
+    runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs,
+> = {
+  access?: boolean | Prisma.User$accessArgs<ExtArgs>;
+  designation?: boolean | Prisma.User$designationArgs<ExtArgs>;
+};
+export type UserIncludeUpdateManyAndReturn<
+  ExtArgs extends
+    runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs,
+> = {
+  access?: boolean | Prisma.User$accessArgs<ExtArgs>;
+  designation?: boolean | Prisma.User$designationArgs<ExtArgs>;
+};
 
 export type $UserPayload<
   ExtArgs extends
     runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs,
 > = {
   name: 'User';
-  objects: {};
+  objects: {
+    access: Prisma.$AccessPolicyPayload<ExtArgs> | null;
+    designation: Prisma.$DesignationPayload<ExtArgs> | null;
+    customerProfileAnswers: Prisma.$CustomerProfileAnswersPayload<ExtArgs>[];
+    referrals: Prisma.$ReferralPayload<ExtArgs>[];
+    feedbacks: Prisma.$FeedbackPayload<ExtArgs>[];
+    notification: Prisma.$NotificationPayload<ExtArgs>[];
+    assignedVehicles: Prisma.$AssignedVehiclesPayload<ExtArgs>[];
+    communityPost: Prisma.$CommunityPostPayload<ExtArgs>[];
+    likes: Prisma.$LikePayload<ExtArgs>[];
+    createdTerms: Prisma.$TermsAndPolicyPayload<ExtArgs>[];
+    updatedTerms: Prisma.$TermsAndPolicyPayload<ExtArgs>[];
+  };
   scalars: runtime.Types.Extensions.GetPayloadResult<
     {
-      id: number;
+      id: string;
       email: string;
       registeredName: string;
       displayName: string;
+      gender: $Enums.EGender;
+      rfid: string;
+      registeredPhoneNumber: string;
+      contactPhoneNumber: string;
+      password: string;
+      address: string;
+      profilePhoto: string | null;
+      dob: Date;
+      status: $Enums.AccountStatus;
+      passwordResetOtp: string | null;
+      passwordResetOtpExpirationTime: Date | null;
+      passwordResetToken: string | null;
+      passwordResetTokenExpirationTime: Date | null;
+      accessId: number | null;
+      designationId: string | null;
+      createdAt: Date;
+      updatedAt: Date;
     },
     ExtArgs['result']['user']
   >;
@@ -961,6 +4642,133 @@ export interface Prisma__UserClient<
   GlobalOmitOptions = {},
 > extends Prisma.PrismaPromise<T> {
   readonly [Symbol.toStringTag]: 'PrismaPromise';
+  access<T extends Prisma.User$accessArgs<ExtArgs> = {}>(
+    args?: Prisma.Subset<T, Prisma.User$accessArgs<ExtArgs>>,
+  ): Prisma.Prisma__AccessPolicyClient<
+    runtime.Types.Result.GetResult<
+      Prisma.$AccessPolicyPayload<ExtArgs>,
+      T,
+      'findUniqueOrThrow',
+      GlobalOmitOptions
+    > | null,
+    null,
+    ExtArgs,
+    GlobalOmitOptions
+  >;
+  designation<T extends Prisma.User$designationArgs<ExtArgs> = {}>(
+    args?: Prisma.Subset<T, Prisma.User$designationArgs<ExtArgs>>,
+  ): Prisma.Prisma__DesignationClient<
+    runtime.Types.Result.GetResult<
+      Prisma.$DesignationPayload<ExtArgs>,
+      T,
+      'findUniqueOrThrow',
+      GlobalOmitOptions
+    > | null,
+    null,
+    ExtArgs,
+    GlobalOmitOptions
+  >;
+  customerProfileAnswers<
+    T extends Prisma.User$customerProfileAnswersArgs<ExtArgs> = {},
+  >(
+    args?: Prisma.Subset<T, Prisma.User$customerProfileAnswersArgs<ExtArgs>>,
+  ): Prisma.PrismaPromise<
+    | runtime.Types.Result.GetResult<
+        Prisma.$CustomerProfileAnswersPayload<ExtArgs>,
+        T,
+        'findMany',
+        GlobalOmitOptions
+      >
+    | Null
+  >;
+  referrals<T extends Prisma.User$referralsArgs<ExtArgs> = {}>(
+    args?: Prisma.Subset<T, Prisma.User$referralsArgs<ExtArgs>>,
+  ): Prisma.PrismaPromise<
+    | runtime.Types.Result.GetResult<
+        Prisma.$ReferralPayload<ExtArgs>,
+        T,
+        'findMany',
+        GlobalOmitOptions
+      >
+    | Null
+  >;
+  feedbacks<T extends Prisma.User$feedbacksArgs<ExtArgs> = {}>(
+    args?: Prisma.Subset<T, Prisma.User$feedbacksArgs<ExtArgs>>,
+  ): Prisma.PrismaPromise<
+    | runtime.Types.Result.GetResult<
+        Prisma.$FeedbackPayload<ExtArgs>,
+        T,
+        'findMany',
+        GlobalOmitOptions
+      >
+    | Null
+  >;
+  notification<T extends Prisma.User$notificationArgs<ExtArgs> = {}>(
+    args?: Prisma.Subset<T, Prisma.User$notificationArgs<ExtArgs>>,
+  ): Prisma.PrismaPromise<
+    | runtime.Types.Result.GetResult<
+        Prisma.$NotificationPayload<ExtArgs>,
+        T,
+        'findMany',
+        GlobalOmitOptions
+      >
+    | Null
+  >;
+  assignedVehicles<T extends Prisma.User$assignedVehiclesArgs<ExtArgs> = {}>(
+    args?: Prisma.Subset<T, Prisma.User$assignedVehiclesArgs<ExtArgs>>,
+  ): Prisma.PrismaPromise<
+    | runtime.Types.Result.GetResult<
+        Prisma.$AssignedVehiclesPayload<ExtArgs>,
+        T,
+        'findMany',
+        GlobalOmitOptions
+      >
+    | Null
+  >;
+  communityPost<T extends Prisma.User$communityPostArgs<ExtArgs> = {}>(
+    args?: Prisma.Subset<T, Prisma.User$communityPostArgs<ExtArgs>>,
+  ): Prisma.PrismaPromise<
+    | runtime.Types.Result.GetResult<
+        Prisma.$CommunityPostPayload<ExtArgs>,
+        T,
+        'findMany',
+        GlobalOmitOptions
+      >
+    | Null
+  >;
+  likes<T extends Prisma.User$likesArgs<ExtArgs> = {}>(
+    args?: Prisma.Subset<T, Prisma.User$likesArgs<ExtArgs>>,
+  ): Prisma.PrismaPromise<
+    | runtime.Types.Result.GetResult<
+        Prisma.$LikePayload<ExtArgs>,
+        T,
+        'findMany',
+        GlobalOmitOptions
+      >
+    | Null
+  >;
+  createdTerms<T extends Prisma.User$createdTermsArgs<ExtArgs> = {}>(
+    args?: Prisma.Subset<T, Prisma.User$createdTermsArgs<ExtArgs>>,
+  ): Prisma.PrismaPromise<
+    | runtime.Types.Result.GetResult<
+        Prisma.$TermsAndPolicyPayload<ExtArgs>,
+        T,
+        'findMany',
+        GlobalOmitOptions
+      >
+    | Null
+  >;
+  updatedTerms<T extends Prisma.User$updatedTermsArgs<ExtArgs> = {}>(
+    args?: Prisma.Subset<T, Prisma.User$updatedTermsArgs<ExtArgs>>,
+  ): Prisma.PrismaPromise<
+    | runtime.Types.Result.GetResult<
+        Prisma.$TermsAndPolicyPayload<ExtArgs>,
+        T,
+        'findMany',
+        GlobalOmitOptions
+      >
+    | Null
+  >;
   /**
    * Attaches callbacks for the resolution and/or rejection of the Promise.
    * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -1003,10 +4811,30 @@ export interface Prisma__UserClient<
  * Fields of the User model
  */
 export interface UserFieldRefs {
-  readonly id: Prisma.FieldRef<'User', 'Int'>;
+  readonly id: Prisma.FieldRef<'User', 'String'>;
   readonly email: Prisma.FieldRef<'User', 'String'>;
   readonly registeredName: Prisma.FieldRef<'User', 'String'>;
   readonly displayName: Prisma.FieldRef<'User', 'String'>;
+  readonly gender: Prisma.FieldRef<'User', 'EGender'>;
+  readonly rfid: Prisma.FieldRef<'User', 'String'>;
+  readonly registeredPhoneNumber: Prisma.FieldRef<'User', 'String'>;
+  readonly contactPhoneNumber: Prisma.FieldRef<'User', 'String'>;
+  readonly password: Prisma.FieldRef<'User', 'String'>;
+  readonly address: Prisma.FieldRef<'User', 'String'>;
+  readonly profilePhoto: Prisma.FieldRef<'User', 'String'>;
+  readonly dob: Prisma.FieldRef<'User', 'DateTime'>;
+  readonly status: Prisma.FieldRef<'User', 'AccountStatus'>;
+  readonly passwordResetOtp: Prisma.FieldRef<'User', 'String'>;
+  readonly passwordResetOtpExpirationTime: Prisma.FieldRef<'User', 'DateTime'>;
+  readonly passwordResetToken: Prisma.FieldRef<'User', 'String'>;
+  readonly passwordResetTokenExpirationTime: Prisma.FieldRef<
+    'User',
+    'DateTime'
+  >;
+  readonly accessId: Prisma.FieldRef<'User', 'Int'>;
+  readonly designationId: Prisma.FieldRef<'User', 'String'>;
+  readonly createdAt: Prisma.FieldRef<'User', 'DateTime'>;
+  readonly updatedAt: Prisma.FieldRef<'User', 'DateTime'>;
 }
 
 // Custom InputTypes
@@ -1025,6 +4853,10 @@ export type UserFindUniqueArgs<
    * Omit specific fields from the User
    */
   omit?: Prisma.UserOmit<ExtArgs> | null;
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.UserInclude<ExtArgs> | null;
   /**
    * Filter, which User to fetch.
    */
@@ -1047,6 +4879,10 @@ export type UserFindUniqueOrThrowArgs<
    */
   omit?: Prisma.UserOmit<ExtArgs> | null;
   /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.UserInclude<ExtArgs> | null;
+  /**
    * Filter, which User to fetch.
    */
   where: Prisma.UserWhereUniqueInput;
@@ -1067,6 +4903,10 @@ export type UserFindFirstArgs<
    * Omit specific fields from the User
    */
   omit?: Prisma.UserOmit<ExtArgs> | null;
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.UserInclude<ExtArgs> | null;
   /**
    * Filter, which User to fetch.
    */
@@ -1121,6 +4961,10 @@ export type UserFindFirstOrThrowArgs<
    */
   omit?: Prisma.UserOmit<ExtArgs> | null;
   /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.UserInclude<ExtArgs> | null;
+  /**
    * Filter, which User to fetch.
    */
   where?: Prisma.UserWhereInput;
@@ -1174,6 +5018,10 @@ export type UserFindManyArgs<
    */
   omit?: Prisma.UserOmit<ExtArgs> | null;
   /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.UserInclude<ExtArgs> | null;
+  /**
    * Filter, which Users to fetch.
    */
   where?: Prisma.UserWhereInput;
@@ -1222,6 +5070,10 @@ export type UserCreateArgs<
    */
   omit?: Prisma.UserOmit<ExtArgs> | null;
   /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.UserInclude<ExtArgs> | null;
+  /**
    * The data needed to create a User.
    */
   data: Prisma.XOR<Prisma.UserCreateInput, Prisma.UserUncheckedCreateInput>;
@@ -1261,6 +5113,10 @@ export type UserCreateManyAndReturnArgs<
    */
   data: Prisma.UserCreateManyInput | Prisma.UserCreateManyInput[];
   skipDuplicates?: boolean;
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.UserIncludeCreateManyAndReturn<ExtArgs> | null;
 };
 
 /**
@@ -1278,6 +5134,10 @@ export type UserUpdateArgs<
    * Omit specific fields from the User
    */
   omit?: Prisma.UserOmit<ExtArgs> | null;
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.UserInclude<ExtArgs> | null;
   /**
    * The data needed to update a User.
    */
@@ -1342,6 +5202,10 @@ export type UserUpdateManyAndReturnArgs<
    * Limit how many Users to update.
    */
   limit?: number;
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.UserIncludeUpdateManyAndReturn<ExtArgs> | null;
 };
 
 /**
@@ -1359,6 +5223,10 @@ export type UserUpsertArgs<
    * Omit specific fields from the User
    */
   omit?: Prisma.UserOmit<ExtArgs> | null;
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.UserInclude<ExtArgs> | null;
   /**
    * The filter to search for the User to update in case it exists.
    */
@@ -1389,6 +5257,10 @@ export type UserDeleteArgs<
    */
   omit?: Prisma.UserOmit<ExtArgs> | null;
   /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.UserInclude<ExtArgs> | null;
+  /**
    * Filter which User to delete.
    */
   where: Prisma.UserWhereUniqueInput;
@@ -1412,6 +5284,323 @@ export type UserDeleteManyArgs<
 };
 
 /**
+ * User.access
+ */
+export type User$accessArgs<
+  ExtArgs extends
+    runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs,
+> = {
+  /**
+   * Select specific fields to fetch from the AccessPolicy
+   */
+  select?: Prisma.AccessPolicySelect<ExtArgs> | null;
+  /**
+   * Omit specific fields from the AccessPolicy
+   */
+  omit?: Prisma.AccessPolicyOmit<ExtArgs> | null;
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.AccessPolicyInclude<ExtArgs> | null;
+  where?: Prisma.AccessPolicyWhereInput;
+};
+
+/**
+ * User.designation
+ */
+export type User$designationArgs<
+  ExtArgs extends
+    runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs,
+> = {
+  /**
+   * Select specific fields to fetch from the Designation
+   */
+  select?: Prisma.DesignationSelect<ExtArgs> | null;
+  /**
+   * Omit specific fields from the Designation
+   */
+  omit?: Prisma.DesignationOmit<ExtArgs> | null;
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.DesignationInclude<ExtArgs> | null;
+  where?: Prisma.DesignationWhereInput;
+};
+
+/**
+ * User.customerProfileAnswers
+ */
+export type User$customerProfileAnswersArgs<
+  ExtArgs extends
+    runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs,
+> = {
+  /**
+   * Select specific fields to fetch from the CustomerProfileAnswers
+   */
+  select?: Prisma.CustomerProfileAnswersSelect<ExtArgs> | null;
+  /**
+   * Omit specific fields from the CustomerProfileAnswers
+   */
+  omit?: Prisma.CustomerProfileAnswersOmit<ExtArgs> | null;
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.CustomerProfileAnswersInclude<ExtArgs> | null;
+  where?: Prisma.CustomerProfileAnswersWhereInput;
+  orderBy?:
+    | Prisma.CustomerProfileAnswersOrderByWithRelationInput
+    | Prisma.CustomerProfileAnswersOrderByWithRelationInput[];
+  cursor?: Prisma.CustomerProfileAnswersWhereUniqueInput;
+  take?: number;
+  skip?: number;
+  distinct?:
+    | Prisma.CustomerProfileAnswersScalarFieldEnum
+    | Prisma.CustomerProfileAnswersScalarFieldEnum[];
+};
+
+/**
+ * User.referrals
+ */
+export type User$referralsArgs<
+  ExtArgs extends
+    runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs,
+> = {
+  /**
+   * Select specific fields to fetch from the Referral
+   */
+  select?: Prisma.ReferralSelect<ExtArgs> | null;
+  /**
+   * Omit specific fields from the Referral
+   */
+  omit?: Prisma.ReferralOmit<ExtArgs> | null;
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.ReferralInclude<ExtArgs> | null;
+  where?: Prisma.ReferralWhereInput;
+  orderBy?:
+    | Prisma.ReferralOrderByWithRelationInput
+    | Prisma.ReferralOrderByWithRelationInput[];
+  cursor?: Prisma.ReferralWhereUniqueInput;
+  take?: number;
+  skip?: number;
+  distinct?: Prisma.ReferralScalarFieldEnum | Prisma.ReferralScalarFieldEnum[];
+};
+
+/**
+ * User.feedbacks
+ */
+export type User$feedbacksArgs<
+  ExtArgs extends
+    runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs,
+> = {
+  /**
+   * Select specific fields to fetch from the Feedback
+   */
+  select?: Prisma.FeedbackSelect<ExtArgs> | null;
+  /**
+   * Omit specific fields from the Feedback
+   */
+  omit?: Prisma.FeedbackOmit<ExtArgs> | null;
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.FeedbackInclude<ExtArgs> | null;
+  where?: Prisma.FeedbackWhereInput;
+  orderBy?:
+    | Prisma.FeedbackOrderByWithRelationInput
+    | Prisma.FeedbackOrderByWithRelationInput[];
+  cursor?: Prisma.FeedbackWhereUniqueInput;
+  take?: number;
+  skip?: number;
+  distinct?: Prisma.FeedbackScalarFieldEnum | Prisma.FeedbackScalarFieldEnum[];
+};
+
+/**
+ * User.notification
+ */
+export type User$notificationArgs<
+  ExtArgs extends
+    runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs,
+> = {
+  /**
+   * Select specific fields to fetch from the Notification
+   */
+  select?: Prisma.NotificationSelect<ExtArgs> | null;
+  /**
+   * Omit specific fields from the Notification
+   */
+  omit?: Prisma.NotificationOmit<ExtArgs> | null;
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.NotificationInclude<ExtArgs> | null;
+  where?: Prisma.NotificationWhereInput;
+  orderBy?:
+    | Prisma.NotificationOrderByWithRelationInput
+    | Prisma.NotificationOrderByWithRelationInput[];
+  cursor?: Prisma.NotificationWhereUniqueInput;
+  take?: number;
+  skip?: number;
+  distinct?:
+    | Prisma.NotificationScalarFieldEnum
+    | Prisma.NotificationScalarFieldEnum[];
+};
+
+/**
+ * User.assignedVehicles
+ */
+export type User$assignedVehiclesArgs<
+  ExtArgs extends
+    runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs,
+> = {
+  /**
+   * Select specific fields to fetch from the AssignedVehicles
+   */
+  select?: Prisma.AssignedVehiclesSelect<ExtArgs> | null;
+  /**
+   * Omit specific fields from the AssignedVehicles
+   */
+  omit?: Prisma.AssignedVehiclesOmit<ExtArgs> | null;
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.AssignedVehiclesInclude<ExtArgs> | null;
+  where?: Prisma.AssignedVehiclesWhereInput;
+  orderBy?:
+    | Prisma.AssignedVehiclesOrderByWithRelationInput
+    | Prisma.AssignedVehiclesOrderByWithRelationInput[];
+  cursor?: Prisma.AssignedVehiclesWhereUniqueInput;
+  take?: number;
+  skip?: number;
+  distinct?:
+    | Prisma.AssignedVehiclesScalarFieldEnum
+    | Prisma.AssignedVehiclesScalarFieldEnum[];
+};
+
+/**
+ * User.communityPost
+ */
+export type User$communityPostArgs<
+  ExtArgs extends
+    runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs,
+> = {
+  /**
+   * Select specific fields to fetch from the CommunityPost
+   */
+  select?: Prisma.CommunityPostSelect<ExtArgs> | null;
+  /**
+   * Omit specific fields from the CommunityPost
+   */
+  omit?: Prisma.CommunityPostOmit<ExtArgs> | null;
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.CommunityPostInclude<ExtArgs> | null;
+  where?: Prisma.CommunityPostWhereInput;
+  orderBy?:
+    | Prisma.CommunityPostOrderByWithRelationInput
+    | Prisma.CommunityPostOrderByWithRelationInput[];
+  cursor?: Prisma.CommunityPostWhereUniqueInput;
+  take?: number;
+  skip?: number;
+  distinct?:
+    | Prisma.CommunityPostScalarFieldEnum
+    | Prisma.CommunityPostScalarFieldEnum[];
+};
+
+/**
+ * User.likes
+ */
+export type User$likesArgs<
+  ExtArgs extends
+    runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs,
+> = {
+  /**
+   * Select specific fields to fetch from the Like
+   */
+  select?: Prisma.LikeSelect<ExtArgs> | null;
+  /**
+   * Omit specific fields from the Like
+   */
+  omit?: Prisma.LikeOmit<ExtArgs> | null;
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.LikeInclude<ExtArgs> | null;
+  where?: Prisma.LikeWhereInput;
+  orderBy?:
+    | Prisma.LikeOrderByWithRelationInput
+    | Prisma.LikeOrderByWithRelationInput[];
+  cursor?: Prisma.LikeWhereUniqueInput;
+  take?: number;
+  skip?: number;
+  distinct?: Prisma.LikeScalarFieldEnum | Prisma.LikeScalarFieldEnum[];
+};
+
+/**
+ * User.createdTerms
+ */
+export type User$createdTermsArgs<
+  ExtArgs extends
+    runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs,
+> = {
+  /**
+   * Select specific fields to fetch from the TermsAndPolicy
+   */
+  select?: Prisma.TermsAndPolicySelect<ExtArgs> | null;
+  /**
+   * Omit specific fields from the TermsAndPolicy
+   */
+  omit?: Prisma.TermsAndPolicyOmit<ExtArgs> | null;
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.TermsAndPolicyInclude<ExtArgs> | null;
+  where?: Prisma.TermsAndPolicyWhereInput;
+  orderBy?:
+    | Prisma.TermsAndPolicyOrderByWithRelationInput
+    | Prisma.TermsAndPolicyOrderByWithRelationInput[];
+  cursor?: Prisma.TermsAndPolicyWhereUniqueInput;
+  take?: number;
+  skip?: number;
+  distinct?:
+    | Prisma.TermsAndPolicyScalarFieldEnum
+    | Prisma.TermsAndPolicyScalarFieldEnum[];
+};
+
+/**
+ * User.updatedTerms
+ */
+export type User$updatedTermsArgs<
+  ExtArgs extends
+    runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs,
+> = {
+  /**
+   * Select specific fields to fetch from the TermsAndPolicy
+   */
+  select?: Prisma.TermsAndPolicySelect<ExtArgs> | null;
+  /**
+   * Omit specific fields from the TermsAndPolicy
+   */
+  omit?: Prisma.TermsAndPolicyOmit<ExtArgs> | null;
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.TermsAndPolicyInclude<ExtArgs> | null;
+  where?: Prisma.TermsAndPolicyWhereInput;
+  orderBy?:
+    | Prisma.TermsAndPolicyOrderByWithRelationInput
+    | Prisma.TermsAndPolicyOrderByWithRelationInput[];
+  cursor?: Prisma.TermsAndPolicyWhereUniqueInput;
+  take?: number;
+  skip?: number;
+  distinct?:
+    | Prisma.TermsAndPolicyScalarFieldEnum
+    | Prisma.TermsAndPolicyScalarFieldEnum[];
+};
+
+/**
  * User without action
  */
 export type UserDefaultArgs<
@@ -1426,4 +5615,8 @@ export type UserDefaultArgs<
    * Omit specific fields from the User
    */
   omit?: Prisma.UserOmit<ExtArgs> | null;
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.UserInclude<ExtArgs> | null;
 };

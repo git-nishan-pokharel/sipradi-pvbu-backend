@@ -7,4 +7,28 @@
  * 🟢 You can import this file directly.
  */
 export type * from './models/User';
+export type * from './models/Designation';
+export type * from './models/VehicleModels';
+export type * from './models/VehicleVideos';
+export type * from './models/VehicleDocuments';
+export type * from './models/VehicleGuidelines';
+export type * from './models/CustomerProfileQuestion';
+export type * from './models/CustomerProfileQuestionOptions';
+export type * from './models/CustomerProfileAnswers';
+export type * from './models/AssignedVehicles';
+export type * from './models/CustomerVehicleDocuments';
+export type * from './models/Referral';
+export type * from './models/Feedback';
+export type * from './models/TermsAndPolicy';
+export type * from './models/FAQs';
+export type * from './models/Tags';
+export type * from './models/FAQTags';
+export type * from './models/Notification';
+export type * from './models/CommunityPost';
+export type * from './models/Like';
+export type * from './models/AccessPolicy';
+export type * from './models/AccessRules';
+export type * from './models/Resource';
+export type * from './models/ResourceAction';
+export type * from './models/ActionCondition';
 export type * from './commonInputTypes';

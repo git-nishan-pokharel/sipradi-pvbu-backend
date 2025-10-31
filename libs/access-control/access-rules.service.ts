@@ -8,7 +8,7 @@ import {
   ActionCondition,
   Resource,
   ResourceAction,
-} from 'apps/yatri-urban-backend/prisma/generated/client';
+} from 'apps/pvbu-backend/prisma/generated/prisma/client';
 
 @Injectable()
 export class AccessRulesService {

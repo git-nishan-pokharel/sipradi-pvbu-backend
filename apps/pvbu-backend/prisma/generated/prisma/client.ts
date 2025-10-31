@@ -53,3 +53,124 @@ path.join(
  *
  */
 export type User = Prisma.UserModel;
+/**
+ * Model Designation
+ *
+ */
+export type Designation = Prisma.DesignationModel;
+/**
+ * Model VehicleModels
+ *
+ */
+export type VehicleModels = Prisma.VehicleModelsModel;
+/**
+ * Model VehicleVideos
+ *
+ */
+export type VehicleVideos = Prisma.VehicleVideosModel;
+/**
+ * Model VehicleDocuments
+ *
+ */
+export type VehicleDocuments = Prisma.VehicleDocumentsModel;
+/**
+ * Model VehicleGuidelines
+ *
+ */
+export type VehicleGuidelines = Prisma.VehicleGuidelinesModel;
+/**
+ * Model CustomerProfileQuestion
+ *
+ */
+export type CustomerProfileQuestion = Prisma.CustomerProfileQuestionModel;
+/**
+ * Model CustomerProfileQuestionOptions
+ *
+ */
+export type CustomerProfileQuestionOptions =
+  Prisma.CustomerProfileQuestionOptionsModel;
+/**
+ * Model CustomerProfileAnswers
+ *
+ */
+export type CustomerProfileAnswers = Prisma.CustomerProfileAnswersModel;
+/**
+ * Model AssignedVehicles
+ *
+ */
+export type AssignedVehicles = Prisma.AssignedVehiclesModel;
+/**
+ * Model CustomerVehicleDocuments
+ *
+ */
+export type CustomerVehicleDocuments = Prisma.CustomerVehicleDocumentsModel;
+/**
+ * Model Referral
+ *
+ */
+export type Referral = Prisma.ReferralModel;
+/**
+ * Model Feedback
+ *
+ */
+export type Feedback = Prisma.FeedbackModel;
+/**
+ * Model TermsAndPolicy
+ *
+ */
+export type TermsAndPolicy = Prisma.TermsAndPolicyModel;
+/**
+ * Model FAQs
+ *
+ */
+export type FAQs = Prisma.FAQsModel;
+/**
+ * Model Tags
+ *
+ */
+export type Tags = Prisma.TagsModel;
+/**
+ * Model FAQTags
+ *
+ */
+export type FAQTags = Prisma.FAQTagsModel;
+/**
+ * Model Notification
+ *
+ */
+export type Notification = Prisma.NotificationModel;
+/**
+ * Model CommunityPost
+ *
+ */
+export type CommunityPost = Prisma.CommunityPostModel;
+/**
+ * Model Like
+ *
+ */
+export type Like = Prisma.LikeModel;
+/**
+ * Model AccessPolicy
+ *
+ */
+export type AccessPolicy = Prisma.AccessPolicyModel;
+/**
+ * Model AccessRules
+ *
+ */
+export type AccessRules = Prisma.AccessRulesModel;
+/**
+ * Model Resource
+ *
+ */
+export type Resource = Prisma.ResourceModel;
+/**
+ * Model ResourceAction
+ *
+ */
+export type ResourceAction = Prisma.ResourceActionModel;
+/**
+ * Model ActionCondition
+ *
+ */
+export type ActionCondition = Prisma.ActionConditionModel;

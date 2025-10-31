@@ -7,5 +7,88 @@
  * 🟢 You can import this file directly.
  */
 
-// This file is empty because there are no enums in the schema.
-export {};
+export const AccessRuleEffect = {
+  allow: 'allow',
+  deny: 'deny',
+} as const;
+
+export type AccessRuleEffect =
+  (typeof AccessRuleEffect)[keyof typeof AccessRuleEffect];
+
+export const EGender = {
+  male: 'male',
+  female: 'female',
+  others: 'others',
+} as const;
+
+export type EGender = (typeof EGender)[keyof typeof EGender];
+
+export const AccountStatus = {
+  activated: 'activated',
+  pending: 'pending',
+  disabled: 'disabled',
+} as const;
+
+export type AccountStatus = (typeof AccountStatus)[keyof typeof AccountStatus];
+
+export const VehicleVideoType = {
+  vehicleOrientation: 'vehicleOrientation',
+  chargingOrientation: 'chargingOrientation',
+} as const;
+
+export type VehicleVideoType =
+  (typeof VehicleVideoType)[keyof typeof VehicleVideoType];
+
+export const VehicleDocumentationType = {
+  warrantyFile: 'warrantyFile',
+  serviceManual: 'serviceManual',
+} as const;
+
+export type VehicleDocumentationType =
+  (typeof VehicleDocumentationType)[keyof typeof VehicleDocumentationType];
+
+export const VehicleGuidelineType = {
+  dos: 'dos',
+  donts: 'donts',
+} as const;
+
+export type VehicleGuidelineType =
+  (typeof VehicleGuidelineType)[keyof typeof VehicleGuidelineType];
+
+export const ProfilingQuestionType = {
+  MCQ: 'MCQ',
+  MA: 'MA',
+  FitB: 'FitB',
+  OpenEnded: 'OpenEnded',
+} as const;
+
+export type ProfilingQuestionType =
+  (typeof ProfilingQuestionType)[keyof typeof ProfilingQuestionType];
+
+export const FeedbackType = {
+  featureRequest: 'featureRequest',
+  maintenance: 'maintenance',
+  repair: 'repair',
+} as const;
+
+export type FeedbackType = (typeof FeedbackType)[keyof typeof FeedbackType];
+
+export const TermsAndPolicyType = {
+  termsAndAgreement: 'termsAndAgreement',
+  privacyPolicy: 'privacyPolicy',
+} as const;
+
+export type TermsAndPolicyType =
+  (typeof TermsAndPolicyType)[keyof typeof TermsAndPolicyType];
+
+export const CustomerVehicleDocumentType = {
+  taxInvoice: 'taxInvoice',
+  warranty: 'warranty',
+  extendedWarranty: 'extendedWarranty',
+  amc: 'amc',
+  blueBook: 'blueBook',
+  licence: 'licence',
+} as const;
+
+export type CustomerVehicleDocumentType =
+  (typeof CustomerVehicleDocumentType)[keyof typeof CustomerVehicleDocumentType];

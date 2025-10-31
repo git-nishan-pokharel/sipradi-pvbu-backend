@@ -12,7 +12,7 @@ import {
   UpdateAccessRulesDto,
 } from '../dto/create-access-rules.dto';
 import { PrismaService } from '@app/prisma';
-import { AccessRuleEffect } from 'apps/yatri-urban-backend/prisma/generated/client';
+import { AccessRuleEffect } from 'apps/pvbu-backend/prisma/generated/prisma/client';
 import { REQUEST } from '@nestjs/core';
 import { Request } from 'express';
 

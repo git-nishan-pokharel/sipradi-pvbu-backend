@@ -14,8 +14,8 @@ import {
 } from './enums/access.enum';
 import {
   AccessPolicy,
-  Owner,
-} from 'apps/yatri-urban-backend/prisma/generated/client';
+  User,
+} from 'apps/pvbu-backend/prisma/generated/prisma/client';
 
 @Injectable()
 export class AccessPolicyService {
@@ -47,7 +47,7 @@ export class AccessPolicyService {
   async findAll(
     select?: Record<string, unknown>,
     query?: Record<string, unknown>,
-  ): Promise<{ items: AccessPolicy[] }> {
+  ): Promise<{ items: any }> {
     const items = await this.prisma.accessPolicy.findMany({
       where: query,
       select,
@@ -104,7 +104,7 @@ export class AccessPolicyService {
   }
 
   async evaluate(
-    user: Partial<Owner>,
+    user: Partial<User>,
     resource: AppResource,
     action: Action,
   ): Promise<{ status: boolean; query?: Record<string, unknown> }> {
@@ -126,7 +126,7 @@ export class AccessPolicyService {
     rules: AllowDenyPolicy,
     resource: string,
     action: Action,
-    user: Partial<Owner>,
+    user: Partial<User>,
   ): { status: boolean; query?: Record<string, unknown> } {
     const denyActions = {
       ...(rules?.deny?.['*']?.actions ?? {}),

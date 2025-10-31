@@ -3,7 +3,7 @@ import { CreateAccessPolicyDto } from './dto/create-access-policy.dto';
 import { AccessPolicyService } from './access-policy.service';
 import { UpdateAccessPolicyDto } from './dto/update-access-policy.dto';
 import { Action, AppResource, GroupPolicy } from './enums/access.enum';
-import { AccessPolicy } from 'apps/yatri-urban-backend/prisma/generated/client';
+import { AccessPolicy } from 'apps/pvbu-backend/prisma/generated/prisma/client';
 import { AccessControlDecorator } from './decorators/access-control.decorator';
 
 @Controller('access-policy')

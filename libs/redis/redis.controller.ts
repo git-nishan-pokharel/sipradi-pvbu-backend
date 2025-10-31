@@ -1,6 +1,6 @@
 import { Controller, Delete, Get, Param, UseGuards } from '@nestjs/common';
 import { RedisService } from './redis.service';
-import { JwtAuthGuard } from 'apps/yatri-urban-backend/src/auth/guards/jwt-auth.guard';
+import { JwtAuthGuard } from 'apps/pvbu-backend/src/auth/guards/jwt-auth.guard';
 
 @UseGuards(JwtAuthGuard)
 @Controller('state')

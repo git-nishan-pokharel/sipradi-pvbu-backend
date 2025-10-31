@@ -52,6 +52,30 @@ export const AnyNull = runtime.objectEnumValues.instances.AnyNull;
 
 export const ModelName = {
   User: 'User',
+  Designation: 'Designation',
+  VehicleModels: 'VehicleModels',
+  VehicleVideos: 'VehicleVideos',
+  VehicleDocuments: 'VehicleDocuments',
+  VehicleGuidelines: 'VehicleGuidelines',
+  CustomerProfileQuestion: 'CustomerProfileQuestion',
+  CustomerProfileQuestionOptions: 'CustomerProfileQuestionOptions',
+  CustomerProfileAnswers: 'CustomerProfileAnswers',
+  AssignedVehicles: 'AssignedVehicles',
+  CustomerVehicleDocuments: 'CustomerVehicleDocuments',
+  Referral: 'Referral',
+  Feedback: 'Feedback',
+  TermsAndPolicy: 'TermsAndPolicy',
+  FAQs: 'FAQs',
+  Tags: 'Tags',
+  FAQTags: 'FAQTags',
+  Notification: 'Notification',
+  CommunityPost: 'CommunityPost',
+  Like: 'Like',
+  AccessPolicy: 'AccessPolicy',
+  AccessRules: 'AccessRules',
+  Resource: 'Resource',
+  ResourceAction: 'ResourceAction',
+  ActionCondition: 'ActionCondition',
 } as const;
 
 export type ModelName = (typeof ModelName)[keyof typeof ModelName];
@@ -75,10 +99,307 @@ export const UserScalarFieldEnum = {
   email: 'email',
   registeredName: 'registeredName',
   displayName: 'displayName',
+  gender: 'gender',
+  rfid: 'rfid',
+  registeredPhoneNumber: 'registeredPhoneNumber',
+  contactPhoneNumber: 'contactPhoneNumber',
+  password: 'password',
+  address: 'address',
+  profilePhoto: 'profilePhoto',
+  dob: 'dob',
+  status: 'status',
+  passwordResetOtp: 'passwordResetOtp',
+  passwordResetOtpExpirationTime: 'passwordResetOtpExpirationTime',
+  passwordResetToken: 'passwordResetToken',
+  passwordResetTokenExpirationTime: 'passwordResetTokenExpirationTime',
+  accessId: 'accessId',
+  designationId: 'designationId',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt',
 } as const;
 
 export type UserScalarFieldEnum =
   (typeof UserScalarFieldEnum)[keyof typeof UserScalarFieldEnum];
+
+export const DesignationScalarFieldEnum = {
+  id: 'id',
+  name: 'name',
+  description: 'description',
+} as const;
+
+export type DesignationScalarFieldEnum =
+  (typeof DesignationScalarFieldEnum)[keyof typeof DesignationScalarFieldEnum];
+
+export const VehicleModelsScalarFieldEnum = {
+  id: 'id',
+  name: 'name',
+  type: 'type',
+  coverImageUrl: 'coverImageUrl',
+  batteryRange: 'batteryRange',
+  chargingTime: 'chargingTime',
+  erpVehicleModelId: 'erpVehicleModelId',
+  createdAt: 'createdAt',
+} as const;
+
+export type VehicleModelsScalarFieldEnum =
+  (typeof VehicleModelsScalarFieldEnum)[keyof typeof VehicleModelsScalarFieldEnum];
+
+export const VehicleVideosScalarFieldEnum = {
+  id: 'id',
+  videoType: 'videoType',
+  videoUrl: 'videoUrl',
+  vehicleModelId: 'vehicleModelId',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt',
+} as const;
+
+export type VehicleVideosScalarFieldEnum =
+  (typeof VehicleVideosScalarFieldEnum)[keyof typeof VehicleVideosScalarFieldEnum];
+
+export const VehicleDocumentsScalarFieldEnum = {
+  id: 'id',
+  documentationType: 'documentationType',
+  documentationUrl: 'documentationUrl',
+  description: 'description',
+  vehicleModelId: 'vehicleModelId',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt',
+} as const;
+
+export type VehicleDocumentsScalarFieldEnum =
+  (typeof VehicleDocumentsScalarFieldEnum)[keyof typeof VehicleDocumentsScalarFieldEnum];
+
+export const VehicleGuidelinesScalarFieldEnum = {
+  id: 'id',
+  guidelineType: 'guidelineType',
+  content: 'content',
+  vehicleModelId: 'vehicleModelId',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt',
+} as const;
+
+export type VehicleGuidelinesScalarFieldEnum =
+  (typeof VehicleGuidelinesScalarFieldEnum)[keyof typeof VehicleGuidelinesScalarFieldEnum];
+
+export const CustomerProfileQuestionScalarFieldEnum = {
+  id: 'id',
+  questionText: 'questionText',
+  questionType: 'questionType',
+  isRequired: 'isRequired',
+  questionOrderIndex: 'questionOrderIndex',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt',
+} as const;
+
+export type CustomerProfileQuestionScalarFieldEnum =
+  (typeof CustomerProfileQuestionScalarFieldEnum)[keyof typeof CustomerProfileQuestionScalarFieldEnum];
+
+export const CustomerProfileQuestionOptionsScalarFieldEnum = {
+  id: 'id',
+  optionText: 'optionText',
+  optionOrderIndex: 'optionOrderIndex',
+  questionId: 'questionId',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt',
+} as const;
+
+export type CustomerProfileQuestionOptionsScalarFieldEnum =
+  (typeof CustomerProfileQuestionOptionsScalarFieldEnum)[keyof typeof CustomerProfileQuestionOptionsScalarFieldEnum];
+
+export const CustomerProfileAnswersScalarFieldEnum = {
+  id: 'id',
+  answerText: 'answerText',
+  questionId: 'questionId',
+  optionId: 'optionId',
+  userId: 'userId',
+  submittedAt: 'submittedAt',
+} as const;
+
+export type CustomerProfileAnswersScalarFieldEnum =
+  (typeof CustomerProfileAnswersScalarFieldEnum)[keyof typeof CustomerProfileAnswersScalarFieldEnum];
+
+export const AssignedVehiclesScalarFieldEnum = {
+  id: 'id',
+  chasisNumber: 'chasisNumber',
+  purchaseDate: 'purchaseDate',
+  registrationNumber: 'registrationNumber',
+  vehicleColor: 'vehicleColor',
+  ownerId: 'ownerId',
+  vehicleModelId: 'vehicleModelId',
+} as const;
+
+export type AssignedVehiclesScalarFieldEnum =
+  (typeof AssignedVehiclesScalarFieldEnum)[keyof typeof AssignedVehiclesScalarFieldEnum];
+
+export const CustomerVehicleDocumentsScalarFieldEnum = {
+  id: 'id',
+  documentType: 'documentType',
+  documentUrl: 'documentUrl',
+  Remarks: 'Remarks',
+  assignedVehicleId: 'assignedVehicleId',
+  uploadedAt: 'uploadedAt',
+  updatedAt: 'updatedAt',
+} as const;
+
+export type CustomerVehicleDocumentsScalarFieldEnum =
+  (typeof CustomerVehicleDocumentsScalarFieldEnum)[keyof typeof CustomerVehicleDocumentsScalarFieldEnum];
+
+export const ReferralScalarFieldEnum = {
+  id: 'id',
+  name: 'name',
+  email: 'email',
+  contactNumber: 'contactNumber',
+  referredBy: 'referredBy',
+  createdAt: 'createdAt',
+} as const;
+
+export type ReferralScalarFieldEnum =
+  (typeof ReferralScalarFieldEnum)[keyof typeof ReferralScalarFieldEnum];
+
+export const FeedbackScalarFieldEnum = {
+  id: 'id',
+  type: 'type',
+  rating: 'rating',
+  title: 'title',
+  content: 'content',
+  providedBy: 'providedBy',
+  submittedAt: 'submittedAt',
+} as const;
+
+export type FeedbackScalarFieldEnum =
+  (typeof FeedbackScalarFieldEnum)[keyof typeof FeedbackScalarFieldEnum];
+
+export const TermsAndPolicyScalarFieldEnum = {
+  id: 'id',
+  type: 'type',
+  content: 'content',
+  createdBy: 'createdBy',
+  updatedBy: 'updatedBy',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt',
+} as const;
+
+export type TermsAndPolicyScalarFieldEnum =
+  (typeof TermsAndPolicyScalarFieldEnum)[keyof typeof TermsAndPolicyScalarFieldEnum];
+
+export const FAQsScalarFieldEnum = {
+  id: 'id',
+  questionText: 'questionText',
+  answerText: 'answerText',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt',
+} as const;
+
+export type FAQsScalarFieldEnum =
+  (typeof FAQsScalarFieldEnum)[keyof typeof FAQsScalarFieldEnum];
+
+export const TagsScalarFieldEnum = {
+  id: 'id',
+  name: 'name',
+  description: 'description',
+} as const;
+
+export type TagsScalarFieldEnum =
+  (typeof TagsScalarFieldEnum)[keyof typeof TagsScalarFieldEnum];
+
+export const FAQTagsScalarFieldEnum = {
+  id: 'id',
+  faqId: 'faqId',
+  tagId: 'tagId',
+} as const;
+
+export type FAQTagsScalarFieldEnum =
+  (typeof FAQTagsScalarFieldEnum)[keyof typeof FAQTagsScalarFieldEnum];
+
+export const NotificationScalarFieldEnum = {
+  id: 'id',
+  title: 'title',
+  message: 'message',
+  imageUrl: 'imageUrl',
+  scheduledAt: 'scheduledAt',
+  createdBy: 'createdBy',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt',
+} as const;
+
+export type NotificationScalarFieldEnum =
+  (typeof NotificationScalarFieldEnum)[keyof typeof NotificationScalarFieldEnum];
+
+export const CommunityPostScalarFieldEnum = {
+  id: 'id',
+  content: 'content',
+  createdBy: 'createdBy',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt',
+  imageUrl: 'imageUrl',
+  sharedBy: 'sharedBy',
+} as const;
+
+export type CommunityPostScalarFieldEnum =
+  (typeof CommunityPostScalarFieldEnum)[keyof typeof CommunityPostScalarFieldEnum];
+
+export const LikeScalarFieldEnum = {
+  id: 'id',
+  userId: 'userId',
+  postId: 'postId',
+} as const;
+
+export type LikeScalarFieldEnum =
+  (typeof LikeScalarFieldEnum)[keyof typeof LikeScalarFieldEnum];
+
+export const AccessPolicyScalarFieldEnum = {
+  id: 'id',
+  title: 'title',
+  description: 'description',
+  isEnabled: 'isEnabled',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt',
+} as const;
+
+export type AccessPolicyScalarFieldEnum =
+  (typeof AccessPolicyScalarFieldEnum)[keyof typeof AccessPolicyScalarFieldEnum];
+
+export const AccessRulesScalarFieldEnum = {
+  id: 'id',
+  resource: 'resource',
+  effect: 'effect',
+  resourceActionId: 'resourceActionId',
+  policyId: 'policyId',
+  actionConditionId: 'actionConditionId',
+  ruleIdentifier: 'ruleIdentifier',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt',
+} as const;
+
+export type AccessRulesScalarFieldEnum =
+  (typeof AccessRulesScalarFieldEnum)[keyof typeof AccessRulesScalarFieldEnum];
+
+export const ResourceScalarFieldEnum = {
+  id: 'id',
+  name: 'name',
+} as const;
+
+export type ResourceScalarFieldEnum =
+  (typeof ResourceScalarFieldEnum)[keyof typeof ResourceScalarFieldEnum];
+
+export const ResourceActionScalarFieldEnum = {
+  id: 'id',
+  name: 'name',
+  resourceId: 'resourceId',
+} as const;
+
+export type ResourceActionScalarFieldEnum =
+  (typeof ResourceActionScalarFieldEnum)[keyof typeof ResourceActionScalarFieldEnum];
+
+export const ActionConditionScalarFieldEnum = {
+  id: 'id',
+  label: 'label',
+  condition: 'condition',
+  resourceActionId: 'resourceActionId',
+} as const;
+
+export type ActionConditionScalarFieldEnum =
+  (typeof ActionConditionScalarFieldEnum)[keyof typeof ActionConditionScalarFieldEnum];
 
 export const SortOrder = {
   asc: 'asc',
@@ -87,9 +408,32 @@ export const SortOrder = {
 
 export type SortOrder = (typeof SortOrder)[keyof typeof SortOrder];
 
+export const JsonNullValueInput = {
+  JsonNull: JsonNull,
+} as const;
+
+export type JsonNullValueInput =
+  (typeof JsonNullValueInput)[keyof typeof JsonNullValueInput];
+
 export const QueryMode = {
   default: 'default',
   insensitive: 'insensitive',
 } as const;
 
 export type QueryMode = (typeof QueryMode)[keyof typeof QueryMode];
+
+export const NullsOrder = {
+  first: 'first',
+  last: 'last',
+} as const;
+
+export type NullsOrder = (typeof NullsOrder)[keyof typeof NullsOrder];
+
+export const JsonNullValueFilter = {
+  DbNull: DbNull,
+  JsonNull: JsonNull,
+  AnyNull: AnyNull,
+} as const;
+
+export type JsonNullValueFilter =
+  (typeof JsonNullValueFilter)[keyof typeof JsonNullValueFilter];

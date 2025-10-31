@@ -15,8 +15,420 @@ datasource db {
 }
 
 model User {
-  id    Int     @default(autoincrement()) @id
+  id String @id @default(uuid()) @db.Uuid
   email String  @unique
   registeredName  String
   displayName String
+  gender EGender
+  rfid String @unique
+  registeredPhoneNumber String @unique
+  contactPhoneNumber String @unique
+  password String
+  address String
+  profilePhoto String? 
+  dob DateTime
+
+  status AccountStatus @default(pending)
+
+  passwordResetOtp String?
+  passwordResetOtpExpirationTime DateTime?
+  passwordResetToken String?
+  passwordResetTokenExpirationTime DateTime?
+
+  accessId Int?
+  access   AccessPolicy? @relation(fields: [accessId], references: [id])
+
+  designationId String? @db.Uuid
+  designation Designation? @relation(fields: [designationId], references: [id])
+  
+  customerProfileAnswers CustomerProfileAnswers[]
+  referrals Referral[]
+  feedbacks Feedback[]
+  notification Notification[]
+  assignedVehicles AssignedVehicles[]
+  communityPost CommunityPost[]
+  likes Like[]
+  createdTerms    TermsAndPolicy[]  @relation("CreatedByRelation")
+  updatedTerms    TermsAndPolicy[]  @relation("UpdatedByRelation")
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model Designation {
+  id String @id @default(uuid()) @db.Uuid
+  name String @unique
+  description String?
+
+  users User[]
+}
+
+model VehicleModels {
+  id String @id @default(uuid()) @db.Uuid
+  name String
+  type String
+  coverImageUrl String 
+
+  batteryRange String
+  chargingTime String
+
+  erpVehicleModelId Int // external reference from ERP
+
+  vehicleVideos VehicleVideos[]
+  vehicleDocuments VehicleDocuments[]
+  vehicleGuidelines VehicleGuidelines[]
+  AssignedVehicles  AssignedVehicles[]
+
+  createdAt DateTime @default(now())
+}
+
+model VehicleVideos {
+  id  String @id @default(uuid()) @db.Uuid
+  videoType VehicleVideoType
+  videoUrl String
+
+  vehicleModelId String @db.Uuid
+  vehicleModel VehicleModels @relation(fields: [vehicleModelId], references: [id])
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model VehicleDocuments {
+  id  String @id @default(uuid()) @db.Uuid
+  documentationType VehicleVideoType
+  documentationUrl String
+  description String?
+
+  vehicleModelId String @db.Uuid
+  vehicleModel VehicleModels @relation(fields: [vehicleModelId], references: [id])
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model VehicleGuidelines {
+  id  String @id @default(uuid()) @db.Uuid
+  guidelineType VehicleGuidelineType
+  content String
+
+  vehicleModelId String @db.Uuid
+  vehicleModel VehicleModels @relation(fields: [vehicleModelId], references: [id])
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt  
+}
+
+model CustomerProfileQuestion {
+  id String @id @default(uuid()) @db.Uuid
+  questionText String
+  questionType ProfilingQuestionType
+  isRequired Boolean @default(true)
+
+  questionOrderIndex Int
+
+  questionOptions CustomerProfileQuestionOptions[]
+  answers CustomerProfileAnswers[]
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt  
+}
+
+model CustomerProfileQuestionOptions {
+  id String @id @default(uuid()) @db.Uuid
+  optionText String
+  optionOrderIndex Int
+
+  questionId String @db.Uuid
+  question CustomerProfileQuestion @relation(fields: [questionId], references: [id])
+
+  answers CustomerProfileAnswers[]
+  
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt  
+}
+
+model CustomerProfileAnswers {
+  id String @id @default(uuid()) @db.Uuid
+  answerText String
+
+  questionId String @db.Uuid
+  question CustomerProfileQuestion @relation(fields: [questionId], references: [id])
+
+  optionId String? @db.Uuid
+  option CustomerProfileQuestionOptions? @relation(fields: [optionId], references: [id])
+
+  userId String @db.Uuid
+  user User @relation(fields: [userId], references: [id])
+
+  submittedAt DateTime @default(now())
+}
+
+model AssignedVehicles {
+  id String @id @default(uuid()) @db.Uuid
+
+  chasisNumber String @unique
+
+  purchaseDate DateTime
+
+  registrationNumber String @unique
+
+  vehicleColor String 
+
+  ownerId String @db.Uuid
+  user User @relation(fields: [ownerId], references: [id])  
+
+  vehicleModelId String @db.Uuid
+  vehicleModel VehicleModels @relation(fields: [vehicleModelId], references: [id])
+
+  customerVehicleDocuments CustomerVehicleDocuments[]
+}
+
+model CustomerVehicleDocuments {
+  id String @id @default(uuid()) @db.Uuid
+  documentType CustomerVehicleDocumentType
+  documentUrl String
+  Remarks String?
+
+  assignedVehicleId String @db.Uuid
+  assignedVehicles AssignedVehicles @relation(fields: [assignedVehicleId], references: [id])
+  
+  uploadedAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model Referral {
+  id String @id @default(uuid()) @db.Uuid
+  name String
+  email String @unique
+  contactNumber String @unique
+
+  referredBy String @db.Uuid
+  user User @relation(fields: [referredBy], references: [id])
+
+  createdAt DateTime @default(now())
+}
+
+model Feedback {
+  id String @id @default(uuid()) @db.Uuid
+  type FeedbackType
+  rating Int
+  title String?
+  content String?
+
+  providedBy String @db.Uuid
+  user User @relation(fields: [providedBy], references: [id])  
+
+  submittedAt DateTime @default(now())
+}
+
+model TermsAndPolicy {
+  id String @id @default(uuid()) @db.Uuid
+  type TermsAndPolicyType
+  content String
+
+  createdBy String @db.Uuid
+  createdByUser User @relation("CreatedByRelation", fields: [createdBy], references: [id])
+
+  updatedBy String @db.Uuid
+  updatedByUser User @relation("UpdatedByRelation", fields: [updatedBy], references: [id])
+  
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model FAQs {
+  id String @id @default(uuid()) @db.Uuid
+  questionText String
+  answerText String
+
+  faqTags FAQTags[]
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model Tags {
+  id String @id @default(uuid()) @db.Uuid
+  name String
+  description String?
+
+  faqTags FAQTags[]
+}
+
+model FAQTags {
+  id String @id @default(uuid()) @db.Uuid
+
+  faqId String @db.Uuid
+  faqs FAQs @relation(fields: [faqId], references: [id])
+
+  tagId String @db.Uuid
+  tags Tags @relation(fields: [tagId], references: [id])
+}
+
+model Notification {
+  id String @id @default(uuid()) @db.Uuid
+  title String
+  message String
+  imageUrl String?
+  
+  scheduledAt DateTime?
+
+  createdBy String @db.Uuid
+  user User @relation(fields: [createdBy], references: [id])
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model CommunityPost {
+  id String @id @default(uuid()) @db.Uuid
+  content String
+
+  createdBy String @db.Uuid
+  user User @relation(fields: [createdBy], references: [id])
+
+  likes Like[]
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  
+  imageUrl  Json
+  sharedBy  Json
+}
+
+model Like {
+  id String @id @default(uuid()) @db.Uuid
+
+  userId String @db.Uuid
+  user User @relation(fields: [userId], references: [id])
+
+  postId String @db.Uuid
+  communityPost CommunityPost @relation(fields: [postId], references: [id])
+}
+
+model AccessPolicy {
+  id          Int     @id @default(autoincrement())
+  title       String  @unique
+  description String?
+
+  isEnabled Boolean @default(true)
+
+  rules AccessRules[]
+  user User[]
+  
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model AccessRules {
+  id Int @id @default(autoincrement())
+
+  resource String
+  effect   AccessRuleEffect @default(allow)
+
+  resourceActionId Int
+  resourceAction   ResourceAction @relation(fields: [resourceActionId], references: [id])
+
+  policyId Int
+  policy   AccessPolicy @relation(fields: [policyId], references: [id])
+
+  actionConditionId Int?
+  actionCondition   ActionCondition? @relation(fields: [actionConditionId], references: [id])
+
+  ruleIdentifier String @unique
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model Resource {
+  id   Int    @id @default(autoincrement())
+  name String @unique
+
+  actions ResourceAction[]
+}
+
+model ResourceAction {
+  id   Int    @id @default(autoincrement())
+  name String // e.g. "read", "approve", "resetPassword"
+
+  resourceId Int
+  resource   Resource @relation(fields: [resourceId], references: [id])
+
+  accessRules     AccessRules[]
+  actionCondition ActionCondition[]
+
+  @@unique([name, resourceId]) // e.g. ("read", "user") is different from ("read", "serviceStation")
+}
+
+model ActionCondition {
+  id Int @id @default(autoincrement())
+
+  label     String
+  condition Json
+
+  resourceActionId Int
+  resourceAction   ResourceAction @relation(fields: [resourceActionId], references: [id])
+
+  accessRules AccessRules[]
+}
+
+enum AccessRuleEffect {
+  allow
+  deny
+}
+
+enum EGender {
+  male
+  female
+  others
+}
+
+enum AccountStatus {
+  activated
+  pending
+  disabled
+}
+
+enum VehicleVideoType {
+  vehicleOrientation
+  chargingOrientation
+}
+
+enum VehicleDocumentationType {
+  warrantyFile
+  serviceManual
+}
+
+enum VehicleGuidelineType {
+  dos
+  donts 
+}
+
+enum ProfilingQuestionType {
+  MCQ
+  MA
+  FitB
+  OpenEnded
+}
+
+enum FeedbackType {
+  featureRequest
+  maintenance
+  repair
+}
+
+enum TermsAndPolicyType {
+  termsAndAgreement
+  privacyPolicy
+}
+
+enum CustomerVehicleDocumentType {
+  taxInvoice
+  warranty
+  extendedWarranty
+  amc
+  blueBook
+  licence
 }

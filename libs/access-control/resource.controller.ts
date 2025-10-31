@@ -8,7 +8,7 @@ import { ResourceService } from './resource.service';
 import {
   ActionCondition,
   Resource,
-} from 'apps/yatri-urban-backend/prisma/generated/client';
+} from 'apps/pvbu-backend/prisma/generated/prisma/client';
 import { AccessControlDecorator } from './decorators/access-control.decorator';
 import { Action, AppResource } from './enums/access.enum';
 

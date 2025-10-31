@@ -33,7 +33,7 @@ export class PrismaRepository<T extends object> {
   }
 
   async findById(
-    id: number,
+    id: number | string,
     include?: Record<string, unknown>,
     select?: Record<string, unknown>,
     omit?: Record<string, unknown>,
@@ -171,7 +171,7 @@ export class PrismaRepository<T extends object> {
   }
 
   async update(
-    id: number,
+    id: string | number,
     data: Partial<T>,
     include?: Record<string, unknown>,
     omit?: Record<string, unknown>,
